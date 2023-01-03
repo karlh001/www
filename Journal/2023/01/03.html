@@ -1,0 +1,299 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>Tuesday 03 Jan 2023</title>
+	<meta name="keywords" content="computing, finance, money, personal, technology">
+	<meta name="description" content="This is a personal website dedicated to my interests primarly technology and finance">
+	<meta name="author" content="Karl Hunter">
+	<meta name="generator" content="Zim 0.74.2">
+	<meta name="viewport" content="width=device-width">
+	<META NAME="ROBOTS" CONTENT="NOARCHIVE">
+	
+	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
+	<![if !IE]>
+	<!-- comment out for IE since it spams the user with warnings -->
+	<script type='text/javascript' src='http://code.jquery.com/jquery-1.7.1.js'></script>
+	<script type='text/javascript'>
+		$(window).load(function(){$("#navigation").height( $("#content").height()+65 );});
+	</script>
+	<![endif]>
+	<style>
+		*, *:before, *:after {
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+		}
+		body, html {
+			height:100%;
+			font-family:'Open Sans', sans-serif;
+			line-height:1.5em;
+			font-weight:300;
+			background-color:#FAFAFA;
+			text-rendering:geometricPrecision;
+			margin:0;
+			padding:0;
+		}
+		.wrapper {
+			height:100%;
+			padding: 1.25em;
+			margin: .5em;
+		}
+		#navigation {
+			background-color: #F3F3F3;
+			border-right:1px solid #EAEAEA;
+			padding: 1.25em;
+		}
+		
+
+		#content {
+			padding: 1.25em;
+			margin-bottom: .5em;
+			
+		}
+		#navigation ul {
+			margin-top:0;
+			margin-bottom:0;
+			padding-left:40px;
+		}
+		#navigation li {
+			list-style-type:none;
+		}
+		#navigation a {
+			text-decoration:none;
+			color:gray;
+		}
+		#navigation strong {
+			color: #6E1308;
+			font-weight:400;
+		}
+		#navigation a:hover {
+			text-decoration:underline;
+		}
+		#content h1:nth-child(1) {
+			margin-top:0;
+		}
+		h1,h2,h3,h4,h5,h6 {
+			color: #6E6408;
+			font-weight:300;
+		}
+		
+			
+		#content a {
+			color :#6E1308;
+		}
+		#content a {
+			text-decoration: none;
+		}
+		#content a:hover {
+			text-decoration: underline;
+		}
+		#content a:active {
+			text-decoration: underline;
+		}
+		#content strike {
+			color: grey;
+		}
+		#content u {
+			text-decoration: none;
+			background-color: yellow;
+		}
+		#content tt {
+			color: #6E1308;
+		}
+		#content pre {
+			color: #6E1308;
+			margin-left: 20px;
+		}
+		.backlinks {
+			color:gray;
+		}
+		hr.footnotes {
+			width: 20%;
+			margin-left: 0;
+		}
+
+	@media (min-width: 47.5em ) and (orientation: landscape) {
+	#content { margin-right: 19.5em; }
+
+	#navigation { position: absolute; top: 0; right: 0; width: 18.75em;}   
+	}
+		
+
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div id="navigation"> <ul>
+<li><a href="..\..\..\Computing.html" title="Computing" class="page">Computing</a></li>
+<li><a href="..\..\..\Contact.html" title="Contact" class="page">Contact</a></li>
+<li><a href="..\..\..\Home.html" title="Home" class="page">Home</a></li>
+<li><a href="..\..\..\Journal.html" title="Journal" class="page">Journal</a>
+<ul>
+<li><a href="..\..\2022.html" title="2022" class="page">2022</a></li>
+<li><a href="..\..\2023.html" title="2023" class="page">2023</a>
+<ul>
+<li><a href="..\01.html" title="01" class="page">01</a>
+<ul>
+<li><a href="./01.html" title="01" class="page">01</a></li>
+<li><b>03</b></li>
+</ul></li>
+</ul></li>
+</ul>
+</li>
+<li><a href="..\..\..\Money.html" title="Money" class="page">Money</a></li>
+</ul>
+ </div>
+		<div id="content">
+			<h1>Tuesday 03 Jan 2023 <a name='Journal:2023:01:03'></a></h1>
+
+			
+<hr>
+
+<br>
+
+<h1>ZFS<a id="zfs" class="h_anchor"></a></h1>
+
+<br>
+
+<p>
+<img src="./03/openzfs.png">
+</p>
+
+<p>
+To maintain a secure long-term back-up I use <a href="https://en.wikipedia.org/wiki/ZFS" title="ZFS" class="https">ZFS</a> - it's a file system run from FreeBSD or Linux to manage files. I am running OpenZFS on Ubuntu server. 
+</p>
+
+<h2>Copy-on-write<a id="copy-on-write" class="h_anchor"></a></h2>
+
+<br>
+
+<p>
+An important feature of the file system is copy-on-write. This means that if I create a new version of the file, the orginal will remain in place (provided you have set-up regular snapshots).
+</p>
+
+<h2>Snapshots<a id="snapshots" class="h_anchor"></a></h2>
+
+<br>
+
+<p>
+I create regular snapshots of my data sets to return accidently deleted files. This simple command suffices:
+</p>
+
+<p>
+<tt>zfs snapshot pool/dataset@today</tt>
+</p>
+
+<p>
+Creating snapshots will not use additional disk space, but if you delete a file that is within a snapshot, then the space will not be reallocated. 
+</p>
+
+<h2>Integrity checks (scrub)<a id="integrity-checks-scrub" class="h_anchor"></a></h2>
+
+<br>
+
+<p>
+Essential feature to prevent <a href="https://en.wikipedia.org/wiki/Data_degradation" title="bitrot" class="https">bitrot</a>. The scrub program will test every block's hash to ensure the file has not been changed. If there is corruption, then ZFS will restore the block from a redundant hard drive if you are running in a pool. It is recommended to run ZFS on at least two hard drives. 
+</p>
+
+<p>
+<tt>zpool scrub pool</tt>
+</p>
+
+<p>
+<i>Where pool is the name of your pool</i>
+</p>
+
+<h2>Redundancy / Pooled Storage<a id="redundancy--pooled-storage" class="h_anchor"></a></h2>
+
+<br>
+
+<p>
+To prevent loss of data from a hard drive failure, you can set-up pools to span multiple disk. I use ZFS in mirror, which means I have two hard drive <i>mirrored</i> the same. You can add additional drives to expand the pool. However, once you add drives to create new VDEVs, you cann go back. For example, I run two hard drives pool together in one VDEV. If I wanted more storage, to protect data, I would need to add two hard drives and create a new VDEV.  I created the pool by using this command:
+</p>
+
+<p>
+<tt>zpool create pool mirror /dev/disk/by-id/xyz /dev/disk/by-id/abc</tt>
+</p>
+
+<br>
+
+<p>
+<img src="./03/pasted_image.png">
+</p>
+
+<h2>How I use ZFS<a id="how-i-use-zfs" class="h_anchor"></a></h2>
+
+<br>
+
+<p>
+All my data from all devices are backed up to my network attached storage computer. This forms a long-term backup. The computer is attached to a battery backup with surge protection, and unplugged when not in use. It's turned on weekly or more often to run my backup scripts.
+</p>
+
+<p>
+Everytime the backup script is run, a snapshot is created of each dataset. 
+</p>
+
+<p>
+Every 2 weeks, I will run the scrub command to check for corruption. 
+</p>
+
+<p>
+I do not trust one device, so the pool is backed up to 2 external hard drives on a rotation. In addition, important data such as pictures and documents are stored in <a href="..\..\..\Computing\Backup\AWS_S3.html" title="the cloud" class="page">the cloud</a>.
+</p>
+
+<p>
+I monitor ZFS using the status page and list (to check dataset size usage)
+</p>
+
+<p>
+<tt>zpool status</tt>
+</p>
+
+<p>
+<tt>zfs list</tt>
+</p>
+
+<h2>Conclusion<a id="conclusion" class="h_anchor"></a></h2>
+
+<br>
+
+<p>
+ZFS is an advanced powerful file system. With it's many advantages, I use this file to preserve data integrity and maintain my primary back-up. 
+</p>
+
+<p>
+<a href="..\..\..\Computing\Backup.html" title="More on backup" class="page">More on backup</a>
+</p>
+
+<br>
+
+<p>
+Copyrights:<br>
+<ul>
+<li><a href="https://pixabay.com/vectors/hard-disk-technology-electronics-42935/" title="Hard drive image" class="https">Hard drive image</a></li>
+<li><a href="https://ubuntu.com/wp-content/uploads/2569/openzfs.png" title="OpenZFS logo" class="https">OpenZFS logo</a></li>
+</ul>
+</p>
+
+
+			<br>
+			<span class="backlinks">
+				<hr class='footnotes'>
+				<b>Backlinks:</b>
+				<a href='..\01.html'>Journal:2023:01</a>
+				
+				<a href='..\..\..\Computing.html'>Computing</a>
+				
+				<a href='..\..\..\Computing\Backup.html'>Computing:Backup</a>
+				
+				<a href='..\..\..\Home.html'>Home</a>
+				<br /><br />
+			</span>
+
+			
+		</div>
+	</div>
+</body>
+</html>
+
