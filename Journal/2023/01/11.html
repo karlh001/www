@@ -1,0 +1,319 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>Wednesday 11 Jan 2023</title>
+	<meta name="keywords" content="computing, finance, money, personal, technology">
+	<meta name="description" content="This is a personal website dedicated to my interests primarly technology and finance">
+	<meta name="author" content="Karl Hunter">
+	<meta name="generator" content="Zim 0.74.2">
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv='content-language' content='en-gb'>
+	<META NAME="ROBOTS" CONTENT="NOARCHIVE">
+	
+	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
+	<![if !IE]>
+	<!-- comment out for IE since it spams the user with warnings -->
+	<script type='text/javascript' src='http://code.jquery.com/jquery-1.7.1.js'></script>
+	<script type='text/javascript'>
+		$(window).load(function(){$("#navigation").height( $("#content").height()+65 );});
+	</script>
+	<![endif]>
+	<style>
+		*, *:before, *:after {
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+		}
+		body, html {
+			height:100%;
+			font-family:'Open Sans', sans-serif;
+			line-height:1.5em;
+			font-weight:300;
+			background-color:#FAFAFA;
+			text-rendering:geometricPrecision;
+			margin:0;
+			padding:0;
+		}
+		.wrapper {
+			height:100%;
+			padding: 1.25em;
+			margin: .5em;
+		}
+		#navigation {
+			background-color: #F3F3F3;
+			border-right:1px solid #EAEAEA;
+			padding: 1.25em;
+		}
+		
+
+		#content {
+			padding: 1.25em;
+			margin-bottom: .5em;
+			
+		}
+		#navigation ul {
+			margin-top:0;
+			margin-bottom:0;
+			padding-left:40px;
+		}
+		#navigation li {
+			list-style-type:none;
+		}
+		#navigation a {
+			text-decoration:none;
+			color:gray;
+		}
+		#navigation strong {
+			color: #6E1308;
+			font-weight:400;
+		}
+		#navigation a:hover {
+			text-decoration:underline;
+		}
+		#content h1:nth-child(1) {
+			margin-top:0;
+		}
+		h1,h2,h3,h4,h5,h6 {
+			color: #6E6408;
+			font-weight:300;
+		}
+		
+			
+		#content a {
+			color :#6E1308;
+		}
+		#content a {
+			text-decoration: none;
+		}
+		#content a:hover {
+			text-decoration: underline;
+		}
+		#content a:active {
+			text-decoration: underline;
+		}
+		#content strike {
+			color: grey;
+		}
+		#content u {
+			text-decoration: none;
+			background-color: yellow;
+		}
+		#content tt {
+			color: #6E1308;
+		}
+		#content pre {
+			color: #6E1308;
+			margin-left: 20px;
+		}
+		.backlinks {
+			color:gray;
+		}
+		hr.footnotes {
+			width: 20%;
+			margin-left: 0;
+		}
+
+	@media (min-width: 47.5em ) and (orientation: landscape) {
+	#content { margin-right: 19.5em; }
+
+	#navigation { position: absolute; top: 0; right: 0; width: 18.75em;}   
+	}
+		
+
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div id="navigation"> <ul>
+<li><a href="..\..\..\Computing.html" title="Computing" class="page">Computing</a></li>
+<li><a href="..\..\..\Contact.html" title="Contact" class="page">Contact</a></li>
+<li><a href="..\..\..\Home.html" title="Home" class="page">Home</a></li>
+<li><a href="..\..\..\Journal.html" title="Journal" class="page">Journal</a>
+<ul>
+<li><a href="..\..\2022.html" title="2022" class="page">2022</a></li>
+<li><a href="..\..\2023.html" title="2023" class="page">2023</a>
+<ul>
+<li><a href="..\01.html" title="01" class="page">01</a>
+<ul>
+<li><a href="./01.html" title="01" class="page">01</a></li>
+<li><a href="./03.html" title="03" class="page">03</a></li>
+<li><a href="./09.html" title="09" class="page">09</a></li>
+<li><b>11</b></li>
+</ul></li>
+</ul></li>
+</ul>
+</li>
+<li><a href="..\..\..\Money.html" title="Money" class="page">Money</a></li>
+</ul>
+ </div>
+		<div id="content">
+			<h1>Wednesday 11 Jan 2023 <a name='Journal:2023:01:11'></a></h1>
+
+			
+<hr>
+
+<br>
+
+<p>
+<img src="./11/rclone-logo.png">
+</p>
+
+<h2>Rclone<a id="rclone" class="h_anchor"></a></h2>
+
+<br>
+
+<p>
+There are many cloud storage providers out there: AWS S3, Backblaze, OneDrive, pCloud, Mega, etc. I like to use a few of these to create cloud redundancy for essential data. It would be a pain to log into each app, or download software for every cloud provider to upload data.
+</p>
+
+<p>
+The solution I use is rclone - an open source command-line application to upload/download data. I am a heavy user of rclone: it's literally the only tool I use to upload to the cloud. My use case for cloud storage is back-up only, my primary data are created and edited locally. 
+</p>
+
+<p>
+After a little reading, it's easy to use. Because it's a command-line application you can write scripts and set-up scheduled tasks to run those scripts. Do not trust yourself to run back ups manually - automate the process to ensure they back-up tasks are completed. <a href="..\..\..\Computing\Backup.html" title="Read more" class="page">Read more</a> about my back-up strategy. 
+</p>
+
+<p>
+I am not going to rehash how to install, set-up etc. This is clearly detailed in the rclone <a href="https://rclone.org/docs/" title="manual" class="https">manual</a>, a place I like to visit often. 
+</p>
+
+<h3>Encryption<a id="encryption" class="h_anchor"></a></h3>
+
+<br>
+
+<p>
+A small note, "the cloud" is somebody else's computer. You can not trust that they encrypt or protect your data; what if they are hacked. To mitigate this, I encrypt all my data prior to uploading. Rclone allows me to do this seamlessly. 
+</p>
+
+<p>
+To enable encryption, first create a remote host; by now, you should have created a remote host using this guide. I append "clear" so I know not to upload this, for example "<i>cloud_clear". </i>Then you need to add an encryption configuration on top of the remote. 
+</p>
+
+<p>
+<tt>rclone config</tt>
+</p>
+
+<p>
+<ul>
+<li>Select n (for new remote)</li>
+<li>Choose a name, for example "cloud"</li>
+<li>From the list select 12</li>
+</ul>
+</p>
+
+<p>
+<img src="./11/pasted_image.png">
+</p>
+
+<p>
+<ul>
+<li>Then type the name of your clear remote, for example "cloud_clear:"</li>
+<li>Choose filename encryption. Depending on the remote, I like to see file names so I select 3 (I like the .bin extension for me to easily see it's an rclone encryption; one remote is using legacy tools).</li>
+</ul>
+</p>
+
+<p>
+<img src="./11/pasted_image001.png">
+</p>
+
+<p>
+<ul>
+<li>Next you can decide to encrypt the name of folders (directories). Some storage providers have file length restrictions, so if you run into this, edit the remote (same settings) and use simple obfuscate option. This is not secure, but better than plain readable. I had to use simple obfuscation for OneDrive. </li>
+<li>You can now create your own SALT and password. You can hit "g" for rclone to generate its own, or add your own. Make sure they are strong, and choose 1024 bits for additional strength. Passwords should be greater than 12 characters, ideally randomly generated by a password manager, such as:</li>
+</ul>
+</p>
+
+<p>
+<tt>fWo&amp;7$D75d56z9qNU@DLEa#h</tt>
+</p>
+
+<p>
+<ul>
+<li>Test your new encrypted remote:</li>
+</ul>
+</p>
+
+<p>
+<tt>rclone lsd cloud://</tt>
+</p>
+
+<br>
+
+<h2>How I use rclone<a id="how-i-use-rclone" class="h_anchor"></a></h2>
+
+<br>
+
+<p>
+<img src="./11/cloud-computing-g67ebf4ecf_640.png"><br>
+Image <a href="https://pixabay.com/illustrations/cloud-computing-cloud-upload-file-1990405/" title="copright" class="https">copright</a>
+</p>
+
+<p>
+I use rclone to back-up my data (to the cloud). It's fast, secure and cross-platform. On Windows, I copy the rclone data to C:\Users\Me\ so I can easily run from command line as: <tt>rclone config.</tt>
+</p>
+
+<p>
+This is the command I use to copy data. I do not sync data, I only copy to my cloud providers:
+</p>
+
+<p>
+<tt>rclone copy C:\Users\Me\Documents\ cloud://documents/</tt>
+</p>
+
+<p>
+The above command will copy all files and directories from my documents folder to the remote called cloud. This will be encrypted by my local machine and sent to the cloud. 
+</p>
+
+<p>
+I use rclone in the background via a script that is run on a schedule. I just use a BAT script and Windows Task Scheduler to run the script.
+</p>
+
+<p>
+<img src="./11/pasted_image002.png">
+</p>
+
+<p>
+However, to help troubleshoot I like the script to create a log file. To do this, I add:
+</p>
+
+<p>
+<tt>--log-file=C:\Users\Me\logs\cloud.log --log-level INFO</tt>
+</p>
+
+<p>
+Log level "INFO" will only log added and deleted files, but if you are having problems with your back-up, or testing, change "INFO" to "DEBUG".
+</p>
+
+<h2>Conclusion<a id="conclusion" class="h_anchor"></a></h2>
+
+<br>
+
+<p>
+I love rclone - it's one of my favourite command-line applications. I use it often and is an integral part of my back-up strategy to "off-site" data. There is community available for support and rclone continues to be maintained. 
+</p>
+
+<p>
+<a href="https://rclone.org/crypt/" title="Read more" class="https">Read more</a> about crypt.
+</p>
+
+
+			<br>
+			<span class="backlinks">
+				<hr class='footnotes'>
+				<b>Backlinks:</b>
+				<a href='..\01.html'>Journal:2023:01</a>
+				
+				<a href='..\..\..\Computing\Backup.html'>Computing:Backup</a>
+				
+				<a href='..\..\..\Home.html'>Home</a>
+				<br /><br />
+			</span>
+
+			
+		</div>
+	</div>
+</body>
+</html>
+
