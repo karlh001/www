@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title>January 2023</title>
+	<title>Wednesday 01 Feb 2023</title>
 	<meta name="keywords" content="computing, finance, money, personal, technology">
 	<meta name="description" content="This is a personal website dedicated to my interests primarly technology and finance">
 	<meta name="author" content="Karl Hunter">
@@ -126,58 +126,81 @@
 <body>
 	<div class="wrapper">
 		<div id="navigation"> <ul>
-<li><a href="..\..\About.html" title="About" class="page">About</a></li>
-<li><a href="..\..\Computing.html" title="Computing" class="page">Computing</a></li>
-<li><a href="..\..\Contact.html" title="Contact" class="page">Contact</a></li>
-<li><a href="..\..\Home.html" title="Home" class="page">Home</a></li>
-<li><a href="..\..\Journal.html" title="Journal" class="page">Journal</a>
+<li><a href="..\..\..\About.html" title="About" class="page">About</a></li>
+<li><a href="..\..\..\Computing.html" title="Computing" class="page">Computing</a></li>
+<li><a href="..\..\..\Contact.html" title="Contact" class="page">Contact</a></li>
+<li><a href="..\..\..\Home.html" title="Home" class="page">Home</a></li>
+<li><a href="..\..\..\Journal.html" title="Journal" class="page">Journal</a>
 <ul>
-<li><a href="..\2022.html" title="2022" class="page">2022</a></li>
-<li><a href="..\2023.html" title="2023" class="page">2023</a>
+<li><a href="..\..\2022.html" title="2022" class="page">2022</a></li>
+<li><a href="..\..\2023.html" title="2023" class="page">2023</a>
 <ul>
-<li><b>01</b>
+<li><a href="..\01.html" title="01" class="page">01</a></li>
+<li><a href="..\02.html" title="02" class="page">02</a>
 <ul>
-<li><a href="./01/01.html" title="01" class="page">01</a></li>
-<li><a href="./01/03.html" title="03" class="page">03</a></li>
-<li><a href="./01/09.html" title="09" class="page">09</a></li>
-<li><a href="./01/11.html" title="11" class="page">11</a></li>
-<li><a href="./01/13.html" title="13" class="page">13</a></li>
-<li><a href="./01/21.html" title="21" class="page">21</a></li>
-<li><a href="./01/30.html" title="30" class="page">30</a></li>
-</ul>
-</li>
-<li><a href="./02.html" title="02" class="page">02</a></li>
+<li><b>01</b></li>
+</ul></li>
 </ul></li>
 </ul>
 </li>
-<li><a href="..\..\Money.html" title="Money" class="page">Money</a></li>
+<li><a href="..\..\..\Money.html" title="Money" class="page">Money</a></li>
 </ul>
  </div>
 		<div id="content">
-			<h1>January 2023 <a name='Journal:2023:01'></a></h1>
+			<h1>Wednesday 01 Feb 2023 <a name='Journal:2023:02:01'></a></h1>
 
 			
 <hr>
 
 <br>
 
-<p>
-<img src="./01/laptop-gbede7c06c_640.jpg"><br>
-Image <a href="https://pixabay.com/photos/laptop-paper-to-write-business-3076957/" title="copyright" class="https">copyright</a>
-</p>
+<h2>Windows CLI sync<a id="windows-cli-sync" class="h_anchor"></a></h2>
 
 <br>
 
 <p>
-<ul>
-<li><a href="./01/30.html" title="Premium Bond prize increase" class="page">Premium Bond prize increase</a> (30/01/2023)</li>
-<li><a href="./01/21.html" title="Password hygiene" class="page">Password hygiene</a> (21/01/2023)</li>
-<li><a href="./01/13.html" title="Darknet Diaries" class="page">Darknet Diaries</a> (13/01/2023)</li>
-<li><a href="./01/11.html" title="Rclone" class="page">Rclone</a> (11/01/2023)</li>
-<li><a href="./01/09.html" title="DVD back-up" class="page">DVD back-up</a> (09/01/2023)</li>
-<li><a href="./01/03.html" title="ZFS" class="page">ZFS</a> (02/01/2023)</li>
-<li><a href="./01/01.html" title="Happy New year" class="page">Happy New year</a> (01/01/2023)</li>
-</ul>
+<img src="./01/clone-geb431e725_640.png"><br>
+Image <a href="https://pixabay.com/vectors/clone-duplicate-arrow-documents-153447/" title="copyright" class="https">copyright</a>
+</p>
+
+<p>
+I like to use command-line interfaces (CLI) to manage sync and file uploads to the cloud. I mainly use rsync and <a href="..\01\11.html" title="rclone" class="page">rclone</a>. Rsync is great to move files around my linux server - it's easy to use and fast. I use rclone to upload to my cloud storage, again it's fast and easy to use. However, on Windows, copying a large volume of files can crash / hang the GUI. It would also be nice to schedule commands without windows popping up during the copy.
+</p>
+
+<p>
+With a little research (and my memory of a program I have used before) I came across robocopy. However it's not as easy to configure. You need to read and <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/robocopy?redirectedfrom=MSDN" title="manual" class="https">manual</a> in detail.
+</p>
+
+<p>
+Rsync is easy:
+</p>
+
+<p>
+<tt>rsync -avH --progress /dir1/ /dir2/</tt>
+</p>
+
+<p>
+How to complete the same task in robocopy:
+</p>
+
+<p>
+<tt>ROBOCOPY D:\ E:\ /E /Z /R:0 /W:0</tt>
+</p>
+
+<p>
+Not as easy to remember and type quickly. The <b>/E</b> means copy subfolders and <b>/Z</b> will continue where left off if cancelled - I guess it's writing partial files. If there is an error, robocopy will wait 30 seconds and continuously retry. To stop this behaviour add the <b>/R:0</b> and <b>/W:0</b>
+</p>
+
+<p>
+I also exclude files using <b>/XF</b> (exclude file) and <b>/XD</b> (exclude directory); here is how the final command looks:
+</p>
+
+<p>
+<tt>ROBOCOPY D:\ E:\ </tt>/E /Z /XD<tt> "D:\System Volume Information" "D:\Recycle Bin" D:\found.001 E:\$RECYCLE.BIN\ </tt>/XF<tt> D:\.VolumeIcon.ico D:\Autorun.inf /R:0 /W:0</tt>
+</p>
+
+<p>
+And that's it, I am able to use the command. I am using robocopy to back up an external hard drive to another. 
 </p>
 
 
@@ -185,9 +208,9 @@ Image <a href="https://pixabay.com/photos/laptop-paper-to-write-business-3076957
 			<span class="backlinks">
 				<hr class='footnotes'>
 				<b>Backlinks:</b>
-				<a href='..\2023.html'>Journal:2023</a>
+				<a href='..\..\..\Home.html'>Home</a>
 				
-				<a href='..\..\Home.html'>Home</a>
+				<a href='..\02.html'>Journal:2023:02</a>
 				<br /><br />
 			</span>
 
