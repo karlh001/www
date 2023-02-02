@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title>February 2023</title>
+	<title>Thursday 02 Feb 2023</title>
 	<meta name="keywords" content="computing, finance, money, personal, technology">
 	<meta name="description" content="This is a personal website dedicated to my interests primarly technology and finance">
 	<meta name="author" content="Karl Hunter">
@@ -126,29 +126,29 @@
 <body>
 	<div class="wrapper">
 		<div id="navigation"> <ul>
-<li><a href="..\..\About.html" title="About" class="page">About</a></li>
-<li><a href="..\..\Computing.html" title="Computing" class="page">Computing</a></li>
-<li><a href="..\..\Contact.html" title="Contact" class="page">Contact</a></li>
-<li><a href="..\..\Home.html" title="Home" class="page">Home</a></li>
-<li><a href="..\..\Journal.html" title="Journal" class="page">Journal</a>
+<li><a href="..\..\..\About.html" title="About" class="page">About</a></li>
+<li><a href="..\..\..\Computing.html" title="Computing" class="page">Computing</a></li>
+<li><a href="..\..\..\Contact.html" title="Contact" class="page">Contact</a></li>
+<li><a href="..\..\..\Home.html" title="Home" class="page">Home</a></li>
+<li><a href="..\..\..\Journal.html" title="Journal" class="page">Journal</a>
 <ul>
-<li><a href="..\2022.html" title="2022" class="page">2022</a></li>
-<li><a href="..\2023.html" title="2023" class="page">2023</a>
+<li><a href="..\..\2022.html" title="2022" class="page">2022</a></li>
+<li><a href="..\..\2023.html" title="2023" class="page">2023</a>
+<ul>
+<li><a href="..\01.html" title="01" class="page">01</a></li>
+<li><a href="..\02.html" title="02" class="page">02</a>
 <ul>
 <li><a href="./01.html" title="01" class="page">01</a></li>
-<li><b>02</b>
-<ul>
-<li><a href="./02/01.html" title="01" class="page">01</a></li>
-<li><a href="./02/02.html" title="02" class="page">02</a></li>
+<li><b>02</b></li>
 </ul></li>
 </ul></li>
 </ul>
 </li>
-<li><a href="..\..\Money.html" title="Money" class="page">Money</a></li>
+<li><a href="..\..\..\Money.html" title="Money" class="page">Money</a></li>
 </ul>
  </div>
 		<div id="content">
-			<h1>February 2023 <a name='Journal:2023:02'></a></h1>
+			<h1>Thursday 02 Feb 2023 <a name='Journal:2023:02:02'></a></h1>
 
 			
 <hr>
@@ -156,20 +156,45 @@
 <br>
 
 <p>
-<img src="./02/laptop-gbede7c06c_640.jpg"><br>
-Image <a href="https://pixabay.com/photos/laptop-paper-to-write-business-3076957/" title="copyright" class="https">copyright</a>
+<img src="./02/program-g5cbeccc45_640.png"><br>
+Image <a href="https://pixabay.com/vectors/program-7z-logo-computer-157951/" title="copyright" class="https">copyright</a>
 </p>
 
 <p>
-<ul>
-<li><a href="./02/02.html" title="7Zip CLI" class="page">7Zip CLI</a> (02/02/2023)</li>
-<li><a href="./02/01.html" title="Windows CLI sync" class="page">Windows CLI sync</a> (01/02/2023)</li>
-</ul>
+<a href="./01.html" title="Yesterday" class="page">Yesterday</a> I talked about using robocopy (Windows command line tool), today I thought I would mention how I use 7zip's CLI to create an archive. This is useful to back-up many compressible files and run on a schedule in the background. Although I use Window's File History, it's nice to have another back-up with everything included.
 </p>
+
+<p>
+The following batch file will get the date and time, format as YYYY_MM_DD__HH_MM_SS, to use later, then execute 7zip to compress the archive. 
+</p>
+
+<pre>
+@echo off
+:: Back-up documents directory and compress to archive
+
+:: Get date
+set datetimef=%date:~-4%_%date:~3,2%_%date:~0,2%__%time:~0,2%_%time:~3,2%_%time:~6,2%
+
+:: Run the script from 7ZIP installation directory
+"C:\Program Files\7-Zip\7z.exe" a D:\Backups\Documents\%datetimef%.7z C:\Users\Karl\Documents\2023
+</pre>
+
+<br>
+
+<p>
+I have used <i>a</i> to tell 7zip to create an archive. Using either <a href="..\..\..\Computing\Backup\Macrium.html" title="Macrium" class="page">Macrium</a> or Windows Scheduler, I will set-up the script to run weekly. 
+</p>
+
 
 
 			<br>
 			<span class="backlinks">
+				<hr class='footnotes'>
+				<b>Backlinks:</b>
+				<a href='..\..\..\Home.html'>Home</a>
+				
+				<a href='..\02.html'>Journal:2023:02</a>
+				<br /><br />
 			</span>
 
 			
