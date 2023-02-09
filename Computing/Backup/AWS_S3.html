@@ -149,7 +149,7 @@
 			<h1>AWS S3 <a name='Computing:Backup:AWS S3'></a></h1>
 
 			<p>
-Created Friday 30 December 2022
+Created Friday 30 December 2022 last updated Wednesday 8 February 2023
 </p>
 
 
@@ -158,14 +158,50 @@ Created Friday 30 December 2022
 <p>
 <img src="./AWS_S3/pasted_image.png">
 </p>
+<h2>About<a id="about" class="h_anchor"></a></h2>
+
+<br>
 
 <p>
 Amazon Web Services have great tools. I use their S3 buckets (online folders) to back-up data as my "off-site" solution. 
 </p>
 
 <p>
-I use <a href="https://s3browser.com/" title="S3Browser" class="https">S3Browser</a> as a visual tool to look through my folders, and <a href="https://rclone.org/" title="rclone" class="https">rclone</a> (open source command-line sync software) to send encrypted documents / pictures to the buckets. 
+I use <a href="https://s3browser.com/" title="S3Browser" class="https">S3Browser</a> as a visual tool to look through my folders (set as read only access), and <a href="https://rclone.org/" title="rclone" class="https">rclone</a> (open source command-line sync software) to send encrypted documents / pictures to the buckets. 
 </p>
+
+<h2>How it works?<a id="how-it-works" class="h_anchor"></a></h2>
+
+<br>
+
+<p>
+Data are uploaded as objects through an API or the AWS web interface. There are different storage classes to choose from:
+</p>
+
+<p>
+<ul>
+<li>Standard</li>
+<li>Standard Infrequent Access</li>
+<li>Standard One Zone</li>
+<li>Glacier Instant</li>
+<li>Glacier Deep Archive</li>
+</ul>
+</p>
+
+<p>
+The default storage option is "Standard" and this option costs the most. It's designed for hot storage, for example files you need instantly and are working with. However, my use case is backup, so I opt for "Glacier Deep Archive", which is the cheapest but takes longer to retrive data and costs more to retrive data. Think of "Deep Archive" when you require long-lived data (more than 180 days) that may be accessed once or twice, if ever, per year. If you do not need redendency through AWS data centres, "Standard One Zone" is useful - data are stored in one data centre only. More on <a href="https://aws.amazon.com/s3/storage-classes/?nc=sn&loc=3" title="storage classes" class="https">storage classes</a>.
+</p>
+
+<h2>Pricing<a id="pricing" class="h_anchor"></a></h2>
+
+<br>
+
+<p>
+This can be complex and varies between storage classes. I will try and summarise it: In short, Glacier are cheaper per GB/month but costs more to restore, Standard costs more to store than Glacier but cheaper to read/download. There are costs for listing buckets and putting data into buckets, so costs varies. I store around 310 GB and most data are static (I do not add much per month) costing me between 0.87 - 1.10 GBP per month. This increases if I add lots of data, such as annual archive. "Deep Glacier Archive" costs $0.00099 per GB to store and $0.02 per GB to retrieve, whereas "Standard" costs $0.023 per GB to store and $0.00 to retrieve.
+</p>
+
+<br>
+
 
 
 			<br>
