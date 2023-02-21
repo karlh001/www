@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title>Year 2023</title>
+	<title>Tuesday 21 Feb 2023</title>
 	<meta name="keywords" content="computing, finance, money, personal, technology">
 	<meta name="description" content="This is a personal website dedicated to my interests primarly technology and finance">
 	<meta name="author" content="Karl Hunter">
@@ -126,42 +126,94 @@
 <body>
 	<div class="wrapper">
 		<div id="navigation"> <ul>
-<li><a href="..\About.html" title="About" class="page">About</a></li>
-<li><a href="..\Computing.html" title="Computing" class="page">Computing</a></li>
-<li><a href="..\Contact.html" title="Contact" class="page">Contact</a></li>
-<li><a href="..\Home.html" title="Home" class="page">Home</a></li>
-<li><a href="..\Journal.html" title="Journal" class="page">Journal</a>
+<li><a href="..\..\..\About.html" title="About" class="page">About</a></li>
+<li><a href="..\..\..\Computing.html" title="Computing" class="page">Computing</a></li>
+<li><a href="..\..\..\Contact.html" title="Contact" class="page">Contact</a></li>
+<li><a href="..\..\..\Home.html" title="Home" class="page">Home</a></li>
+<li><a href="..\..\..\Journal.html" title="Journal" class="page">Journal</a>
 <ul>
-<li><a href="./2022.html" title="2022" class="page">2022</a></li>
-<li><b>2023</b>
+<li><a href="..\..\2022.html" title="2022" class="page">2022</a></li>
+<li><a href="..\..\2023.html" title="2023" class="page">2023</a>
 <ul>
-<li><a href="./2023/01.html" title="01" class="page">01</a></li>
-<li><a href="./2023/02.html" title="02" class="page">02</a></li>
+<li><a href="..\01.html" title="01" class="page">01</a></li>
+<li><a href="..\02.html" title="02" class="page">02</a>
+<ul>
+<li><a href="./01.html" title="01" class="page">01</a></li>
+<li><a href="./02.html" title="02" class="page">02</a></li>
+<li><a href="./06.html" title="06" class="page">06</a></li>
+<li><b>21</b></li>
+</ul></li>
 </ul>
 </li>
-<li><a href="./Index.html" title="Index" class="page">Index</a></li>
+<li><a href="..\..\Index.html" title="Index" class="page">Index</a></li>
 </ul>
 </li>
-<li><a href="..\Money.html" title="Money" class="page">Money</a></li>
+<li><a href="..\..\..\Money.html" title="Money" class="page">Money</a></li>
 </ul>
  </div>
 		<div id="content">
-			<h1>Year 2023 <a name='Journal:2023'></a></h1>
+			<h1>Tuesday 21 Feb 2023 <a name='Journal:2023:02:21'></a></h1>
 
 			
 <hr>
 
 <br>
 
+<h1>Diskpart<a id="diskpart" class="h_anchor"></a></h1>
+
+<br>
+<br>
+
 <p>
-<img src="./2023/laptop-gbede7c06c_640.jpg"><br>
-Image <a href="https://pixabay.com/photos/laptop-paper-to-write-business-3076957/" title="copyright" class="https">copyright</a>
+<img src="./21/hard-drive-gc34a4f690_640.png"><br>
+Image <a href="https://pixabay.com/vectors/hard-drive-ssd-hdd-hardware-3146780/" title="copyright" class="https">copyright</a>
 </p>
 
 <p>
-<ul>
-<li><a href="./2023/01.html" title="January" class="page">January</a></li>
-</ul>
+I had to reformat an SSD but was not able to. It was previously used as a boot drive in another laptop, and included Windows repair partitions, which caused it to be locked. Simply formatting through "Computer Management" did not work. After a little research, I found these commands to unlock the disk and format. Run these (administrator mode) in command prompt. 
+</p>
+
+<p>
+//Open the application://
+</p>
+
+<p>
+<div style='padding-left: 30pt'>
+<i><tt>diskpart</tt></i>
+</div>
+</p>
+
+<p>
+//Lsit the attached disks on your system://
+</p>
+
+<p>
+<div style='padding-left: 30pt'>
+<i><tt>list disk</tt></i>
+</div>
+</p>
+
+<p>
+//Find your disk, and using the number select the disk://
+</p>
+
+<pre>
+select disk 1
+clean
+create partition primary
+format fs=ntfs
+assign
+exit
+</pre>
+
+<br>
+
+<p>
+And as if by magic you have a fresh partitiain. I was using this to wipe the drive using Bleachbit (writing zeros) and I run the Trim command on Windows Disk Defragment. 
+</p>
+
+<p>
+<img src="./21/pasted_image.png">
 </p>
 
 
@@ -169,7 +221,11 @@ Image <a href="https://pixabay.com/photos/laptop-paper-to-write-business-3076957
 			<span class="backlinks">
 				<hr class='footnotes'>
 				<b>Backlinks:</b>
-				<a href='..\Journal.html'>Journal</a>
+				<a href='..\..\..\Home.html'>Home</a>
+				
+				<a href='..\02.html'>Journal:2023:02</a>
+				
+				<a href='..\..\Index.html'>Journal:Index</a>
 				<br /><br />
 			</span>
 
