@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title>Monday 06 Feb 2023</title>
+	<title>Wednesday 08 Mar 2023</title>
 	<meta name="keywords" content="computing, finance, money, personal, technology">
 	<meta name="description" content="This is a personal website dedicated to my interests primarly technology and finance">
 	<meta name="author" content="Karl Hunter">
@@ -136,15 +136,12 @@
 <li><a href="..\..\2023.html" title="2023" class="page">2023</a>
 <ul>
 <li><a href="..\01.html" title="01" class="page">01</a></li>
-<li><a href="..\02.html" title="02" class="page">02</a>
+<li><a href="..\02.html" title="02" class="page">02</a></li>
+<li><a href="..\03.html" title="03" class="page">03</a>
 <ul>
-<li><a href="./01.html" title="01" class="page">01</a></li>
 <li><a href="./02.html" title="02" class="page">02</a></li>
-<li><b>06</b></li>
-<li><a href="./21.html" title="21" class="page">21</a></li>
-</ul>
-</li>
-<li><a href="..\03.html" title="03" class="page">03</a></li>
+<li><b>08</b></li>
+</ul></li>
 </ul>
 </li>
 <li><a href="..\..\Index.html" title="Index" class="page">Index</a></li>
@@ -154,71 +151,74 @@
 </ul>
  </div>
 		<div id="content">
-			<h1>Monday 06 Feb 2023 <a name='Journal:2023:02:06'></a></h1>
+			<h1>Wednesday 08 Mar 2023 <a name='Journal:2023:03:08'></a></h1>
 
 			
 <hr>
 
 <br>
 
-<h2>Rclone mount<a id="rclone-mount" class="h_anchor"></a></h2>
+<h2>The 1 PB Hard Drive<a id="the-1-pb-hard-drive" class="h_anchor"></a></h2>
 
 <br>
 
 <p>
-<img src="./06/cloud-g83f3e1eb0_640.png"><br>
-Image <a href="https://pixabay.com/vectors/cloud-cloud-computing-connection-3331240/" title="copyright" class="https">copyright</a>
+<img src="./08/external-hard-drive-g8b9829e4a_640.jpg"><br>
+Image <a href="https://pixabay.com/photos/external-hard-drive-usb-storage-1200006/" title="copyright" class="https">copyright</a>
 </p>
 
 <p>
-I was using rclone to mount a cloud volume as a drive on my PC. Instead of running a command to copy over the files, I would be able to browse, delete and copy as if the cloud drive was on my PC.
+I am moving away from purchasing external hard drives for backup. I will continue to use NAS-grade hard drives in my backup server, but no longer purchase additional / replacement external hard drives to back-up the laptop and the NAS etc. I will continue to have one hard drive to backup my ZFS storage pools, and perhaps keep one for my primary machine but that will be it. External hard drives are less quality than internal and are slower too; I would, however, consider purchasing one quality internal drive and mount in an enclosure for faster write speeds.
 </p>
 
 <p>
-Here's the rclone command to mount the drive:
+My hard drive fleet consists of: ZFS pool backup 1, pool backup 2, primary PC mass storage, backup to mass storage, longer term archive, SSD drive (7 in total). That is too much to manage. I believe it's important to maintain an external hard drive to backup the storage pool just in case of power failure, accident pool destruction; however, with the dangers of bitrot and drive failures it would be be advisable to keep stacks of hard drives for long-term backups and archive. It's best to keep long-lived data in a ZFS pool to monitor file integrity. My most important files are archived in a tar archive and stored in an S3 bucket (e.g. photos and documents categorised by year).
 </p>
 
 <p>
-<tt>rclone mount cloud: M: --vfs-cache-mode full --volname "Cloud Drive"</tt>
+<img src="./08/pasted_image.png">
 </p>
 
 <p>
-I have used the <i>volname </i>switch to display "Cloud Drive" for the name of the mounted volume. 
+My long-term solution is to use B2 (on Backblaze) for my attached <i>hot</i> storage. I have attached the volume to my Windows' machine so that I can access as it as if it's an attached hard drive; this is great because I do not need to purchase new hard drives and can store as much as I can afford to pay per month. 
 </p>
 
 <p>
-I was having difficulty with the mounted volume hanging, so I added the <i>vfs-cache-mode full </i> to allow caching - the default is off. The <i>full</i> options allows caching of reads and writes. Otherwise, if you want write-only caching, choose <i>writes</i>.
+<img src="./08/b2_hdd.JPG">
 </p>
 
 <p>
-I wanted the volume to mount on start-up, so I used Windows Task Scheduler to achieve this. I wrote a script, and linked the Scheduler to that. This worked well, but I am left with an open Windows command window; if I close the window, it quits the rclone instance. I chose the "hidden" option but it still displays.
+It's great to see an attached drive listed with 1 PB of storage.
 </p>
 
-<p>
-After a little research, I settled on using <a href="https://www.nirsoft.net/utils/nircmd.html" title="nircmd" class="https">nircmd</a> to run the script. It's a command line tool to run advanced options on Windows. I downloaded and extracted to my Windows folder. I ran the script using <i>nircmd </i>and, hey presto, it worked!
-</p>
+<h3>Pricing<a id="pricing" class="h_anchor"></a></h3>
 
-<p>
-<img src="./06/pasted_image.png">
-</p>
-
-<p>
-Nircmd command to execute a script and hide the cmd window. 
-</p>
-
-<p>
-<tt>nircmd exec hide C:\dir\mount.bat</tt>
-</p>
-
-<br>
 <br>
 
 <p>
-<ol type="1" start="1">
-<li>rclone <a href="https://rclone.org/commands/rclone_mount/#vfs-file-caching" title="manual" class="https">manual</a> on caching</li>
-<li>Read about the <a href="https://www.nirsoft.net/utils/nircmd.html" title="nircmd" class="https">nircmd</a> tool</li>
-<li>Read my <a href="..\01\11.html" title="journal entry" class="page">journal entry</a> on rclone</li>
-</ol>
+If I used 1 PB of storage it would cost me $5,000 per month assuming no downloads. Talking about costs, it would work out cheaper to pay a small amount to Backblaze every month than purchase quality external hard drives as they age / fail. 
+</p>
+
+<p>
+I did consider other cloud solutions but they were more expensive thank B2 and I would need to pay for fixed storage, which may take me years to year if at all, as I plan to offload data for archival storage on AWS. For example, 10 GB of B2 storage is free, so assuming I store another 10 GB that's $0.05 per month, or if I store 500 GB that $2.45 per month which is cheaper than other cloud storage hosts (pCloud, $5; Mega, $5.32; Dropbox, $9.60).
+</p>
+
+<h3>Mount<a id="mount" class="h_anchor"></a></h3>
+
+<br>
+
+<p>
+For details how to mount yourself, read my post <a href="..\02\06.html" title="here" class="page">here</a>.
+</p>
+
+<br>
+
+<h3>Conclusion<a id="conclusion" class="h_anchor"></a></h3>
+
+<br>
+
+<p>
+Simplification in my backup strategy will prevent loss of data and unnecessary complexity if I need to restore data. Using B2 is much cheaper than paying other cloud storage companies (with B2 I pay as I store / download) and I do not need to worry about bitrot and hard drive replacement. 
 </p>
 
 
@@ -228,13 +228,9 @@ Nircmd command to execute a script and hide the cmd window.
 				<b>Backlinks:</b>
 				<a href='..\..\..\Home.html'>Home</a>
 				
-				<a href='..\01\11.html'>Journal:2023:01:11</a>
-				
-				<a href='..\02.html'>Journal:2023:02</a>
-				
 				<a href='..\..\Index.html'>Journal:Index</a>
 				
-				<a href='..\03\08.html'>Journal:2023:03:08</a>
+				<a href='..\03.html'>Journal:2023:03</a>
 				<br /><br />
 			</span>
 
