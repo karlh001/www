@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title>Wednesday 08 Mar 2023</title>
+	<title>Monday 20 Mar 2023</title>
 	<meta name="keywords" content="computing, finance, money, personal, technology">
 	<meta name="description" content="This is a personal website dedicated to my interests primarly technology and finance">
 	<meta name="author" content="Karl Hunter">
@@ -140,8 +140,8 @@
 <li><a href="..\03.html" title="03" class="page">03</a>
 <ul>
 <li><a href="./02.html" title="02" class="page">02</a></li>
-<li><b>08</b></li>
-<li><a href="./20.html" title="20" class="page">20</a></li>
+<li><a href="./08.html" title="08" class="page">08</a></li>
+<li><b>20</b></li>
 </ul></li>
 </ul>
 </li>
@@ -152,75 +152,76 @@
 </ul>
  </div>
 		<div id="content">
-			<h1>Wednesday 08 Mar 2023 <a name='Journal:2023:03:08'></a></h1>
+			<h1>Monday 20 Mar 2023 <a name='Journal:2023:03:20'></a></h1>
 
 			
 <hr>
 
 <br>
 
-<h2>The 1 PB Hard Drive<a id="the-1-pb-hard-drive" class="h_anchor"></a></h2>
+<h2>Restore previous versions (B2)<a id="restore-previous-versions-b2" class="h_anchor"></a></h2>
 
 <br>
 
 <p>
-<img src="./08/external-hard-drive-g8b9829e4a_640.jpg"><br>
-Image <a href="https://pixabay.com/photos/external-hard-drive-usb-storage-1200006/" title="copyright" class="https">copyright</a>
+I was testing backup restores and was wondering: how to restore a delete file or previous version in my B2 storage. This is assuming you have enabled versioning on your B2 bucket. 
 </p>
 
 <p>
-I am moving away from purchasing external hard drives for backup. I will continue to use NAS-grade hard drives in my backup server, but no longer purchase additional / replacement external hard drives to back-up the laptop and the NAS etc. I will continue to have one hard drive to backup my ZFS storage pools, and perhaps keep one for my primary machine but that will be it. External hard drives are less quality than internal and are slower too; I would, however, consider purchasing one quality internal drive and mount in an enclosure for faster write speeds.
+<img src="./20/pasted_image.png">
 </p>
 
 <p>
-My hard drive fleet consists of: ZFS pool backup 1, pool backup 2, primary PC mass storage, backup to mass storage, longer term archive, SSD drive (7 in total). That is too much to manage. I believe it's important to maintain an external hard drive to backup the storage pool just in case of power failure, accident pool destruction; however, with the dangers of bitrot and drive failures it would be be advisable to keep stacks of hard drives for long-term backups and archive. It's best to keep long-lived data in a ZFS pool to monitor file integrity. My most important files are archived in a tar archive and stored in an S3 bucket (e.g. photos and documents categorised by year).
+As usual, rclone has us covered. My remotes are encrypted so I need rclone to view file names. Use the command:
 </p>
 
 <p>
-<img src="./08/pasted_image.png">
+<div style='padding-left: 30pt'>
+<tt>rclone ls remote:dir/ --b2-versions</tt>
+</div>
 </p>
 
 <p>
-My long-term solution is to use B2 (on Backblaze) for my attached <i>hot</i> storage. I have attached the volume to my Windows' machine so that I can access as it as if it's an attached hard drive; this is great because I do not need to purchase new hard drives and can store as much as I can afford to pay per month. 
+Or for more details
 </p>
 
 <p>
-<img src="./08/b2_hdd.JPG">
+<div style='padding-left: 30pt'>
+<tt>rclone lsl remote:dir/ --b2-versions</tt>
+</div>
 </p>
-
-<p>
-It's great to see an attached drive listed with 1 PB of storage.
-</p>
-
-<h3>Pricing<a id="pricing" class="h_anchor"></a></h3>
 
 <br>
 
 <p>
-If I used 1 PB of storage it would cost me $5,000 per month assuming no downloads. Talking about costs, it would work out cheaper to pay a small amount to Backblaze every month than purchase quality external hard drives as they age / fail. 
+You will get an output of previous versions:
 </p>
 
-<p>
-I did consider other cloud solutions but they were more expensive thank B2 and I would need to pay for fixed storage, which may take me years to year if at all, as I plan to offload data for archival storage on AWS. For example, 10 GB of B2 storage is free, so assuming I store another 10 GB that's $0.05 per month, or if I store 500 GB that $2.45 per month which is cheaper than other cloud storage hosts (pCloud, $5; Mega, $5.32; Dropbox, $9.60).
-</p>
-
-<h3>Mount<a id="mount" class="h_anchor"></a></h3>
+<pre>
+super-important-file-v2023-03-13-100755-166.bak
+super-important-file-v2023-03-10-193737-104.bak
+super-important-file-v2023-03-10-193257-296.bak
+super-important-file-v2023-03-08-080243-354.bak
+super-important-file-v2023-03-08-075833-207.bak
+super-important-file-v2023-03-08-075825-995.bak
+super-important-file-v2023-03-08-075727-966.bak
+</pre>
 
 <br>
 
 <p>
-For details how to mount yourself, read my post <a href="..\02\06.html" title="here" class="page">here</a>.
+It was easy to copy the version I wanted:
 </p>
-
-<br>
-
-<h3>Conclusion<a id="conclusion" class="h_anchor"></a></h3>
-
-<br>
 
 <p>
-Simplification in my backup strategy will prevent loss of data and unnecessary complexity if I need to restore data. Using B2 is much cheaper than paying other cloud storage companies (with B2 I pay as I store / download) and I do not need to worry about bitrot and hard drive replacement. 
+<div style='padding-left: 30pt'>
+<tt>rclone copy remote:dir/</tt>super-important-file-v2023-03-13-100755-166.bak -b2-version C:\Dir
+</div>
 </p>
+
+<br>
+<br>
+
 
 
 			<br>
