@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title>Saturday 25 Mar 2023</title>
+	<title>Thursday 30 Mar 2023</title>
 	<meta name="keywords" content="computing, finance, money, personal, technology">
 	<meta name="description" content="This is a personal website dedicated to my interests primarly technology and finance">
 	<meta name="author" content="Karl Hunter">
@@ -143,8 +143,8 @@
 <li><a href="./08.html" title="08" class="page">08</a></li>
 <li><a href="./20.html" title="20" class="page">20</a></li>
 <li><a href="./22.html" title="22" class="page">22</a></li>
-<li><b>25</b></li>
-<li><a href="./30.html" title="30" class="page">30</a></li>
+<li><a href="./25.html" title="25" class="page">25</a></li>
+<li><b>30</b></li>
 </ul></li>
 </ul>
 </li>
@@ -155,42 +155,62 @@
 </ul>
  </div>
 		<div id="content">
-			<h1>Saturday 25 Mar 2023 <a name='Journal:2023:03:25'></a></h1>
+			<h1>Thursday 30 Mar 2023 <a name='Journal:2023:03:30'></a></h1>
 
 			
 <hr>
 
 <br>
 
-<h2>7Zip encryption using CLI<a id="7zip-encryption-using-cli" class="h_anchor"></a></h2>
+<h2>Secondary Cloud Backup<a id="secondary-cloud-backup" class="h_anchor"></a></h2>
 
 <br>
 
 <p>
-<img src="./25/computer-g0b51ef923_640.png"><br>
-Image <a href="https://pixabay.com/vectors/computer-encrypt-encryption-1294045/" title="copyright" class="https">copyright</a>
+<img src="./30/cloud-g4771f2276_640.jpg"><br>
+Image <a href="https://pixabay.com/illustrations/cloud-computer-backup-technology-3998880/" title="copyright" class="https">copyright</a>
+</p>
+
+<br>
+
+<p>
+I wanted to replicate my S3 bucket to prevent accidental deletion. After reading many manuals and how-to websites, I was unable to do this. I followed the manuals to the letter but would return errors on the batch replication script. So, I gave up on this. My original plan was to replicate from EU to US (just my pictures). Instead, I was already using B2 to host my cloud-attached drive, so thought I would use B2 as my secondary cloud backup – B2 costs more than S3 deep archive but I would have my pictures stored on two cloud providers adding additional cloud redundancy. My photo collection is around 500 GB so it took around three days to upload. I have 50 Mbps up on my fibre broadband, but B2 servers accepted 3.5 Mbps (UK to EU server).
+</p>
+
+<h3>3:2:1:1<a id="3211" class="h_anchor"></a></h3>
+
+<br>
+
+<p>
+I have followed the 3:2:1 rule by keeping data on my NAS, external backup hard drive, off-site hard drive, S3 bucket and now B2 bucket. I have enabled object lock, so my B2 backup is now immutable, hence the extra 1 in 3:2:1. 
 </p>
 
 <p>
-When using the command-line interface (CLI) to compress with 7Zip, it may be necessary to encrypt the archive. This is easy to do with an extra switch to the command (-p).
+I was able to set object locks on S3 for 99 years, but B2 only allows 8 years. In 8 years, I may reupload or perhaps have a different solution by then – let’s hope B2 still exists. 
 </p>
 
-<p>
-<tt>"C:\Program Files\7-Zip\7z.exe" a E:\a-compressed-file.7z -psecretpass123 -mhe E:\important-documents\</tt>
-</p>
+<h3>Costs<a id="costs" class="h_anchor"></a></h3>
+
+<br>
 
 <p>
-In this example, the password is "<i>secretpass123</i>".
+Backblaze has easy-to-understand pricing. To download data it costs $0.01/GB and to store data it’s $0.005/GB/month – there are no upload costs. 500 GB costs me $2.50 per month, and in an emergency I can download all my pictures for only $5. Whereas on S3, I pay deep glacier fee of $0.00099/GB/month but download costs much more – plus longer wait times. I think of glacier as my “tape discs” that are long-lasting storage I hope to never use. Should I lose data locally, I will likely download from B2 first.
 </p>
 
-<p>
-a = create an archive<br>
-p= set the password<br>
-mhe = encrypts archive headers (password required to list files within the archive)
-</p>
+<h3>Security<a id="security" class="h_anchor"></a></h3>
+
+<br>
 
 <p>
-More on 7zip <a href="https://sevenzip.osdn.jp/chm/cmdline/switches/password.htm" title="encryption" class="https">encryption</a>
+A hacker would be able to log in, delete buckets and close account, thus destroying all data. So I use a random email address (<a href="mailto:xarnqyf51i3m49vp@myfavemail.com" title="xarnqyf51i3m49vp@myfavemail.com" class="mailto">xarnqyf51i3m49vp@myfavemail.com</a>) and enable two-factor authentication (mobile application not SMS!). Also, should someone get into my bucket, all data are encrypted at rest. 
+</p>
+
+<h3>Bottom Line<a id="bottom-line" class="h_anchor"></a></h3>
+
+<br>
+
+<p>
+I am using S3 and B2 because I intend on buying no more additional external hard drive (expect one for NAS and another for my main PC as mass storage); this is due to potential reliability and storing data on them long term, and I would rather spend more money on Seagate IronWolf Pro and Western Digital Red Pro drives for me server then replace consumer hard drives.
 </p>
 
 
