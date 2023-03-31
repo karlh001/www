@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title>March 2023</title>
+	<title>ZFS Snapper</title>
 	<meta name="keywords" content="computing, finance, money, personal, technology">
 	<meta name="description" content="This is a personal website dedicated to my interests primarly technology and finance">
 	<meta name="author" content="Karl Hunter">
@@ -126,70 +126,71 @@
 <body>
 	<div class="wrapper">
 		<div id="navigation"> <ul>
-<li><a href="..\..\About.html" title="About" class="page">About</a></li>
-<li><a href="..\..\Computing.html" title="Computing" class="page">Computing</a></li>
-<li><a href="..\..\Contact.html" title="Contact" class="page">Contact</a></li>
-<li><a href="..\..\Home.html" title="Home" class="page">Home</a></li>
-<li><a href="..\..\Journal.html" title="Journal" class="page">Journal</a>
+<li><a href="..\About.html" title="About" class="page">About</a></li>
+<li><a href="..\Computing.html" title="Computing" class="page">Computing</a></li>
+<li><a href="..\Contact.html" title="Contact" class="page">Contact</a></li>
+<li><a href="..\Home.html" title="Home" class="page">Home</a></li>
+<li><a href="..\Journal.html" title="Journal" class="page">Journal</a></li>
+<li><a href="..\Money.html" title="Money" class="page">Money</a></li>
+<li><a href="..\Projects.html" title="Projects" class="page">Projects</a>
 <ul>
-<li><a href="..\2022.html" title="2022" class="page">2022</a></li>
-<li><a href="..\2023.html" title="2023" class="page">2023</a>
-<ul>
-<li><a href="./01.html" title="01" class="page">01</a></li>
-<li><a href="./02.html" title="02" class="page">02</a></li>
-<li><b>03</b>
-<ul>
-<li><a href="./03/02.html" title="02" class="page">02</a></li>
-<li><a href="./03/08.html" title="08" class="page">08</a></li>
-<li><a href="./03/20.html" title="20" class="page">20</a></li>
-<li><a href="./03/22.html" title="22" class="page">22</a></li>
-<li><a href="./03/25.html" title="25" class="page">25</a></li>
-<li><a href="./03/30.html" title="30" class="page">30</a></li>
-<li><a href="./03/31.html" title="31" class="page">31</a></li>
-</ul>
-</li>
-<li><a href="./04.html" title="04" class="page">04</a></li>
-</ul>
-</li>
-<li><a href="..\Index.html" title="Index" class="page">Index</a></li>
-</ul>
-</li>
-<li><a href="..\..\Money.html" title="Money" class="page">Money</a></li>
-<li><a href="..\..\Projects.html" title="Projects" class="page">Projects</a></li>
+<li><b>ZFS Snapper</b></li>
+</ul></li>
 </ul>
  </div>
 		<div id="content">
-			<h1>March 2023 <a name='Journal:2023:03'></a></h1>
+			<h1>ZFS Snapper <a name='Projects:ZFS Snapper'></a></h1>
 
-			
+			<p>
+Created Friday 31 March 2023
+</p>
+
 <hr>
 
 <br>
 
 <p>
-<img src="./03/laptop-gbede7c06c_640.jpg"><br>
-Image <a href="https://pixabay.com/photos/laptop-paper-to-write-business-3076957/" title="copyright" class="https">copyright</a>
+<img src="./ZFS_Snapper/technology-1587673_640.jpg"><br>
+Image <a href="https://pixabay.com/photos/technology-servers-server-1587673/" title="copyright" class="https">copyright</a>
+</p>
+
+<h2>About<a id="about" class="h_anchor"></a></h2>
+
+<br>
+
+<p>
+I created a script to help manage my ZFS snapshot rotation. I also create manual snapshots along side this script, but like to have an automatic hourly snapshot just in case I forget, but do not want the headache of deleting regular snapshot. There are other ZFS snapshot rotation scripts out there - dare I say more advanced - but I like to control as much as possible my data.
 </p>
 
 <p>
+I have allowed users to change how many snapshots you reserve.  
+</p>
+
+<h2>How it works<a id="how-it-works" class="h_anchor"></a></h2>
+
+<br>
+
+<p>
 <ul>
-<li><a href="./03/31.html" title="World Back-up Day" class="page">World Back-up Day</a> (31/03/2023)</li>
-<li><a href="./03/30.html" title="Secondary Cloud Backup" class="page">Secondary Cloud Backup</a> (30/03/2023)</li>
-<li><a href="./03/25.html" title="7Zip encryption using CLI" class="page">7Zip encryption using CLI</a> (25/03/2023)</li>
-<li><a href="./03/22.html" title="Convert websites into apps" class="page">Convert websites into apps</a> (22/03/2023)</li>
-<li><a href="./03/20.html" title="Restore previous versions (B2)" class="page">Restore previous versions (B2)</a> (20/03/2023)</li>
-<li><a href="./03/08.html" title="The 1 PB Hard Drive" class="page">The 1 PB Hard Drive</a> (08/03/2023)</li>
-<li><a href="./03/02.html" title="Data Loss, Data Loss Everywhere!" class="page">Data Loss, Data Loss Everywhere!</a> (02/03/2023)</li>
+<li>Creates snapshot</li>
+<li>Checks if snapshots need removing; counts all snapshots starting with 'Auto'</li>
+<li>Deletes all snapshots starting with "Auto" until last n defined remain</li>
 </ul>
+</p>
+
+<p>
+Snapshots are named "<i>Auto_YYYYMMDD_HHMMSS</i>"
+</p>
+
+<br>
+
+<p>
+<a href="https://github.com/karlh001/zfs-snapper" title="Click here" class="https">Click here</a> to view the project on Github.
 </p>
 
 
 			<br>
 			<span class="backlinks">
-				<hr class='footnotes'>
-				<b>Backlinks:</b>
-				<a href='..\2023.html'>Journal:2023</a>
-				<br /><br />
 			</span>
 
 			

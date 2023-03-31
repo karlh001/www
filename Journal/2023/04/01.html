@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title>March 2023</title>
+	<title>Saturday 01 Apr 2023</title>
 	<meta name="keywords" content="computing, finance, money, personal, technology">
 	<meta name="description" content="This is a personal website dedicated to my interests primarly technology and finance">
 	<meta name="author" content="Karl Hunter">
@@ -126,69 +126,104 @@
 <body>
 	<div class="wrapper">
 		<div id="navigation"> <ul>
-<li><a href="..\..\About.html" title="About" class="page">About</a></li>
-<li><a href="..\..\Computing.html" title="Computing" class="page">Computing</a></li>
-<li><a href="..\..\Contact.html" title="Contact" class="page">Contact</a></li>
-<li><a href="..\..\Home.html" title="Home" class="page">Home</a></li>
-<li><a href="..\..\Journal.html" title="Journal" class="page">Journal</a>
+<li><a href="..\..\..\About.html" title="About" class="page">About</a></li>
+<li><a href="..\..\..\Computing.html" title="Computing" class="page">Computing</a></li>
+<li><a href="..\..\..\Contact.html" title="Contact" class="page">Contact</a></li>
+<li><a href="..\..\..\Home.html" title="Home" class="page">Home</a></li>
+<li><a href="..\..\..\Journal.html" title="Journal" class="page">Journal</a>
 <ul>
-<li><a href="..\2022.html" title="2022" class="page">2022</a></li>
-<li><a href="..\2023.html" title="2023" class="page">2023</a>
+<li><a href="..\..\2022.html" title="2022" class="page">2022</a></li>
+<li><a href="..\..\2023.html" title="2023" class="page">2023</a>
 <ul>
-<li><a href="./01.html" title="01" class="page">01</a></li>
-<li><a href="./02.html" title="02" class="page">02</a></li>
-<li><b>03</b>
+<li><a href="..\01.html" title="01" class="page">01</a></li>
+<li><a href="..\02.html" title="02" class="page">02</a></li>
+<li><a href="..\03.html" title="03" class="page">03</a></li>
+<li><a href="..\04.html" title="04" class="page">04</a>
 <ul>
-<li><a href="./03/02.html" title="02" class="page">02</a></li>
-<li><a href="./03/08.html" title="08" class="page">08</a></li>
-<li><a href="./03/20.html" title="20" class="page">20</a></li>
-<li><a href="./03/22.html" title="22" class="page">22</a></li>
-<li><a href="./03/25.html" title="25" class="page">25</a></li>
-<li><a href="./03/30.html" title="30" class="page">30</a></li>
-<li><a href="./03/31.html" title="31" class="page">31</a></li>
+<li><b>01</b></li>
+</ul></li>
 </ul>
 </li>
-<li><a href="./04.html" title="04" class="page">04</a></li>
+<li><a href="..\..\Index.html" title="Index" class="page">Index</a></li>
 </ul>
 </li>
-<li><a href="..\Index.html" title="Index" class="page">Index</a></li>
-</ul>
-</li>
-<li><a href="..\..\Money.html" title="Money" class="page">Money</a></li>
-<li><a href="..\..\Projects.html" title="Projects" class="page">Projects</a></li>
+<li><a href="..\..\..\Money.html" title="Money" class="page">Money</a></li>
+<li><a href="..\..\..\Projects.html" title="Projects" class="page">Projects</a></li>
 </ul>
  </div>
 		<div id="content">
-			<h1>March 2023 <a name='Journal:2023:03'></a></h1>
+			<h1>Saturday 01 Apr 2023 <a name='Journal:2023:04:01'></a></h1>
 
 			
 <hr>
 
 <br>
 
+<h2>Open Record or Create New Record - VBA on Access<a id="open-record-or-create-new-record---vba-on-access" class="h_anchor"></a></h2>
+
+<br>
+
 <p>
-<img src="./03/laptop-gbede7c06c_640.jpg"><br>
-Image <a href="https://pixabay.com/photos/laptop-paper-to-write-business-3076957/" title="copyright" class="https">copyright</a>
+<i>(Not an April fools)</i>
 </p>
 
 <p>
-<ul>
-<li><a href="./03/31.html" title="World Back-up Day" class="page">World Back-up Day</a> (31/03/2023)</li>
-<li><a href="./03/30.html" title="Secondary Cloud Backup" class="page">Secondary Cloud Backup</a> (30/03/2023)</li>
-<li><a href="./03/25.html" title="7Zip encryption using CLI" class="page">7Zip encryption using CLI</a> (25/03/2023)</li>
-<li><a href="./03/22.html" title="Convert websites into apps" class="page">Convert websites into apps</a> (22/03/2023)</li>
-<li><a href="./03/20.html" title="Restore previous versions (B2)" class="page">Restore previous versions (B2)</a> (20/03/2023)</li>
-<li><a href="./03/08.html" title="The 1 PB Hard Drive" class="page">The 1 PB Hard Drive</a> (08/03/2023)</li>
-<li><a href="./03/02.html" title="Data Loss, Data Loss Everywhere!" class="page">Data Loss, Data Loss Everywhere!</a> (02/03/2023)</li>
-</ul>
+I was working with Microsoft Access 365 the other day. I wanted a script to check if a record exists then open a form, filter to that record, and if the record does not exists, create a new record. I wrote the code in the OpenRecordBtn click event. I have changed the names of the table and primary key for this example. 
 </p>
+
+<br>
+
+<pre>
+Private Sub OpenRecordBtn_Click() 
+
+' This will open the record based on the record ID entered 
+' Gets the value from a texy box named Record_Box
+
+	Dim RecordID As Long 
+
+	RecordID = Me.Record_Box.Value 
+
+</pre>
+<pre style='padding-left: 120pt'>
+' Check if record exists in database 
+' if it does not exist then create new record 
+' I have used the DCount to return number of records found
+' based on the RecordID. if 1 then exists, otherwise 0 does not.
+
+</pre>
+<pre style='padding-left: 180pt'>
+Result = DCount("PrimaryKey", "tbl_records", " PrimaryKey = " &amp; RecordID)  
+' If less than 1, record does not exist, create one:
+
+If (Result &lt; 1) Then 
+</pre>
+
+<pre style='padding-left: 120pt'>
+	' Insert record 
+	DoCmd.RunSQL "INSERT INTO tbl_records (PrimaryKey) VALUES (" &amp; RecordID &amp; ")" 
+    End If 
+
+' Opens the form using the supplied record ID
+' Opens form name "A Form Here" using the primary key with
+' my variable named "Record ID"  
+DoCmd.OpenForm "A Form Here", , , "PrimaryKey = " &amp; RecordID 
+</pre>
+
+<pre>
+
+End Sub
+</pre>
 
 
 			<br>
 			<span class="backlinks">
 				<hr class='footnotes'>
 				<b>Backlinks:</b>
-				<a href='..\2023.html'>Journal:2023</a>
+				<a href='..\..\..\Home.html'>Home</a>
+				
+				<a href='..\..\Index.html'>Journal:Index</a>
+				
+				<a href='..\04.html'>Journal:2023:04</a>
 				<br /><br />
 			</span>
 

@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title>Monday 20 Mar 2023</title>
+	<title>Friday 31 Mar 2023</title>
 	<meta name="keywords" content="computing, finance, money, personal, technology">
 	<meta name="description" content="This is a personal website dedicated to my interests primarly technology and finance">
 	<meta name="author" content="Karl Hunter">
@@ -141,11 +141,11 @@
 <ul>
 <li><a href="./02.html" title="02" class="page">02</a></li>
 <li><a href="./08.html" title="08" class="page">08</a></li>
-<li><b>20</b></li>
+<li><a href="./20.html" title="20" class="page">20</a></li>
 <li><a href="./22.html" title="22" class="page">22</a></li>
 <li><a href="./25.html" title="25" class="page">25</a></li>
 <li><a href="./30.html" title="30" class="page">30</a></li>
-<li><a href="./31.html" title="31" class="page">31</a></li>
+<li><b>31</b></li>
 </ul>
 </li>
 <li><a href="..\04.html" title="04" class="page">04</a></li>
@@ -159,76 +159,59 @@
 </ul>
  </div>
 		<div id="content">
-			<h1>Monday 20 Mar 2023 <a name='Journal:2023:03:20'></a></h1>
+			<h1>Friday 31 Mar 2023 <a name='Journal:2023:03:31'></a></h1>
 
 			
 <hr>
 
 <br>
 
-<h2>Restore previous versions (B2)<a id="restore-previous-versions-b2" class="h_anchor"></a></h2>
+<h2>World Back-up Day<a id="world-back-up-day" class="h_anchor"></a></h2>
 
 <br>
 
 <p>
-I was testing backup restores and was wondering: how to restore a delete file or previous version in my B2 storage. This is assuming you have enabled versioning on your B2 bucket. 
+<img src="./31/backup-gf43bd95c5_640.png"><br>
+Image <a href="https://pixabay.com/vectors/backup-undo-reload-arrow-circle-153008/" title="Copyright" class="https">Copyright</a>
 </p>
 
 <p>
-<img src="./20/pasted_image.png">
+Backups should be completed all year round, but it's nice to have a designated day to help remind us to backup. If you do backup more than once a year, it's a nice time to review your strategy or test a restore. If/when you're infected by ransomware, a good backup will allow you to "<i>tell ransomware authors to pound sand</i>".
 </p>
 
 <p>
-As usual, rclone has us covered. My remotes are encrypted so I need rclone to view file names. Use the command:
+I am a fan of "<a href="https://www.backupcentral.com/" title="Backup Central" class="https">Backup Central</a>" podcast. It's a unique podcast by Curtis and Prasanna who discuss enterpise storage and the backup market. I would say every episode Curtis mentions his favourite rule: 3:2:1. It is entertaining and I have managed to listen to the majority of the back catalogue.  
 </p>
 
 <p>
-<div style='padding-left: 30pt'>
-<tt>rclone ls remote:dir/ --b2-versions</tt>
-</div>
+I was fortunate to receive a reply to my email I sent Curtis to ask him to to cover his personal backup strategy. Let’s hope they discuss this in a future episode. 
 </p>
 
 <p>
-Or for more details
+<i><b>A few lessons the teach:</b></i>
 </p>
 
 <p>
-<div style='padding-left: 30pt'>
-<tt>rclone lsl remote:dir/ --b2-versions</tt>
-</div>
-</p>
-
-<br>
-
-<p>
-You will get an output of previous versions:
-</p>
-
-<pre>
-super-important-file-v2023-03-13-100755-166.bak
-super-important-file-v2023-03-10-193737-104.bak
-super-important-file-v2023-03-10-193257-296.bak
-super-important-file-v2023-03-08-080243-354.bak
-super-important-file-v2023-03-08-075833-207.bak
-super-important-file-v2023-03-08-075825-995.bak
-super-important-file-v2023-03-08-075727-966.bak
-</pre>
-
-<br>
-
-<p>
-It was easy to copy the version I wanted:
+<ul>
+<li>3:2:1 rule</li>
+<li>Test your backup</li>
+<li>Keep a copy of data off site</li>
+<li>Backup software as a service tools</li>
+<li>Consider two cloud backups</li>
+</ul>
 </p>
 
 <p>
-<div style='padding-left: 30pt'>
-<tt>rclone copy remote:dir/super-important-file-v2023-03-13-100755-166.bak -b2-version C:\Dir</tt>
-</div>
+Curtis also is an author of O'Reilly "Modern Data Protection" W. Curtis Preston (2011) - a book on backup and storage. I have read the eBook and it's fascinating reading. 
 </p>
 
-<br>
-<br>
+<p>
+The call-to-arms backup song (Rescue me from Pain) at the end of each episode is great too. 
+</p>
 
+<p>
+"<i>Be sure to subscribe so you can restore it all</i>".
+</p>
 
 
 			<br>
