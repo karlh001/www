@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title>Saturday 01 Apr 2023</title>
+	<title>Backblaze B2</title>
 	<meta name="keywords" content="computing, finance, money, personal, technology">
 	<meta name="description" content="This is a personal website dedicated to my interests primarly technology and finance">
 	<meta name="author" content="Karl Hunter">
@@ -126,107 +126,93 @@
 <body>
 	<div class="wrapper">
 		<div id="navigation"> <ul>
-<li><a href="..\..\..\About.html" title="About" class="page">About</a></li>
-<li><a href="..\..\..\Computing.html" title="Computing" class="page">Computing</a></li>
-<li><a href="..\..\..\Contact.html" title="Contact" class="page">Contact</a></li>
-<li><a href="..\..\..\Home.html" title="Home" class="page">Home</a></li>
-<li><a href="..\..\..\Journal.html" title="Journal" class="page">Journal</a>
+<li><a href="..\..\About.html" title="About" class="page">About</a></li>
+<li><a href="..\..\Computing.html" title="Computing" class="page">Computing</a>
 <ul>
-<li><a href="..\..\2022.html" title="2022" class="page">2022</a></li>
-<li><a href="..\..\2023.html" title="2023" class="page">2023</a>
+<li><a href="..\Backup.html" title="Backup" class="page">Backup</a>
 <ul>
-<li><a href="..\01.html" title="01" class="page">01</a></li>
-<li><a href="..\02.html" title="02" class="page">02</a></li>
-<li><a href="..\03.html" title="03" class="page">03</a></li>
-<li><a href="..\04.html" title="04" class="page">04</a>
-<ul>
-<li><b>01</b></li>
-<li><a href="./03.html" title="03" class="page">03</a></li>
-<li><a href="./07.html" title="07" class="page">07</a></li>
-</ul></li>
+<li><a href="./AWS_S3.html" title="AWS S3" class="page">AWS S3</a></li>
+<li><b>Backblaze B2</b></li>
+<li><a href="./Macrium.html" title="Macrium" class="page">Macrium</a></li>
+<li><a href="./SMART.html" title="SMART" class="page">SMART</a></li>
 </ul>
 </li>
-<li><a href="..\..\Index.html" title="Index" class="page">Index</a></li>
+<li><a href="..\Software.html" title="Software" class="page">Software</a></li>
 </ul>
 </li>
-<li><a href="..\..\..\Money.html" title="Money" class="page">Money</a></li>
-<li><a href="..\..\..\Projects.html" title="Projects" class="page">Projects</a></li>
+<li><a href="..\..\Contact.html" title="Contact" class="page">Contact</a></li>
+<li><a href="..\..\Home.html" title="Home" class="page">Home</a></li>
+<li><a href="..\..\Journal.html" title="Journal" class="page">Journal</a></li>
+<li><a href="..\..\Money.html" title="Money" class="page">Money</a></li>
+<li><a href="..\..\Projects.html" title="Projects" class="page">Projects</a></li>
 </ul>
  </div>
 		<div id="content">
-			<h1>Saturday 01 Apr 2023 <a name='Journal:2023:04:01'></a></h1>
+			<h1>Backblaze B2 <a name='Computing:Backup:Backblaze B2'></a></h1>
 
-			
+			<p>
+Created Sunday 02 April 2023
+</p>
+
 <hr>
 
 <br>
 
-<h2>Open Record or Create New Record - VBA on Access<a id="open-record-or-create-new-record---vba-on-access" class="h_anchor"></a></h2>
+<h2>About<a id="about" class="h_anchor"></a></h2>
 
 <br>
 
 <p>
-<i>(Not an April fools)</i>
+Backblaze (an online cloud storage provider) have an object storage service called B2. I have wrote about how I use B2 to mount a 1 PB external drive for general purpose storage and backup. I also use a bucket to backup pictures as my secondary cloud backup explained in this post. 
 </p>
 
-<p>
-I was working with Microsoft Access 365 the other day. I wanted a script to check if a record exists then open a form, filter to that record, and if the record does not exists, create a new record. I wrote the code in the OpenRecordBtn click event. I have changed the names of the table and primary key for this example. 
-</p>
+<h2>How it works?<a id="how-it-works" class="h_anchor"></a></h2>
 
 <br>
 
-<pre>
-Private Sub OpenRecordBtn_Click() 
+<p>
+B2 is a simple service to understand. There are no complex storage classes. You create a bucket, upload data to the bucket either on their web browser integration or using tools such as rclone.
+</p>
 
-' This will open the record based on the record ID entered 
-' Gets the value from a texy box named Record_Box
+<p>
+They have data centres in the USA and one in the EU. However, you cannot create an account in the USA and then create an EU bucket, you have to create a new account for their EU data centre. If you want cross-region replication, you can set this up on their website. Unlike B2, S3 have more regional support and more data centres. 
+</p>
 
-	Dim RecordID As Long 
+<p>
+Bucket features include options to share and encrypt. By default, buckets are private and encryption is disabled. 
+</p>
 
-	RecordID = Me.Record_Box.Value 
+<p>
+<img src="./Backblaze_B2/pasted_image002.png">
+</p>
 
-</pre>
-<pre style='padding-left: 120pt'>
-' Check if record exists in database 
-' if it does not exist then create new record 
-' I have used the DCount to return number of records found
-' based on the RecordID. if 1 then exists, otherwise 0 does not.
+<p>
+If you need your file locked for a period of time, you can set this up too. I highest you can go is 8 years (3,000 days). Once you select object lock, you need to add retention policy.
+</p>
 
-</pre>
-<pre style='padding-left: 180pt'>
-Result = DCount("PrimaryKey", "tbl_records", " PrimaryKey = " &amp; RecordID)  
-' If less than 1, record does not exist, create one:
+<p>
+<img src="./Backblaze_B2/pasted_image001.png">
+</p>
 
-If (Result &lt; 1) Then 
-</pre>
+<p>
+Objection version can be managed too. You have a few great options to manage versions. By default all versions are kept.
+</p>
 
-<pre style='padding-left: 120pt'>
-	' Insert record 
-	DoCmd.RunSQL "INSERT INTO tbl_records (PrimaryKey) VALUES (" &amp; RecordID &amp; ")" 
-    End If 
+<p>
+<img src="./Backblaze_B2/pasted_image.png">
+</p>
 
-' Opens the form using the supplied record ID
-' Opens form name "A Form Here" using the primary key with
-' my variable named "Record ID"  
-DoCmd.OpenForm "A Form Here", , , "PrimaryKey = " &amp; RecordID 
-</pre>
+<h2>Pricing<a id="pricing" class="h_anchor"></a></h2>
 
-<pre>
+<br>
 
-End Sub
-</pre>
+<p>
+I like B2 pricing model. They charge $0.005 for data stored, and $0.01 for data retrieval. For example, if I store 500 GB I pay $2.50 per month and to restore in a disaster, I would pay $5. There are no cost for data deletion.
+</p>
 
 
 			<br>
 			<span class="backlinks">
-				<hr class='footnotes'>
-				<b>Backlinks:</b>
-				<a href='..\..\..\Home.html'>Home</a>
-				
-				<a href='..\..\Index.html'>Journal:Index</a>
-				
-				<a href='..\04.html'>Journal:2023:04</a>
-				<br /><br />
 			</span>
 
 			

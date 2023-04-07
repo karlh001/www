@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title>Saturday 01 Apr 2023</title>
+	<title>Monday 03 Apr 2023</title>
 	<meta name="keywords" content="computing, finance, money, personal, technology">
 	<meta name="description" content="This is a personal website dedicated to my interests primarly technology and finance">
 	<meta name="author" content="Karl Hunter">
@@ -140,8 +140,8 @@
 <li><a href="..\03.html" title="03" class="page">03</a></li>
 <li><a href="..\04.html" title="04" class="page">04</a>
 <ul>
-<li><b>01</b></li>
-<li><a href="./03.html" title="03" class="page">03</a></li>
+<li><a href="./01.html" title="01" class="page">01</a></li>
+<li><b>03</b></li>
 <li><a href="./07.html" title="07" class="page">07</a></li>
 </ul></li>
 </ul>
@@ -154,67 +154,83 @@
 </ul>
  </div>
 		<div id="content">
-			<h1>Saturday 01 Apr 2023 <a name='Journal:2023:04:01'></a></h1>
+			<h1>Monday 03 Apr 2023 <a name='Journal:2023:04:03'></a></h1>
 
 			
 <hr>
 
 <br>
 
-<h2>Open Record or Create New Record - VBA on Access<a id="open-record-or-create-new-record---vba-on-access" class="h_anchor"></a></h2>
+<h2>Using ZFS on external drive<a id="using-zfs-on-external-drive" class="h_anchor"></a></h2>
 
 <br>
 
 <p>
-<i>(Not an April fools)</i>
+<img src="./03/storage-g82695ab1f_640.png"><br>
+Image <a href="https://pixabay.com/vectors/storage-hardware-external-drive-24914/" title="copyright" class="https">copyright</a>
 </p>
 
 <p>
-I was working with Microsoft Access 365 the other day. I wanted a script to check if a record exists then open a form, filter to that record, and if the record does not exists, create a new record. I wrote the code in the OpenRecordBtn click event. I have changed the names of the table and primary key for this example. 
+I have used ZFS on an old external hard drive for  backup purposes – it’s a 1 TB external USB drive previously used as my off-site backup. It’s over 5 years old so would not trust for long-term data retention. I replaced this drive as my primary NAS back a few years ago with a 2 TB hard drive because the SATA to USB board failed and I needed more backup storage. I installed the old hard drive into a new enclosure and worked well. 
+</p>
+
+<p>
+The best method I use to monitor for data corruption is ZFS. Although I do not get disk redundancy, I can still see which files are corrupted and tell if the hard drive is failing. Worse case, if I lose data on primary storage and backup, I can restore from the cloud. Therefore, instead of scrapping the drive, I may as well use the drive to backup as it has life left in it.
+</p>
+
+<p>
+Also, the power on hours and power on count are low given the age (this was a backup drive):
+</p>
+
+<p>
+<img src="./03/pasted_image.png">
+</p>
+
+<p>
+There are no pending sectors or reallocated sectors on this disk. <a href="..\..\..\Computing\Backup\SMART.html" title="More" class="page">More</a> on SMART.
 </p>
 
 <br>
 
-<pre>
-Private Sub OpenRecordBtn_Click() 
+<p>
+I created a ZFS pool on the single disk. Called the pool backup and set-up encryption. I use encryption for all my datasets now should I need to return a drive or the device is stolen, no one can access my data.
+</p>
 
-' This will open the record based on the record ID entered 
-' Gets the value from a texy box named Record_Box
+<p>
+<tt>zpool create backup /dev/by-id/name-of-the-disk-here</tt>
+</p>
 
-	Dim RecordID As Long 
+<p>
+<tt>zfs create -o encryption=on -o keyformat=passphrase backup/pool</tt> 
+</p>
 
-	RecordID = Me.Record_Box.Value 
+<p>
+Once set-up, I turned off atime and tested the encryption / decryption process. 
+</p>
 
-</pre>
-<pre style='padding-left: 120pt'>
-' Check if record exists in database 
-' if it does not exist then create new record 
-' I have used the DCount to return number of records found
-' based on the RecordID. if 1 then exists, otherwise 0 does not.
+<p>
+I used send/rev command to sync my pool. I inserted the pv command to monitor progress.
+</p>
 
-</pre>
-<pre style='padding-left: 180pt'>
-Result = DCount("PrimaryKey", "tbl_records", " PrimaryKey = " &amp; RecordID)  
-' If less than 1, record does not exist, create one:
+<p>
+<tt>zfs send pool/data@name_of_latest_snapshot | pv | zfs recv backup/name_of_new_dataset</tt>
+</p>
 
-If (Result &lt; 1) Then 
-</pre>
+<p>
+I watched the copy progress:
+</p>
 
-<pre style='padding-left: 120pt'>
-	' Insert record 
-	DoCmd.RunSQL "INSERT INTO tbl_records (PrimaryKey) VALUES (" &amp; RecordID &amp; ")" 
-    End If 
+<p>
+<img src="./03/pasted_image001.png">
+</p>
 
-' Opens the form using the supplied record ID
-' Opens form name "A Form Here" using the primary key with
-' my variable named "Record ID"  
-DoCmd.OpenForm "A Form Here", , , "PrimaryKey = " &amp; RecordID 
-</pre>
+<p>
+You could just use the rsync command to copy files over, but send/rev command is much quicker. 
+</p>
 
-<pre>
-
-End Sub
-</pre>
+<p>
+That’s it -  I have a secondary NAS hard drive backup. I cannot fit all my data, so I prioritised pictures.
+</p>
 
 
 			<br>
