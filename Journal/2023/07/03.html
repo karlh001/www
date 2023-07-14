@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title>Monday 06 Feb 2023</title>
+	<title>Monday 03 Jul 2023</title>
 	<meta name="keywords" content="computing, finance, money, personal, technology">
 	<meta name="description" content="This is a personal website dedicated to my interests primarly technology and finance">
 	<meta name="author" content="Karl Hunter">
@@ -136,17 +136,14 @@
 <li><a href="..\..\2023.html" title="2023" class="page">2023</a>
 <ul>
 <li><a href="..\01.html" title="01" class="page">01</a></li>
-<li><a href="..\02.html" title="02" class="page">02</a>
-<ul>
-<li><a href="./01.html" title="01" class="page">01</a></li>
-<li><a href="./02.html" title="02" class="page">02</a></li>
-<li><b>06</b></li>
-<li><a href="./21.html" title="21" class="page">21</a></li>
-</ul>
-</li>
+<li><a href="..\02.html" title="02" class="page">02</a></li>
 <li><a href="..\03.html" title="03" class="page">03</a></li>
 <li><a href="..\04.html" title="04" class="page">04</a></li>
-<li><a href="..\07.html" title="07" class="page">07</a></li>
+<li><a href="..\07.html" title="07" class="page">07</a>
+<ul>
+<li><a href="./02.html" title="02" class="page">02</a></li>
+<li><b>03</b></li>
+</ul></li>
 </ul>
 </li>
 <li><a href="..\..\Index.html" title="Index" class="page">Index</a></li>
@@ -157,71 +154,49 @@
 </ul>
  </div>
 		<div id="content">
-			<h1>Monday 06 Feb 2023 <a name='Journal:2023:02:06'></a></h1>
+			<h1>Monday 03 Jul 2023 <a name='Journal:2023:07:03'></a></h1>
 
 			
 <hr>
 
 <br>
 
-<h2>Rclone mount<a id="rclone-mount" class="h_anchor"></a></h2>
-
-<br>
+<h2>Switched Energy Supplier<a id="switched-energy-supplier" class="h_anchor"></a></h2>
 
 <p>
-<img src="./06/cloud-g83f3e1eb0_640.png"><br>
-Image <a href="https://pixabay.com/vectors/cloud-cloud-computing-connection-3331240/" title="copyright" class="https">copyright</a>
+Found a <i>slightly</i> cheaper energy tariff
 </p>
 
 <p>
-I was using rclone to mount a cloud volume as a drive on my PC. Instead of running a command to copy over the files, I would be able to browse, delete and copy as if the cloud drive was on my PC.
+<img src="./03/lamp-gcee10ebb6_640.jpg"><br>
+Image <a href="https://pixabay.com/photos/lamp-light-hand-idea-bulb-2663053/" title="copyright" class="https">copyright</a>
 </p>
 
 <p>
-Here's the rclone command to mount the drive:
+Energy costs have decreased slightly, showing signs of a potential brighter future for utility costs. I have taken the opportunity to switch energy suppliers.
 </p>
 
 <p>
-<tt>rclone mount cloud: M: --vfs-cache-mode full --volname "Cloud Drive"</tt>
+I have moved to Octopus Energy on the following tariff:
 </p>
 
 <p>
-I have used the <i>volname </i>switch to display "Cloud Drive" for the name of the mounted volume. 
+<b>Electricity</b><br>
+31.10p/kWh, 60.18p/day
 </p>
 
 <p>
-I was having difficulty with the mounted volume hanging, so I added the <i>vfs-cache-mode full </i> to allow caching - the default is off. The <i>full</i> options allows caching of reads and writes. Otherwise, if you want write-only caching, choose <i>writes</i>.
+<b>Gas</b><br>
+7.54p/kWh, 27.47p/day 
 </p>
 
 <p>
-I wanted the volume to mount on start-up, so I used Windows Task Scheduler to achieve this. I wrote a script, and linked the Scheduler to that. This worked well, but I am left with an open Windows command window; if I close the window, it quits the rclone instance. I chose the "hidden" option but it still displays.
+This tariff does not have exit fees, so if anything comes along cheaper than I will switch again. I have not switched supplier since the energy market went out of control. I was with the failed Igloo Energy which resulted in my supply being moved to E.ON Next. I followed someone's link so that I could get £50 credit, and my friend too. 
 </p>
 
 <p>
-After a little research, I settled on using <a href="https://www.nirsoft.net/utils/nircmd.html" title="nircmd" class="https">nircmd</a> to run the script. It's a command line tool to run advanced options on Windows. I downloaded and extracted to my Windows folder. I ran the script using <i>nircmd </i>and, hey presto, it worked!
-</p>
-
-<p>
-<img src="./06/pasted_image.png">
-</p>
-
-<p>
-Nircmd command to execute a script and hide the cmd window. 
-</p>
-
-<p>
-<tt>nircmd exec hide C:\dir\mount.bat</tt>
-</p>
-
-<br>
-<br>
-
-<p>
-<ol type="1" start="1">
-<li>rclone <a href="https://rclone.org/commands/rclone_mount/#vfs-file-caching" title="manual" class="https">manual</a> on caching</li>
-<li>Read about the <a href="https://www.nirsoft.net/utils/nircmd.html" title="nircmd" class="https">nircmd</a> tool</li>
-<li>Read my <a href="..\01\11.html" title="journal entry" class="page">journal entry</a> on rclone</li>
-</ol>
+If you want to support my site, and earn yourself £50 then sign-up to Octopus Energy by following this link:<br>
+<a href="https://share.octopus.energy/super-louse-369" title="https://share.octopus.energy/super-louse-369" class="https">https://share.octopus.energy/super-louse-369</a>
 </p>
 
 
@@ -229,13 +204,11 @@ Nircmd command to execute a script and hide the cmd window.
 			<span class="backlinks">
 				<hr class='footnotes'>
 				<b>Backlinks:</b>
-				<a href='..\01\11.html'>Journal:2023:01:11</a>
-				
-				<a href='..\02.html'>Journal:2023:02</a>
+				<a href='..\..\..\Home.html'>Home</a>
 				
 				<a href='..\..\Index.html'>Journal:Index</a>
 				
-				<a href='..\03\08.html'>Journal:2023:03:08</a>
+				<a href='..\07.html'>Journal:2023:07</a>
 				<br /><br />
 			</span>
 
