@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title>September 2023</title>
+	<title>Monday 04 Sep 2023</title>
 	<meta name="generator" content="Zim 0.74.3">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
@@ -138,48 +138,106 @@
 <body>
 	<div class="wrapper">
 		<div id="navigation"> <ul>
-<li><a href="../../About.html" title="About" class="page">About</a></li>
-<li><a href="../../Computing.html" title="Computing" class="page">Computing</a></li>
-<li><a href="../../Contact.html" title="Contact" class="page">Contact</a></li>
-<li><a href="../../Home.html" title="Home" class="page">Home</a></li>
-<li><a href="../../Journal.html" title="Journal" class="page">Journal</a>
+<li><a href="../../../About.html" title="About" class="page">About</a></li>
+<li><a href="../../../Computing.html" title="Computing" class="page">Computing</a></li>
+<li><a href="../../../Contact.html" title="Contact" class="page">Contact</a></li>
+<li><a href="../../../Home.html" title="Home" class="page">Home</a></li>
+<li><a href="../../../Journal.html" title="Journal" class="page">Journal</a>
 <ul>
-<li><a href="../2022.html" title="2022" class="page">2022</a></li>
-<li><a href="../2023.html" title="2023" class="page">2023</a>
+<li><a href="../../2022.html" title="2022" class="page">2022</a></li>
+<li><a href="../../2023.html" title="2023" class="page">2023</a>
 <ul>
-<li><a href="./01.html" title="01" class="page">01</a></li>
+<li><a href="../01.html" title="01" class="page">01</a></li>
+<li><a href="../02.html" title="02" class="page">02</a></li>
+<li><a href="../03.html" title="03" class="page">03</a></li>
+<li><a href="../04.html" title="04" class="page">04</a></li>
+<li><a href="../07.html" title="07" class="page">07</a></li>
+<li><a href="../08.html" title="08" class="page">08</a></li>
+<li><a href="../09.html" title="09" class="page">09</a>
+<ul>
 <li><a href="./02.html" title="02" class="page">02</a></li>
-<li><a href="./03.html" title="03" class="page">03</a></li>
-<li><a href="./04.html" title="04" class="page">04</a></li>
-<li><a href="./07.html" title="07" class="page">07</a></li>
-<li><a href="./08.html" title="08" class="page">08</a></li>
-<li><b>09</b>
-<ul>
-<li><a href="./09/02.html" title="02" class="page">02</a></li>
-<li><a href="./09/04.html" title="04" class="page">04</a></li>
+<li><b>04</b></li>
 </ul></li>
 </ul>
 </li>
-<li><a href="../Index.html" title="Index" class="page">Index</a></li>
+<li><a href="../../Index.html" title="Index" class="page">Index</a></li>
 </ul>
 </li>
-<li><a href="../../Money.html" title="Money" class="page">Money</a></li>
-<li><a href="../../Projects.html" title="Projects" class="page">Projects</a></li>
+<li><a href="../../../Money.html" title="Money" class="page">Money</a></li>
+<li><a href="../../../Projects.html" title="Projects" class="page">Projects</a></li>
 </ul>
  </div>
 		<div id="content">
-			<h1>September 2023 <a name='Journal:2023:09'></a></h1>
+			<h1>Monday 04 Sep 2023 <a name='Journal:2023:09:04'></a></h1>
 
-			<p>
+			
+<hr>
+
+<br>
+
+<h1>Split Archives with 7zip<a id="split-archives-with-7zip" class="h_anchor"></a></h1>
+
+<br>
+
+<p>
+I was playing with tar to split archives but the package does not allow this natively; instead, you need to pipe the output through the split command. To save extra steps, and complexity, I used 7zip through the command line interface.
+</p>
+
+<h2>Compress and split<a id="compress-and-split" class="h_anchor"></a></h2>
+
+<br>
+
+<p>
+<tt>7z -v50m a ~/Zip/archive.7z ~/pictures/2022/</tt>
+</p>
+
+<p>
+The above command will create archive sizes of 50 mb and name them:
+</p>
+
+<p>
 <ul>
-<li><a href="./09/04.html" title="Split Archives with 7zip" class="page">Split Archives with 7zip</a> (04/09/2023)</li>
-<li><a href="./09/02.html" title="Checking File Integrity" class="page">Checking File Integrity</a> (02/09/2023)</li>
+<li><tt>archive.7z.001</tt></li>
+<li><tt>archive.7z.002</tt></li>
+<li><tt>archive.7z.003</tt></li>
+<li><tt>archive.7z.004</tt></li>
 </ul>
 </p>
+
+<p>
+Options for -v include:<br>
+-v10mb (megabuyes)<br>
+-v5g (gigabytes)
+</p>
+
+<h2>Extract<a id="extract" class="h_anchor"></a></h2>
+
+<br>
+
+<p>
+Now that I have created the split archives, it's time to extract the archive.
+</p>
+
+<p>
+7z x <a href="file:///home/karl/Zip/archive.7z.001" title="~/Zip/archive.7z.001" class="file">~/Zip/archive.7z.001</a> -o <a href="file:///home/karl/pictures/2022.2" title="~/pictures/2022.2/" class="file">~/pictures/2022.2/</a>
+</p>
+
+<p>
+Done. It's as easy as that. I will be using these split archives to split larger folder pictures to store in an archive format online, instead of saving hundreds of individual	 photos. 
+</p>
+
 
 
 			<br>
 			<span class="backlinks">
+				<hr class='footnotes'>
+				<b>Backlinks:</b>
+				<a href='../../../Home.html'>Home</a>
+				
+				<a href='../../Index.html'>Journal:Index</a>
+				
+				<a href='../09.html'>Journal:2023:09</a>
+				<br /><br />
 			</span>
 
 			
