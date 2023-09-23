@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title>September 2023</title>
+	<title>Saturday 23 Sep 2023</title>
 	<meta name="generator" content="Zim 0.74.3">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
@@ -138,55 +138,164 @@
 <body>
 	<div class="wrapper">
 		<div id="navigation"> <ul>
-<li><a href="../../About.html" title="About" class="page">About</a></li>
-<li><a href="../../Computing.html" title="Computing" class="page">Computing</a></li>
-<li><a href="../../Contact.html" title="Contact" class="page">Contact</a></li>
-<li><a href="../../Home.html" title="Home" class="page">Home</a></li>
-<li><a href="../../Journal.html" title="Journal" class="page">Journal</a>
+<li><a href="../../../About.html" title="About" class="page">About</a></li>
+<li><a href="../../../Computing.html" title="Computing" class="page">Computing</a></li>
+<li><a href="../../../Contact.html" title="Contact" class="page">Contact</a></li>
+<li><a href="../../../Home.html" title="Home" class="page">Home</a></li>
+<li><a href="../../../Journal.html" title="Journal" class="page">Journal</a>
 <ul>
-<li><a href="../2022.html" title="2022" class="page">2022</a></li>
-<li><a href="../2023.html" title="2023" class="page">2023</a>
+<li><a href="../../2022.html" title="2022" class="page">2022</a></li>
+<li><a href="../../2023.html" title="2023" class="page">2023</a>
 <ul>
-<li><a href="./01.html" title="01" class="page">01</a></li>
+<li><a href="../01.html" title="01" class="page">01</a></li>
+<li><a href="../02.html" title="02" class="page">02</a></li>
+<li><a href="../03.html" title="03" class="page">03</a></li>
+<li><a href="../04.html" title="04" class="page">04</a></li>
+<li><a href="../07.html" title="07" class="page">07</a></li>
+<li><a href="../08.html" title="08" class="page">08</a></li>
+<li><a href="../09.html" title="09" class="page">09</a>
+<ul>
 <li><a href="./02.html" title="02" class="page">02</a></li>
-<li><a href="./03.html" title="03" class="page">03</a></li>
 <li><a href="./04.html" title="04" class="page">04</a></li>
-<li><a href="./07.html" title="07" class="page">07</a></li>
-<li><a href="./08.html" title="08" class="page">08</a></li>
-<li><b>09</b>
-<ul>
-<li><a href="./09/02.html" title="02" class="page">02</a></li>
-<li><a href="./09/04.html" title="04" class="page">04</a></li>
-<li><a href="./09/23.html" title="23" class="page">23</a></li>
+<li><b>23</b></li>
 </ul></li>
 </ul>
 </li>
-<li><a href="../Index.html" title="Index" class="page">Index</a></li>
+<li><a href="../../Index.html" title="Index" class="page">Index</a></li>
 </ul>
 </li>
-<li><a href="../../Money.html" title="Money" class="page">Money</a></li>
-<li><a href="../../Projects.html" title="Projects" class="page">Projects</a></li>
+<li><a href="../../../Money.html" title="Money" class="page">Money</a></li>
+<li><a href="../../../Projects.html" title="Projects" class="page">Projects</a></li>
 </ul>
  </div>
 		<div id="content">
-			<h1>September 2023 <a name='Journal:2023:09'></a></h1>
+			<h1>Saturday 23 Sep 2023 <a name='Journal:2023:09:23'></a></h1>
 
-			<p>
-<img src="./09/road-1072823_640.jpg"><br>
-Image <a href="https://pixabay.com/photos/road-forest-fall-autumn-season-1072823/" title="copyright" class="https">copyright</a>
+			
+<hr>
+
+<br>
+
+<h1>AWS Glacier: test restore<a id="aws-glacier-test-restore" class="h_anchor"></a></h1>
+
+<br>
+
+<p>
+I have previously discussed my backup strategy and how I use <a href="../../../Computing/Backup/AWS_S3.html" title="AWS Glacier" class="page">AWS Glacier</a> as my last chance to store my pictures if all else fails. I realised I have not tested my backup. Testing backups are essential; it forms part of the 3:2:1:0 rule. 
 </p>
 
 <p>
 <ul>
-<li><a href="./09/23.html" title="AWS Glacier: test restore" class="page">AWS Glacier: test restore</a> (23/09/2023)</li>
-<li><a href="./09/04.html" title="Split Archives with 7zip" class="page">Split Archives with 7zip</a> (04/09/2023)</li>
-<li><a href="./09/02.html" title="Checking File Integrity" class="page">Checking File Integrity</a> (02/09/2023)</li>
+<li>3 copies in total, of which:</li>
+<li>2 local copies, and </li>
+<li>1 off site, with</li>
+<li>0 errors</li>
 </ul>
+</p>
+
+<p>
+Mine looks like:
+</p>
+
+<p>
+<ul>
+<li>6 copies</li>
+<li>3 local copies</li>
+<li>3 off site</li>
+<li>0 errors (confirmed today)</li>
+</ul>
+</p>
+
+<p>
+<b>Purpose</b><br>
+<ul>
+<li>Understand the Glacier restore process</li>
+<li>Test pictures from Deep Glacier backup by running sha256deep</li>
+<li>Check if able to restore and how to transfer the data from S3</li>
+</ul>
+<b>Learning</b><br>
+<ul>
+<li>Unable to do through rclone. Did through the AWS console. However found out that actually my rclone only had read only permissions, so changed this for future restore. I only use Glacier once a year to upload pictures, so must have restored read only access via AWS console.</li>
+<li>My version of rclone did not support status checking, so I used AWS console instead.</li>
+</ul>
+</p>
+
+<p>
+I wanted to learn the console first, to understand how this process worked visually. I have made it easier for myself to restore data by packing each year's worth of pictures into a separate archive. I choose 2009 as a test today.
+</p>
+
+<p>
+In the console, choose the file you want to restore, then select "Actions" button and choose "Initiate restore". You will be asked how many days you want the restored object to stay on S3 before deleting; during the process your Glacier object remains in Glacier. I choose 1 day and picked standard restore. The 2009 object is less than 1 GB. 
+</p>
+
+<p>
+<img src="./23/pasted_image.png">
+</p>
+
+<p>
+This takes 12 hours. To download, either select the file in AWS console or use rclone to copy off. I am not sure when my restore was completed, but my the next morning it was ready to go.
+</p>
+
+<p>
+<img src="./23/pasted_image001.png">
+</p>
+
+<p>
+I did not have version 1.64+ of rclone so could not monitor the restore progress using the command:
+</p>
+
+<p>
+<tt>rclone</tt> backend restore-status remote: 
+</p>
+
+<p>
+When done:
+</p>
+
+<p>
+<img src="./23/pasted_image002.png">
+</p>
+
+<p>
+It was easy to copy the object. As I am using rlcone encryption, I used rclone to copy the object back to my PC. To restore, use the same path as the Glacier object, e.g.
+</p>
+
+<p>
+<tt>rclone copy --progress remote:directory/object /local/disk/</tt>
+</p>
+
+<br>
+
+<p>
+Once copied, I extracted the tar volume and everything worked as intended.
+</p>
+
+<p>
+<ul>
+<li><a href="https://rclone.org/s3/#restore" title="Read the rclone manual" class="https">Read the rclone manual</a></li>
+<li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/restoring-objects.html" title="Read the AWS manual" class="https">Read the AWS manual</a></li>
+</ul>
+</p>
+
+<h3>Conclusion<a id="conclusion" class="h_anchor"></a></h3>
+
+<br>
+
+<p>
+Simple one, test this process before you need it. I cannot think of anything worse in the world of data than restoring a backup that does not work! 
 </p>
 
 
 			<br>
 			<span class="backlinks">
+				<hr class='footnotes'>
+				<b>Backlinks:</b>
+				<a href='../../../Home.html'>Home</a>
+				
+				<a href='../../Index.html'>Journal:Index</a>
+				
+				<a href='../09.html'>Journal:2023:09</a>
+				<br /><br />
 			</span>
 
 			
