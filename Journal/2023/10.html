@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title>Saturday 02 Sep 2023</title>
+	<title>October 2023</title>
 	<meta name="generator" content="Zim 0.74.3">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
@@ -138,120 +138,54 @@
 <body>
 	<div class="wrapper">
 		<div id="navigation"> <ul>
-<li><a href="../../../About.html" title="About" class="page">About</a></li>
-<li><a href="../../../Computing.html" title="Computing" class="page">Computing</a></li>
-<li><a href="../../../Contact.html" title="Contact" class="page">Contact</a></li>
-<li><a href="../../../Home.html" title="Home" class="page">Home</a></li>
-<li><a href="../../../Journal.html" title="Journal" class="page">Journal</a>
+<li><a href="../../About.html" title="About" class="page">About</a></li>
+<li><a href="../../Computing.html" title="Computing" class="page">Computing</a></li>
+<li><a href="../../Contact.html" title="Contact" class="page">Contact</a></li>
+<li><a href="../../Home.html" title="Home" class="page">Home</a></li>
+<li><a href="../../Journal.html" title="Journal" class="page">Journal</a>
 <ul>
-<li><a href="../../2022.html" title="2022" class="page">2022</a></li>
-<li><a href="../../2023.html" title="2023" class="page">2023</a>
+<li><a href="../2022.html" title="2022" class="page">2022</a></li>
+<li><a href="../2023.html" title="2023" class="page">2023</a>
 <ul>
-<li><a href="../01.html" title="01" class="page">01</a></li>
-<li><a href="../02.html" title="02" class="page">02</a></li>
-<li><a href="../03.html" title="03" class="page">03</a></li>
-<li><a href="../04.html" title="04" class="page">04</a></li>
-<li><a href="../07.html" title="07" class="page">07</a></li>
-<li><a href="../08.html" title="08" class="page">08</a></li>
-<li><a href="../09.html" title="09" class="page">09</a>
-<ul>
-<li><b>02</b></li>
+<li><a href="./01.html" title="01" class="page">01</a></li>
+<li><a href="./02.html" title="02" class="page">02</a></li>
+<li><a href="./03.html" title="03" class="page">03</a></li>
 <li><a href="./04.html" title="04" class="page">04</a></li>
-<li><a href="./23.html" title="23" class="page">23</a></li>
+<li><a href="./07.html" title="07" class="page">07</a></li>
+<li><a href="./08.html" title="08" class="page">08</a></li>
+<li><a href="./09.html" title="09" class="page">09</a></li>
+<li><b>10</b>
+<ul>
+<li><a href="./10/10.html" title="10" class="page">10</a></li>
+</ul></li>
 </ul>
 </li>
-<li><a href="../10.html" title="10" class="page">10</a></li>
+<li><a href="../Index.html" title="Index" class="page">Index</a></li>
 </ul>
 </li>
-<li><a href="../../Index.html" title="Index" class="page">Index</a></li>
-</ul>
-</li>
-<li><a href="../../../Money.html" title="Money" class="page">Money</a></li>
-<li><a href="../../../Projects.html" title="Projects" class="page">Projects</a></li>
+<li><a href="../../Money.html" title="Money" class="page">Money</a></li>
+<li><a href="../../Projects.html" title="Projects" class="page">Projects</a></li>
 </ul>
  </div>
 		<div id="content">
-			<h1>Saturday 02 Sep 2023 <a name='Journal:2023:09:02'></a></h1>
+			<h1>October 2023 <a name='Journal:2023:10'></a></h1>
 
 			
 <hr>
 
 <br>
-
-<h1>Checking File Integrity<a id="checking-file-integrity" class="h_anchor"></a></h1>
-
+<br>
 <br>
 
 <p>
-<img src="./02/audit-4576720_640.jpg"><br>
-Image <a href="https://pixabay.com/illustrations/audit-report-verification-magnifier-4576720/" title="copyright" class="https">copyright</a>
-</p>
-
-<p>
-I wanted the ability to check file integrity within a directory structure; this would be useful should I ever need to restore from the cloud or test that an external hard drive is telling the truth (help detect bitrot). As I have thousands of pictures doing this check one-by-one would be a pain. 
-</p>
-
-<p>
-MD5Deep is an excellent tool I can use to check every file within a directory structure. As my picture directory does not change, it was a great starting place to test this script. The application will check each time, generate a checksum, and store within a defined text file. You can choose different hashing methods. In my case I used SHA256. 
-</p>
-
-<p>
-Let's get started.
-</p>
-
-<p>
-Install the hashing tools:
-</p>
-
-<p>
-<tt>sudo apt install md5deep</tt>
-</p>
-
-<p>
-Once installed, let's get hashing. This may take some time if you are hashing a large directory. 
-</p>
-
-<p>
-<tt>sha256deep -r /foo/bar &gt; hash.sha256</tt>
-</p>
-
-<p>
-The -r switch is recursive so will follow directories. You can store the hash file whenever you want, such as ~/Documents/hashes/pictures.sha256
-</p>
-
-<p>
-Great, you now have a list of file hashes to play with. Back these up and you're good.
-</p>
-
-<p>
-Once you are ready to check the directory against your hash file, use this command:
-</p>
-
-<p>
-<tt>sha256deep -X hash.sha256 -r /foo/bar</tt>
-</p>
-
-<p>
-If you want to watch progress, add -e to the end. However, because I was hashing pictures and short videos, the progress hashed so quickly this was not helpful, unless hashing large files. 
-</p>
-
-<p>
-Now that I have a list of hashes, I can be more confident my working hard drive is not failing and corrupting files. I can run this check monthly like my own "scrub" tool. Should I need to restore files I will know whether they are damaged.
+<ul>
+<li><a href="./10/10.html" title="Storj: The Decentralised Cloud" class="page">Storj: The Decentralised Cloud</a> (10/10/2023)</li>
+</ul>
 </p>
 
 
 			<br>
 			<span class="backlinks">
-				<hr class='footnotes'>
-				<b>Backlinks:</b>
-				<a href='../../../Home.html'>Home</a>
-				
-				<a href='../../../Computing.html'>Computing</a>
-				
-				<a href='../../Index.html'>Journal:Index</a>
-				
-				<a href='../09.html'>Journal:2023:09</a>
-				<br /><br />
 			</span>
 
 			
