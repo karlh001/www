@@ -229,7 +229,25 @@ Storj have a concept of segments: each maximum size of a segment being 64 MB. Fo
 <br>
 
 <p>
-These 64 MB blocks are split into 80 chunks are encrypted and spread throughout the globe. As these nodes are hosted by individuals, people can lose connection or delete their nodes; Storj mitigate this by allowing a “graceful exit” whereby chunks are transferred to another node – people do this because a part of their income is set aside for this situation; however, there is likely to be a situation where one or more chunk is not accessible, but do not worry: Storj only needs 59 chunks to restore the file (this magic is achieved using erasure coding – the sample algorithm used to error correct DVDs).
+These 64 MB blocks are split into 80 chunks are encrypted and spread throughout the globe. As these nodes are hosted by individuals, people can lose connection or delete their nodes; Storj mitigate this by allowing a “graceful exit” whereby chunks are transferred to another node – people do this because a part of their income is set aside for this situation; however, there is likely to be a situation where one or more chunk is not accessible, but do not worry: Storj only needs 29 chunks to restore the file (this magic is achieved using erasure coding – the sample algorithm used to error correct CDs). If nodes go offline, the satellites will distribute the chunks to new nodes to keep 80 chunks.  
+</p>
+
+<br>
+
+<p>
+<img src="./10/pasted_image001.png">
+</p>
+
+<p>
+Example of geographical distrubution of one of my 3.9 GB files, broken into 4,723 pieces.
+</p>
+
+<p>
+<img src="./10/pasted_image002.png">
+</p>
+
+<p>
+Another example of a single photograph. 4 MB file, 80 pieces. 
 </p>
 
 <br>
@@ -270,7 +288,7 @@ I have hashed (SHA256) the data I store in Storj. As part of a good back-up stra
 <ul>
 <li>I notice a lot of nodes (second most location) are located in Russia – this could potentially be a problem should they isolate themselves from the global internet. </li>
 <li>Running of the gateway may cease if the Storj management team stops trading. Although decentralised, there is still a managing team.</li>
-<li>Loss of nodes – likely due to poorer payouts of costs of electricity to continue running. </li>
+<li>Loss of node hosts – likely due to poorer payouts of costs of electricity to continue running. </li>
 </ul>
 </p>
 
