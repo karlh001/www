@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title>ZFS Snapper</title>
+	<title>ArchiveGuardian</title>
 	<meta name="generator" content="Zim 0.74.3">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
@@ -146,64 +146,147 @@
 <li><a href="../Money.html" title="Money" class="page">Money</a></li>
 <li><a href="../Projects.html" title="Projects" class="page">Projects</a>
 <ul>
-<li><a href="./ArchiveGuardian.html" title="ArchiveGuardian" class="page">ArchiveGuardian</a></li>
-<li><b>ZFS Snapper</b></li>
+<li><b>ArchiveGuardian</b></li>
+<li><a href="./ZFS_Snapper.html" title="ZFS Snapper" class="page">ZFS Snapper</a></li>
 </ul></li>
 </ul>
  </div>
 		<div id="content">
-			<h1>ZFS Snapper <a name='Projects:ZFS Snapper'></a></h1>
+			<h1>ArchiveGuardian <a name='Projects:ArchiveGuardian'></a></h1>
 
 			<p>
-Created Friday 31 March 2023
-</p>
-
-<hr>
-
-<br>
-
-<p>
-<img src="./ZFS_Snapper/technology-1587673_640.jpg"><br>
-Image <a href="https://pixabay.com/photos/technology-servers-server-1587673/" title="copyright" class="https">copyright</a>
-</p>
-
-<h2>About<a id="about" class="h_anchor"></a></h2>
-
-<br>
-
-<p>
-I created a script to help manage my ZFS snapshot rotation. I also create manual snapshots along side this script, but like to have an automatic hourly snapshot just in case I forget, but do not want the headache of deleting regular snapshot. There are other ZFS snapshot rotation scripts out there - dare I say more advanced - but I like to control as much as possible my data.
-</p>
-
-<p>
-I have allowed users to change how many snapshots you reserve.  
-</p>
-
-<h2>How it works<a id="how-it-works" class="h_anchor"></a></h2>
-
-<br>
-
-<p>
-<ul>
-<li>Creates snapshot</li>
-<li>Checks if snapshots need removing; counts all snapshots starting with 'Auto'</li>
-<li>Deletes all snapshots starting with "Auto" until last n defined remain</li>
-</ul>
-</p>
-
-<p>
-Snapshots are named "<i>Auto_YYYYMMDD_HHMMSS</i>"
+Created Saturday 04 November 2023
 </p>
 
 <br>
 
 <p>
-<a href="https://github.com/karlh001/zfs-snapper" title="Click here" class="https">Click here</a> to view the project on Github.
+<img src="./ArchiveGuardian/archive_guardian_logo_web_low_res.jpg">
+</p>
+
+<p>
+Introducing ArchiveGuardian (AG) 
+</p>
+
+<br>
+
+<h2>How it works?<a id="how-it-works" class="h_anchor"></a></h2>
+
+<br>
+
+<p>
+I have 7 awesome photos I want to protect. Say I keep these on a pen drive or external USB drive which is infrequently access, but I want to know if the files are still the same. 
+</p>
+
+<br>
+
+<p>
+<img src="./ArchiveGuardian/pasted_image.png">
+</p>
+
+<br>
+
+<p>
+Download and run the program
+</p>
+
+<p>
+<tt>ag -d ~/Pictures/</tt>
+</p>
+
+<p>
+AG will ask if you have the correct directory and want to continue. Type y to continue. Depending on size of directory this may take time. AG will recursively look through directory structures.
+</p>
+
+<p>
+Once complete your pictures will have an accompanying hash file. This is the metadata of the picture AG can check next time to look for changes.
+</p>
+
+<br>
+
+<p>
+<img src="./ArchiveGuardian/pasted_image001.png">
+</p>
+
+<p>
+But how does AG handle corrupted files. Even the smallest byte change will result in an error. In the example below I have changed the picture to look like an extreme corruption. However not all damage to pictures can easily be seen.
+</p>
+
+<p>
+<img src="./ArchiveGuardian/pasted_image002.png">
+</p>
+
+<p>
+I ran AG again and got this message:
+</p>
+
+<p>
+<tt>Failed Hash: ~/Pictures/103_3350.JPG</tt>
+</p>
+
+<p>
+AG will not be able to repair the pictures. At his stage you know which files are broken so you can restore from backup. 
+</p>
+
+<h2>Download<a id="download" class="h_anchor"></a></h2>
+
+<br>
+
+<p>
+Visit my dedicated <a href="https://karlhunter.co.uk/ag" title="website" class="https">website</a> to find out more and download.
+</p>
+
+<h2>Install<a id="install" class="h_anchor"></a></h2>
+
+<br>
+
+<p>
+Works on Linux. I have tested on Ubuntu Server and Linux Mint to date.
+</p>
+
+<p>
+Download and extract the archive. CD to directory:
+</p>
+
+<p>
+<tt>cd ~/Downloads</tt>
+</p>
+
+<p>
+Then copy to your bin folder so that you can easily run through command line
+</p>
+
+<p>
+<tt>sudo cp ag /usr/bin/</tt>
+</p>
+
+<p>
+Test it works
+</p>
+
+<p>
+<tt>ag</tt>
+</p>
+
+<p>
+if you get an output it works. Remember to feed a directory with the -d flag.
+</p>
+
+<h2>Contribute<a id="contribute" class="h_anchor"></a></h2>
+
+<br>
+
+<p>
+Visit my <a href="https://github.com/karlh001/archiveguardian" title="GitHub" class="https">GitHub</a> page to suggest features or report bugs.
 </p>
 
 
 			<br>
 			<span class="backlinks">
+				<hr class='footnotes'>
+				<b>Backlinks:</b>
+				<a href='../Home.html'>Home</a>
+				<br /><br />
 			</span>
 
 			
