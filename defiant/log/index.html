@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://karlhunter.co.uk/defiant/man/errors/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://karlhunter.co.uk/defiant/man/log/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Errors - DEFIANT-FG</title>
+    <title>Logging - DEFIANT-FG</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Errors";
-        var mkdocs_page_input_path = "errors.md";
-        var mkdocs_page_url = "/defiant/man/errors/";
+        var mkdocs_page_name = "Logging";
+        var mkdocs_page_input_path = "log.md";
+        var mkdocs_page_url = "/defiant/man/log/";
       </script>
     
     <!--[if lt IE 9]>
@@ -71,18 +71,8 @@
                 <li class="toctree-l1"><a class="reference internal" href="../db/">Database</a>
                 </li>
               </ul>
-              <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="./">Errors</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#database">Database</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#hash">Hash</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#file-system">File System</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#logging">Logging</a>
-    </li>
-    </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../errors/">Errors</a>
                 </li>
               </ul>
               <ul>
@@ -115,7 +105,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Errors</li>
+      <li class="breadcrumb-item active">Logging</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -124,40 +114,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="errors">Errors</h1>
-<p>Common errors and what they mean.</p>
-<h2 id="database">Database</h2>
-<pre><code>error: could not create database file. Can I write to this directory?
+                <h1 id="logging">Logging</h1>
+<p>With the <code>-l</code> flag you can enable log file writing. If supplied, your terminal window will no longer show outputs, but instead this will be output to a log file within the path of the directory.</p>
+<p>For example</p>
+<pre><code>dfg -l -d /path/to/files
 </code></pre>
-<p>As it states, is the directory you are scanning read only? FG needs access to write the database file.</p>
-<pre><code>error: Could not open db
+<p>Will result in a log file:</p>
+<pre><code>/path/to/files/dfg.log
 </code></pre>
-<p>Does FG have read and write acces to the db? If that's the case, db may be damaged. Return a back-up copy.</p>
-<pre><code>fatal: SQL query error
-</code></pre>
-<p>Although FG was able to open the database, it could not query the rows. This is bad. Likely damaged database file - restore from backup and try again.</p>
-<h2 id="hash">Hash</h2>
-<pre><code>error: failed hash on /path/to/file.JPG
-</code></pre>
-<p>This is what FG was designed to do. This messages means the file has been altered or became damaged. Restore the file from back and run the scan again.</p>
-<h2 id="file-system">File System</h2>
-<pre><code>Fatal: directory does not exist
-</code></pre>
-<p>You provided a location that is not a directory. Check your input.</p>
-<pre><code>missing: /path/to/file.PNG
-</code></pre>
-<p>The file is no longer present. It may have been deleted, moved or renamed. If you moved or renamed, the old file meta data will persist in the database. </p>
-<h2 id="logging">Logging</h2>
-<pre><code>error: Could not create log file
-</code></pre>
-<p>FG was not able to write to the directory. <code>/path/to/files/dfg.log</code></p>
+<p>The log file will append, which means every time you run the the application, new log entries will follow older entries. </p>
               
             </div>
           </div><footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../db/" class="btn btn-neutral float-left" title="Database"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../release_notes_1/" class="btn btn-neutral float-right" title="Release Notes 1.x">Next <span class="icon icon-circle-arrow-right"></span></a>
-    </div>
 
   <hr/>
 
@@ -179,10 +147,6 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../db/" style="color: #fcfcfc">&laquo; Previous</a></span>
-    
-    
-      <span><a href="../release_notes_1/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
