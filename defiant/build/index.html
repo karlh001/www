@@ -115,15 +115,16 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="build-from-source">Build From Source</h1>
-<p>To build source to binary download and install Golang. On debian-based distros try:</p>
+<p>To build source code into a binary you need to download and install Golang. On debian-based distros try:</p>
 <pre><code> sudo apt install golang-go
 </code></pre>
-<p>Once set-up CD to the source code directory. </p>
-<pre><code>cd ~/Downloads/src
+<p>Once set-up change directory to the source code directory. </p>
+<pre><code>cd ~/Downloads/XYZ/src
 </code></pre>
 <p>Run the build command:</p>
 <pre><code>go build -o dfg.bin .
 </code></pre>
+<p>During the build, Go will download dependencies. </p>
 <p>You will have a complied application named <code>dfg.bin</code>. Run a command to test it worked:</p>
 <pre><code>./dfg.bin -version
 </code></pre>
