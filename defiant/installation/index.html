@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://karlhunter.co.uk/defiant/man/installation/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://karlhunter.co.uk/defiant/installation/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
     <title>Installation - DEFIANT-FG</title>
     <link rel="stylesheet" href="../css/theme.css" />
@@ -14,7 +14,7 @@
         // Current page data
         var mkdocs_page_name = "Installation";
         var mkdocs_page_input_path = "installation.md";
-        var mkdocs_page_url = "/defiant/man/installation/";
+        var mkdocs_page_url = "/defiant/installation/";
       </script>
     
     <!--[if lt IE 9]>
@@ -49,10 +49,6 @@
               </ul>
               <ul>
                 <li class="toctree-l1"><a class="reference internal" href="../requirements/">Requirements</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../download/">Download</a>
                 </li>
               </ul>
               <ul class="current">
@@ -122,11 +118,18 @@
               
                 <h1 id="installation">Installation</h1>
 <h2 id="on-linux">On Linux</h2>
-<p>On Debian based operating systems (such as Ubuntu, Linux Mint) download and install the deb package. On desktop versions, open package and click <code>install package</code>. </p>
-<p>For automatic installation on Linux, download the source code from the releases section, extract the tar and run: </p>
-<pre><code>sh INSTALL_LINUX.sh
+<p>On Debian based operating systems (such as Ubuntu, Linux Mint), download the deb package. On desktop versions, open package and click <code>install package</code>. </p>
+<p>Done.</p>
+<p>However, if you are running another Linux operating system or prefer not use use deb packages follow this instructions:</p>
+<p>For manual installation on Linux, download the source code from the releases section, extract the tar and change directory to the build directory (e.g. <code>cd ~/Downloads/defiant-fg-main/</code>, then run:</p>
+<pre><code>sh build/INSTALL_LINUX.sh
 </code></pre>
-<p>As stand-alone executable, extract the contents and copy dfg.bin anywhere you desire. Make executable with command:  </p>
+<p><em>Do not execute script from within build folder or it will fail</em></p>
+<p>Test install. Run:</p>
+<pre><code>dfg -version
+</code></pre>
+<p>Done.</p>
+<p>To skip installer, and copy as a stand-alone executable, extract the contents and copy dfg.bin anywhere you desire. Make executable with command:  </p>
 <pre><code>chmod +x dfg.bin
 </code></pre>
 <p>And run: </p>
@@ -140,7 +143,7 @@
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../download/" class="btn btn-neutral float-left" title="Download"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../requirements/" class="btn btn-neutral float-left" title="Requirements"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../run/" class="btn btn-neutral float-right" title="Run">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
@@ -164,7 +167,7 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../download/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../requirements/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../run/" style="color: #fcfcfc">Next &raquo;</a></span>

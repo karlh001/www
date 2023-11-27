@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://karlhunter.co.uk/defiant/man/flags/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://karlhunter.co.uk/defiant/flags/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
     <title>Flags - DEFIANT-FG</title>
     <link rel="stylesheet" href="../css/theme.css" />
@@ -14,7 +14,7 @@
         // Current page data
         var mkdocs_page_name = "Flags";
         var mkdocs_page_input_path = "flags.md";
-        var mkdocs_page_url = "/defiant/man/flags/";
+        var mkdocs_page_url = "/defiant/flags/";
       </script>
     
     <!--[if lt IE 9]>
@@ -52,10 +52,6 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../download/">Download</a>
-                </li>
-              </ul>
-              <ul>
                 <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
                 </li>
               </ul>
@@ -69,6 +65,8 @@
     <li class="toctree-l2"><a class="reference internal" href="#directory">Directory</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#skip">Skip</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#skip-info-messages">Skip info messages</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#logging">Logging</a>
     </li>
@@ -130,11 +128,15 @@
 <p>Choose directory to scan. For example:</p>
 <pre><code>dfg -d /mnt/usb/pictures/
 </code></pre>
+<p>Note: the -d should be the last argument. Use other flags before this. </p>
 <h3 id="skip">Skip</h3>
 <p><code>-s</code></p>
 <p>Skip any messages after executing application. Useful for scripting. Will skip confirmation message to create new database file</p>
 <pre><code>dfg -s -d /mnt/usb/pictures/
 </code></pre>
+<h3 id="skip-info-messages">Skip info messages</h3>
+<p><code>-e</code></p>
+<p>Only shows errors such as failed hashes and missing files. Does not show any info prompts during the scan.</p>
 <h3 id="logging">Logging</h3>
 <pre><code>-l
 </code></pre>
