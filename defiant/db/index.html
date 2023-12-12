@@ -126,9 +126,12 @@
 <h2 id="about">About</h2>
 <p>DEFIANT-FG stores your file hashes into a database (db) file named <code>dfg.db</code>. It's formatted to SQLite. </p>
 <h2 id="location">Location</h2>
-<p>The db file is stored in the root of the given directory; for example, if you run on <code>/mnt/usb/Pictures</code> the db file will be located <code>/mnt/usb/Pictures/dfg.db</code>. Any sub folders will be included in the hash database.</p>
+<p>By default, db file is stored in the root of the given directory; for example, if you run on <code>/mnt/usb/Pictures</code> the db file will be located <code>/mnt/usb/Pictures/dfg.db</code>. Any sub folders will be included in the hash database.</p>
+<p>You can specify your own db location with name of the database file. To do this, use the <code>-db</code> flag, example:</p>
+<pre><code>dfg -db /path/to/db.sql -d /path/to/files/
+</code></pre>
 <h2 id="portability">Portability</h2>
-<p>You are encouraged to keep a back-up of the database file. As long as you restore to the root of the original directory it will work, even though the full path changes. For example, you can move the Pictures to: <code>/mnt/usb2/Pictures</code>; in fact, the picture folder name can be changed too.</p>
+<p>You are encouraged to keep a back-up of the database file. As long as you restore to the root of the original directory (or specify the exact location) it will work, even though the full path changes. For example, you can move the Pictures to: <code>/mnt/usb2/Pictures</code>; in fact, the picture directory name can be changed too.</p>
 <h2 id="structure">Structure</h2>
 <ul>
 <li>dfg.db<ul>

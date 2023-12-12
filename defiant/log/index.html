@@ -111,7 +111,8 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="logging">Logging</h1>
-<p>With the <code>-l</code> flag you can enable log file writing. If supplied, your terminal window will no longer show outputs, but instead this will be output to a log file within the path of the directory.</p>
+<h2 id="enable">Enable</h2>
+<p>With the <code>-l</code> flag you can enable log file writing. If supplied, your terminal window will no longer show outputs, but instead this will be output to a log file within the path of the directory. Useful for scripting.</p>
 <p>For example</p>
 <pre><code>dfg -l -d /path/to/files
 </code></pre>
@@ -119,6 +120,19 @@
 <pre><code>/path/to/files/dfg.log
 </code></pre>
 <p>The log file will append, which means every time you run the the application, new log entries will follow older entries. </p>
+<h2 id="location">Location</h2>
+<p>The default location of the log file, if you specify -l only, will be the directory of the scanned path; however, you can specify your own directory by using the <code>-log</code> flag.</p>
+<p>For example:</p>
+<pre><code>dfg -l -log /var/log/pictures.log -d /mnt/usb/pictures/
+</code></pre>
+<h2 id="timestmp">Timestmp</h2>
+<p>As log files append, you may want to create a new log file each time the program is run. To do this, add the date command to the <code>-log</code> flag:</p>
+<pre><code>dfg -l -log /var/log/$(date +%F)_pictures.log -d /mnt/usb/pictures/
+</code></pre>
+<p>Output</p>
+<pre><code>2023-12-11.log
+</code></pre>
+<p>More on <a href="https://www.howtogeek.com/410442/how-to-display-the-date-and-time-in-the-linux-terminal-and-use-it-in-bash-scripts/#how-to-see-the-date-and-time-and-time-in-the-linux-terminal">date</a> outputs.</p>
               
             </div>
           </div><footer>
