@@ -9,7 +9,7 @@
     <meta name="Author" content="Karl Hunter">
     
 
-    <title>Sunday 09 Apr 2023</title>
+    <title>Saturday 16 Dec 2023</title>
 
     <!-- JS Jquery and Bootstrap scripts -->
 	<script src=" https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js "></script>
@@ -48,11 +48,11 @@
       </div>
       <div class="btn-toolbar" role="toolbar" aria-label="Button groups">
         <div class="btn-group mr-2" role="group" aria-label="Navigation group">
-              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='./07.html'">Prev</button>
+              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='./15.html'">Prev</button>
   
               <button type="button" class="btn btn-info btn-xs" disabled>Index</a>
 
-              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='./16.html'">Next</button>
+              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='../../Index.html'">Next</button>
         </div>
       </div>
       <div>
@@ -84,21 +84,17 @@
 <li><a href="../01.html" title="01" class="page">01</a></li>
 <li><a href="../02.html" title="02" class="page">02</a></li>
 <li><a href="../03.html" title="03" class="page">03</a></li>
-<li><a href="../04.html" title="04" class="page">04</a>
-<ul>
-<li><a href="./01.html" title="01" class="page">01</a></li>
-<li><a href="./03.html" title="03" class="page">03</a></li>
-<li><a href="./07.html" title="07" class="page">07</a></li>
-<li><b>09</b></li>
-<li><a href="./16.html" title="16" class="page">16</a></li>
-</ul>
-</li>
+<li><a href="../04.html" title="04" class="page">04</a></li>
 <li><a href="../07.html" title="07" class="page">07</a></li>
 <li><a href="../08.html" title="08" class="page">08</a></li>
 <li><a href="../09.html" title="09" class="page">09</a></li>
 <li><a href="../10.html" title="10" class="page">10</a></li>
 <li><a href="../11.html" title="11" class="page">11</a></li>
-<li><a href="../12.html" title="12" class="page">12</a></li>
+<li><a href="../12.html" title="12" class="page">12</a>
+<ul>
+<li><a href="./15.html" title="15" class="page">15</a></li>
+<li><b>16</b></li>
+</ul></li>
 </ul>
 </li>
 <li><a href="../../Index.html" title="Index" class="page">Index</a></li>
@@ -122,50 +118,90 @@
               </div>
             </noscript>
 
-                <h1>Sunday 09 Apr 2023<a name='Sunday 09 Apr 2023_1_1' class="offset-anchor"></a></h1>
+                <h1>Saturday 16 Dec 2023<a name='Saturday 16 Dec 2023_1_1' class="offset-anchor"></a></h1>
               
 <hr>
 
 
-                <h2>My Hard Drive Failed<a name='My Hard Drive Failed_1_2' class="offset-anchor"></a></h2>
+                <h1>Migrate Jellyfin Server (Linux to Linux)<a name='Migrate Jellyfin Server (Linux to Linux)_1_2' class="offset-anchor"></a></h1>
               <p>
-<img src="./09/hdd_photo_seagate_1_tb.jpg">
+<img src="./16/cinema-4153289_640.jpg"><br>
+Image <a href="https://pixabay.com/illustrations/cinema-movie-camera-projector-film-4153289/" title="copyright" class="https">copyright</a>
 </p>
 
 <p>
-I had recently completed a full backup a few days ago onto this drive. The drive worked well and I managed to grab a SMART data output to check nothing was failing. This is an old drive used as an extra backup drive.
+I needed to move my Jellyfin server to a new server. I documented the process for future reference and to help others in the same situation. There are scripts to change the file paths within the database files, but I did not use these as was able to reproduce the same path on the server. 
 </p>
 
 <p>
-A few days later, I needed to run another backup. I put the drive back in, it spun up then: beeping, buzzing and clicking and was not readable by Windows.
+You will need to copy over the following directories:
+</p>
+
+<pre>
+/var/lib/jellyfin
+/usr/share/jellyfin/
+/etc/jellyfin
+</pre>
+
+<p>
+Probably not necessary, but I copied by cache folder too:
 </p>
 
 <p>
-The SMART statistics from 2 days prior to failure were marked as <i>Good</i> (<b>CrystalDiskInfo</b>). Unfortunately the programme exported the SMART values in hex, so I converted them to decimal.
+<div style='padding-left: 30pt'>
+<tt>/var/cache/jellyfin</tt>
+</div>
 </p>
 
 <p>
-Here are the important values:
+Also, for extra measure, I copied these files too:
+</p>
+
+<pre>
+/etc/default/jellyfin
+/etc/systemd/system/jellyfin.service.d/jellyfin.service.conf
+</pre>
+
+<p>
+I copied the above paths to the new server then installed Jellyfin server.
 </p>
 
 <p>
-Power On Hours: 359 hours<br>
-Power On Count: 193 count<br>
-0 Spin-Up Time<br>
-263 Start/Stop Count<br>
-0 Reallocated Sectors Count<br>
-257633613250919 (2.93 years) Power-On Hours<br>
-0 Spin Retry Count<br>
-0 Current Pending Sector Count<br>
-0 Uncorrectable Sector Count
+# apt install jellyfin
 </p>
 
 <p>
-I was happy with the <a href="../../../Computing/Backup/SMART.html" title="SMART statistics" class="page">SMART statistics</a> to continue using the drive. The drive is &gt; 6 years old, but due to being a backup drive had only 263 start/stop counts. I am dubious about the power-on hours being 2.9 years.
+This would not work for me. The problem was with permissions. I made sure the user of the paths was set to:
 </p>
 
 <p>
-This drive was an old accessory drive to my backup plan and will therefore not be replaced. See my post on <a href="../03/08.html" title="B2" class="page">B2</a>. 
+<tt># chown jellyfin:jellyfin /path/as/above</tt>
+</p>
+
+<p>
+If this does not work, try:
+</p>
+
+<p>
+<tt># chmod 777 -R /on/each/path</tt>
+</p>
+
+<p>
+Service commands for Jellyfin server:
+</p>
+
+<pre>
+service jellyfin stop
+service jellyfin restart
+service jellyfin start
+</pre>
+
+<p>
+I used the Jellyfin documentation as a reference: <a href="https://jellyfin.org/docs/general/administration/migrate/" title="https://jellyfin.org/docs/general/administration/migrate/" class="https">https://jellyfin.org/docs/general/administration/migrate/</a>
+</p>
+
+<p>
+Now I can enjoy Jellyfin-goodness from a new machine. 
 </p>
 
             
@@ -179,7 +215,7 @@ This drive was an old accessory drive to my backup plan and will therefore not b
                 <a href='../../Index.html'>Journal:Index</a>
                 
 <br />
-                <a href='../04.html'>Journal:2023:04</a>
+                <a href='../12.html'>Journal:2023:12</a>
                 
             </span>
 
