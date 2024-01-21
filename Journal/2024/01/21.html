@@ -9,7 +9,7 @@
     <meta name="Author" content="Karl Hunter">
     
 
-    <title>Thursday 04 Jan 2024</title>
+    <title>Sunday 21 Jan 2024</title>
 
     <!-- JS Jquery and Bootstrap scripts -->
 	<script src=" https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js "></script>
@@ -48,11 +48,11 @@
       </div>
       <div class="btn-toolbar" role="toolbar" aria-label="Button groups">
         <div class="btn-group mr-2" role="group" aria-label="Navigation group">
-              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='../01.html'">Prev</button>
+              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='./04.html'">Prev</button>
   
               <button type="button" class="btn btn-info btn-xs" disabled>Index</a>
 
-              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='./21.html'">Next</button>
+              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='../../Index.html'">Next</button>
         </div>
       </div>
       <div>
@@ -85,8 +85,8 @@
 <ul>
 <li><a href="../01.html" title="01" class="page">01</a>
 <ul>
-<li><b>04</b></li>
-<li><a href="./21.html" title="21" class="page">21</a></li>
+<li><a href="./04.html" title="04" class="page">04</a></li>
+<li><b>21</b></li>
 </ul></li>
 </ul>
 </li>
@@ -111,91 +111,81 @@
               </div>
             </noscript>
 
-                <h1>Thursday 04 Jan 2024<a name='Thursday 04 Jan 2024_1_1' class="offset-anchor"></a></h1>
+                <h1>Sunday 21 Jan 2024<a name='Sunday 21 Jan 2024_1_1' class="offset-anchor"></a></h1>
               
 <hr>
 
 
-                <h1>Last Year's Predictions<a name='Last Year's Predictions_1_2' class="offset-anchor"></a></h1>
-              <table>
+                <h2>DFG Found Damged Pictures<a name='DFG Found Damged Pictures_1_2' class="offset-anchor"></a></h2>
+              <p>
+<img src="./21/file-7054983_640.png"><br>
+Image <a href="https://pixabay.com/vectors/file-format-type-document-7054983/" title="copyright" class="https">copyright</a>
+</p>
+
+<p>
+I have been using my tool, DFG, to monitor directories on my storage device for a while now. The purpose of this tool is to look for changes to pictures to help detect bitrot or other corruption. 
+</p>
+
+<p>
+Well, today, the tool failed hashes on 2 pictures from my 2023 directory. I have not edited these pictures so it’s time to explore.
+</p>
+
+<p>
+Let’s call the pictures pic_1 and pic_2.
+</p>
+
+<p>
+Here are the current hash values (these are incorrect so DFG highlighted this):
+</p>
+
+<table>
 <thead><tr>
-  <th align="left">#</th>
-  <th align="left">Prediction</th>
-  <th align="left">8 Ball says</th>
+  <th align="left">Hash</th>
+  <th align="left">File</th>
 </tr></thead>
 <tr>
-  <td align="left">1</td>
-  <td align="left">Will it snow next Christmas?</td>
-  <td align="left">Very doubtful</td>
+  <td align="left">e8df2ca352540bef8286778b8db7d57f7c2229e6d6cb8080f9d269a61a837429</td>
+  <td align="left">pic_1</td>
 </tr>
 <tr>
-  <td align="left">2</td>
-  <td align="left">Will I win the £1m prize from the Premium Bonds?</td>
-  <td align="left">It is certain</td>
-</tr>
-<tr>
-  <td align="left">3</td>
-  <td align="left">Will my portfolio experience a bull market ( &gt;10% returns)</td>
-  <td align="left">Outlook not so good</td>
-</tr>
-<tr>
-  <td align="left">4</td>
-  <td align="left">Will the UK have a general election?</td>
-  <td align="left">As I see it yes</td>
-</tr>
-<tr>
-  <td align="left">5</td>
-  <td align="left">Will gas prices fall below 100 GBp/Thm</td>
-  <td align="left">Most likely</td>
+  <td align="left">96c34792c95e85afe82679a68fa2318e83d5bb43cf8b320d77abb0f7f2278e8a</td>
+  <td align="left">pic_2</td>
 </tr>
 </table>
 
 <p>
-Ok, let's see how the magic ball did.
+The hashes should be:
+</p>
+
+<table>
+<thead><tr>
+  <th align="left">Hash</th>
+  <th align="left">File</th>
+</tr></thead>
+<tr>
+  <td align="left">32525262790a3841373070011ca533b4a81c26845fd25df07ae6e5a28cea9054</td>
+  <td align="left">pic_1</td>
+</tr>
+<tr>
+  <td align="left">42bc98f498e2612cef116dcd5eb26de3ac5a7f8c3f8db0b28fac4f7a39e950e9</td>
+  <td align="left">pic_2</td>
+</tr>
+</table>
+
+<p>
+During my investigation I noticed the file sizes had changed too.
 </p>
 
 <p>
-<b>Will it snow next Christmas?</b>
+Should be 2.8 MB but changed to 2.2 MB.
 </p>
 
 <p>
-Where I live, it did not snow. The ball was correct, one point.
+I viewed the pictures together and noticed the a little has been cropped off from either side. 
 </p>
 
 <p>
-<b>Will I win the £1m prize from the Premium Bonds?</b> 
-</p>
-
-<p>
-Premium bonds are savings with no interest, but a chance to win a million. I was excited to hear the ball's prediction, but no - I did not win.
-</p>
-
-<p>
-<b>Will my portfolio experience a bull market ( &gt;10% returns)</b>
-</p>
-
-<p>
-Well done ball. My portfolio was up 13%.
-</p>
-
-<p>
-<b>Will the UK have a general election?</b> 	
-</p>
-
-<p>
-No election in 2023.
-</p>
-
-<p>
-<b>Will gas prices fall below 100 GBp/Thm</b> 
-</p>
-
-<p>
-Although prices are still expensive for consumers, the GBp/Thm reduced to 85, so the ball was correct.
-</p>
-
-<p>
-Score: 3/5
+I checked Storj and downloaded the two files. However, the changed pictures were uploaded to Storj. At the time of writing, Storj does not allow object versions, so this was no use to me. I checked an external hard drive and restored the two pictures which were correct. When I backup to hard drives I do so with rsync copy with flags to not overwrite existing pictures, which stopped this corruption being replicated. As for Storj, I used rclone without flags to stop overwriting. So to prevent this in the future, I run rclone with the <a href="https://rclone.org/commands/rclone_copy/" title="immutable" class="https">immutable</a> flag.
 </p>
 
             
