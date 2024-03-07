@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://karlhunter.co.uk/defiant/flags/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://karlhunter.co.uk/defiant/hash/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Flags - DEFIANT-FG</title>
+    <title>Download Hashes - DEFIANT-FG</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Flags";
-        var mkdocs_page_input_path = "flags.md";
-        var mkdocs_page_url = "/defiant/flags/";
+        var mkdocs_page_name = "Download Hashes";
+        var mkdocs_page_input_path = "hash.md";
+        var mkdocs_page_url = "/defiant/hash/";
       </script>
     
     <!--[if lt IE 9]>
@@ -59,24 +59,8 @@
                 <li class="toctree-l1"><a class="reference internal" href="../run/">Run</a>
                 </li>
               </ul>
-              <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="./">Flags</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#directory">Directory</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#skip">Skip</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#skip-info-messages">Skip info messages</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#logging">Logging</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#skip-missing-file-scan">Skip missing file scan</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#database-file-location">Database file location</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#version">Version</a>
-    </li>
-    </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../flags/">Flags</a>
                 </li>
               </ul>
               <ul>
@@ -121,7 +105,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Flags</li>
+      <li class="breadcrumb-item active">Download Hashes</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -130,50 +114,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="flags">Flags</h1>
-<h3 id="directory">Directory</h3>
-<p><code>-d /path/to/dir/</code></p>
-<p>Choose directory to scan. For example:</p>
-<pre><code>dfg -d /mnt/usb/pictures/
-</code></pre>
-<p>For documentation consistency, I always put the path flag at the end of the command, but this is not necessary. </p>
-<h3 id="skip">Skip</h3>
-<p><code>-s</code></p>
-<p>Skip any messages after executing application. Useful for scripting. Will skip confirmation message to create new database file</p>
-<pre><code>dfg -s -d /mnt/usb/pictures/
-</code></pre>
-<h3 id="skip-info-messages">Skip info messages</h3>
-<p><code>-e</code></p>
-<p>Only shows errors such as failed hashes and missing files. Does not show any info prompts during the scan.</p>
-<p>Note: will also not show a line for new files.</p>
-<h3 id="logging">Logging</h3>
-<p><code>-l</code></p>
-<p>Add the l flag to output to a log file. Your terminal will no longer show verbose. More on the <a href="../log/">log file</a>.</p>
-<p><code>-log</code></p>
-<p>Specify the location of the log file. Log entries append to previous log lines (log files do not overwrite).</p>
-<p>Example:</p>
-<pre><code>dfg -l -log /var/log/pictures.log -d /mnt/usb/pictures/
-</code></pre>
-<h3 id="skip-missing-file-scan">Skip missing file scan</h3>
-<p><code>--skip-missing</code></p>
-<p>Skips the missing file scan. You will not be notified about missing / deleted files which exist in the database.</p>
-<h3 id="database-file-location">Database file location</h3>
-<p><code>-db</code></p>
-<p>You can specify your own db location with name of the database file. To do this, use the <code>-db</code> flag, example:</p>
-<pre><code>dfg -db /path/to/db.sql -d /path/to/files/
-</code></pre>
-<p>Ensure you specify the database name, not just the directory path.</p>
-<p>More on <a href="../db/">database</a>.</p>
-<h3 id="version">Version</h3>
-<p><code>-version</code></p>
-<p>Outputs version of the application</p>
+                <h1 id="download-hashes">Download Hashes</h1>
+<h2 id="version-124">Version 1.2.4</h2>
+<h4 id="dfg_amd64deb">dfg_amd64.deb</h4>
+<p>3e7683ec839c5fe7303374248b300bfebd5336ad9f570ad5f6948b631495cb97</p>
+<h4 id="dfgbin">dfg.bin</h4>
+<p>2c882262be23353314c276e19c41fb843afd4d509538a6acf9f73f95eb9f5696</p>
               
             </div>
           </div><footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../run/" class="btn btn-neutral float-left" title="Run"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../db/" class="btn btn-neutral float-right" title="Database">Next <span class="icon icon-circle-arrow-right"></span></a>
-    </div>
 
   <hr/>
 
@@ -195,10 +144,6 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../run/" style="color: #fcfcfc">&laquo; Previous</a></span>
-    
-    
-      <span><a href="../db/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
