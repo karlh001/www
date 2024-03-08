@@ -1,272 +1,118 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="generator" content="Zim 0.74.3">
-    <meta name="Zim template" content="HGE Bootstrap responsive template" />
-    <meta name="template author" content="Hugo Gaibor E.">
-    <meta name="Author" content="Karl Hunter">
-    
+<HTML> 
 
-    <title>Index of Website</title>
+<HEAD> 
 
-    <!-- JS Jquery and Bootstrap scripts -->
-	<script src=" https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js "></script>
+<meta charset="UTF-8"> 
+<meta name="description" content="Personal website for my programming, computing and finance hobbies"> 
+<meta name="keywords" content="karl, hunter, go, programming, computing, finance, personal, hobby, defiant-fg, defiant"> 
+<meta name="author" content="Karl Hunter"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<title>The World of Karl Hunter</title> 
+
+<style> 
 
 
-    <!-- Bootstrap core CSS -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+body { 
+
+    background-color: #ACE8FF; 
+    font-family: Helvetica; 
+    font-size: 20px;
+
+} 
 
 
-    <!-- highlight module
-         Syntax highlinting libraries 
-         Taken from https://highlightjs.org/ 
-         https://github.com/highlightjs/highlight.js
-         You can change higlight code box style by choosing a different css style below, 
-         all styles were included for ease of customization
-      -->
-      <link rel="stylesheet" href="./_resources/highlight/styles/base16/github.min.css">
-      <script src="./_resources/highlight/highlight.min.js"></script>
+#box { 
 
-    <!-- HGE styles and JS functions for this template -->
-      <link href="./_resources/css/hge-bootstrap_common.css" rel="stylesheet">
-      <script src="./_resources/js/hge-bootstrap_common.js"></script>
-      <script src="./_resources/js/hge-bootstrap_multi-page.js"></script>
-  </head>
+    background-color: white; 
+    border: 3px solid darkgrey; 
+    margin: 1em; 
+    padding: 2em;
+    border: 0.15em solid #6E7172;
+	border-radius: 25px;
+	min-width: 550px;
 
-  <body>
-    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-1 justify-content upper-nav-bar">
-      <div class="btn-toolbar" role="toolbar" aria-label="Button groups">
-        <div class="btn-group mr-2" role="group" aria-label="First group">
-          <span class="text-white">
-            <img id="toggleSideMenu" class="pt-0 p-0 px-0 btn" src="./_resources/images/menu.svg" height="22" alt="Menu">
-          </span>
-        </div>
-      </div>
-      <div class="btn-toolbar" role="toolbar" aria-label="Button groups">
-        <div class="btn-group mr-2" role="group" aria-label="Navigation group">
-              <button type="button" class="btn btn-info btn-xs" disabled>Prev</a>
-  
-              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='#index'">Index</button>
+} 
 
-              <button type="button" class="btn btn-info btn-xs" disabled>Next</a>
-        </div>
-      </div>
-      <div>
-        <div class="btn-group mr-2" role="group" aria-label="Fifth group">
-          <button class="btn btn-warning btn-xs" id="scrollUp" onclick="scrollToTop();" style="display: none;"><span style="font-weight: 500;">Scroll Up</span></button>
-        </div>
-        <div class="btn-group mr-2" role="group" aria-label="Fifth group">
-          <button class="btn btn-success btn-xs pt-0 p-0 px-0" id="printMe" >
-              <img id="printImg"  class="pt-0 p-0 px-1" style="padding:2px;" onclick="window.print();" src="./_resources/images/printer.svg" alt="Print">
-          </button>
-        </div>
-      </div>
-    </nav>
+#titletext { 
 
-    <div class="container-fluid">
-      <div class="row">
-          <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar d-print-none" id="sidebarMenuNav" style="padding-top: 40px;">
-          <div id="sidebarMenu">
-            <ul>
-<li><a href="./About.html" title="About" class="page">About</a></li>
-<li><a href="./Buy_Me_Coffee.html" title="Buy Me Coffee" class="page">Buy Me Coffee</a></li>
-<li><a href="./Computing.html" title="Computing" class="page">Computing</a></li>
-<li><a href="./Contact.html" title="Contact" class="page">Contact</a></li>
-<li><a href="./Home.html" title="Home" class="page">Home</a></li>
-<li><a href="./Journal.html" title="Journal" class="page">Journal</a></li>
-<li><a href="./Money.html" title="Money" class="page">Money</a></li>
-<li><a href="./Projects.html" title="Projects" class="page">Projects</a></li>
-</ul>
+    font-weight: bold; 
+    font-size: 35px;
 
-          </div>
-        </nav>
+} 
 
-        <main role="main" class="col-md-9 col-lg-10 ml-sm-auto pt-3 px-4" id="pageContents">
-            <noscript>
-              <div style="padding: 10px">
-                <span style="color:#D48D8D">
-                <p>Javascript is not enabled</p>
-                <p>Most features won't</p>
-                <p>work correctly</p>
-                <p>Please enable javascript</p></span>
-              </div>
-            </noscript>
+.textgrey { 
 
-                <h1>Index of Website<a name='Index of Website_1_1' class="offset-anchor"></a></h1>
-              <ul>
-<li><a href="./About.html" title="About" class="page">About</a>
-<ul>
-<li><a href="./About/Images.html" title="Images" class="page">Images</a></li>
-<li><a href="./About/Privacy.html" title="Privacy" class="page">Privacy</a></li>
-</ul>
-</li>
-<li><a href="./Buy_Me_Coffee.html" title="Buy Me Coffee" class="page">Buy Me Coffee</a></li>
-<li><a href="./Computing.html" title="Computing" class="page">Computing</a>
-<ul>
-<li><a href="./Computing/Backup.html" title="Backup" class="page">Backup</a>
-<ul>
-<li><a href="./Computing/Backup/AWS_S3.html" title="AWS S3" class="page">AWS S3</a></li>
-<li><a href="./Computing/Backup/Backblaze_B2.html" title="Backblaze B2" class="page">Backblaze B2</a></li>
-<li><a href="./Computing/Backup/Macrium.html" title="Macrium" class="page">Macrium</a></li>
-<li><a href="./Computing/Backup/SMART.html" title="SMART" class="page">SMART</a></li>
-</ul>
-</li>
-<li><a href="./Computing/Software.html" title="Software" class="page">Software</a>
-<ul>
-<li><a href="./Computing/Software/Favourite_Software.html" title="Favourite Software" class="page">Favourite Software</a></li>
-</ul></li>
-</ul>
-</li>
-<li><a href="./Contact.html" title="Contact" class="page">Contact</a></li>
-<li><a href="./Home.html" title="Home" class="page">Home</a></li>
-<li><a href="./Journal.html" title="Journal" class="page">Journal</a>
-<ul>
-<li><a href="./Journal/2022.html" title="2022" class="page">2022</a>
-<ul>
-<li><a href="./Journal/2022/12.html" title="12" class="page">12</a>
-<ul>
-<li><a href="./Journal/2022/12/29.html" title="29" class="page">29</a></li>
-<li><a href="./Journal/2022/12/30.html" title="30" class="page">30</a></li>
-<li><a href="./Journal/2022/12/31.html" title="31" class="page">31</a></li>
-</ul></li>
-</ul>
-</li>
-<li><a href="./Journal/2023.html" title="2023" class="page">2023</a>
-<ul>
-<li><a href="./Journal/2023/01.html" title="01" class="page">01</a>
-<ul>
-<li><a href="./Journal/2023/01/01.html" title="01" class="page">01</a></li>
-<li><a href="./Journal/2023/01/03.html" title="03" class="page">03</a></li>
-<li><a href="./Journal/2023/01/09.html" title="09" class="page">09</a></li>
-<li><a href="./Journal/2023/01/11.html" title="11" class="page">11</a></li>
-<li><a href="./Journal/2023/01/13.html" title="13" class="page">13</a></li>
-<li><a href="./Journal/2023/01/21.html" title="21" class="page">21</a></li>
-<li><a href="./Journal/2023/01/30.html" title="30" class="page">30</a></li>
-</ul>
-</li>
-<li><a href="./Journal/2023/02.html" title="02" class="page">02</a>
-<ul>
-<li><a href="./Journal/2023/02/01.html" title="01" class="page">01</a></li>
-<li><a href="./Journal/2023/02/02.html" title="02" class="page">02</a></li>
-<li><a href="./Journal/2023/02/06.html" title="06" class="page">06</a></li>
-<li><a href="./Journal/2023/02/21.html" title="21" class="page">21</a></li>
-</ul>
-</li>
-<li><a href="./Journal/2023/03.html" title="03" class="page">03</a>
-<ul>
-<li><a href="./Journal/2023/03/02.html" title="02" class="page">02</a></li>
-<li><a href="./Journal/2023/03/06.html" title="06" class="page">06</a></li>
-<li><a href="./Journal/2023/03/08.html" title="08" class="page">08</a></li>
-<li><a href="./Journal/2023/03/13.html" title="13" class="page">13</a></li>
-<li><a href="./Journal/2023/03/20.html" title="20" class="page">20</a></li>
-<li><a href="./Journal/2023/03/22.html" title="22" class="page">22</a></li>
-<li><a href="./Journal/2023/03/25.html" title="25" class="page">25</a></li>
-<li><a href="./Journal/2023/03/30.html" title="30" class="page">30</a></li>
-<li><a href="./Journal/2023/03/31.html" title="31" class="page">31</a></li>
-</ul>
-</li>
-<li><a href="./Journal/2023/04.html" title="04" class="page">04</a>
-<ul>
-<li><a href="./Journal/2023/04/01.html" title="01" class="page">01</a></li>
-<li><a href="./Journal/2023/04/03.html" title="03" class="page">03</a></li>
-<li><a href="./Journal/2023/04/07.html" title="07" class="page">07</a></li>
-<li><a href="./Journal/2023/04/09.html" title="09" class="page">09</a></li>
-<li><a href="./Journal/2023/04/16.html" title="16" class="page">16</a></li>
-</ul>
-</li>
-<li><a href="./Journal/2023/07.html" title="07" class="page">07</a>
-<ul>
-<li><a href="./Journal/2023/07/02.html" title="02" class="page">02</a></li>
-<li><a href="./Journal/2023/07/03.html" title="03" class="page">03</a></li>
-<li><a href="./Journal/2023/07/23.html" title="23" class="page">23</a></li>
-</ul>
-</li>
-<li><a href="./Journal/2023/08.html" title="08" class="page">08</a>
-<ul>
-<li><a href="./Journal/2023/08/23.html" title="23" class="page">23</a></li>
-</ul>
-</li>
-<li><a href="./Journal/2023/09.html" title="09" class="page">09</a>
-<ul>
-<li><a href="./Journal/2023/09/02.html" title="02" class="page">02</a></li>
-<li><a href="./Journal/2023/09/04.html" title="04" class="page">04</a></li>
-<li><a href="./Journal/2023/09/23.html" title="23" class="page">23</a></li>
-</ul>
-</li>
-<li><a href="./Journal/2023/10.html" title="10" class="page">10</a>
-<ul>
-<li><a href="./Journal/2023/10/10.html" title="10" class="page">10</a></li>
-<li><a href="./Journal/2023/10/19.html" title="19" class="page">19</a></li>
-<li><a href="./Journal/2023/10/30.html" title="30" class="page">30</a></li>
-<li><a href="./Journal/2023/10/31.html" title="31" class="page">31</a></li>
-</ul>
-</li>
-<li><a href="./Journal/2023/11.html" title="11" class="page">11</a>
-<ul>
-<li><a href="./Journal/2023/11/24.html" title="24" class="page">24</a></li>
-<li><a href="./Journal/2023/11/27.html" title="27" class="page">27</a></li>
-</ul>
-</li>
-<li><a href="./Journal/2023/12.html" title="12" class="page">12</a>
-<ul>
-<li><a href="./Journal/2023/12/15.html" title="15" class="page">15</a></li>
-<li><a href="./Journal/2023/12/16.html" title="16" class="page">16</a></li>
-<li><a href="./Journal/2023/12/17.html" title="17" class="page">17</a></li>
-</ul></li>
-</ul>
-</li>
-<li><a href="./Journal/2024.html" title="2024" class="page">2024</a>
-<ul>
-<li><a href="./Journal/2024/01.html" title="01" class="page">01</a>
-<ul>
-<li><a href="./Journal/2024/01/04.html" title="04" class="page">04</a></li>
-<li><a href="./Journal/2024/01/21.html" title="21" class="page">21</a></li>
-</ul>
-</li>
-<li><a href="./Journal/2024/02.html" title="02" class="page">02</a>
-<ul>
-<li><a href="./Journal/2024/02/26.html" title="26" class="page">26</a></li>
-<li><a href="./Journal/2024/02/29.html" title="29" class="page">29</a></li>
-</ul>
-</li>
-<li><a href="./Journal/2024/03.html" title="03" class="page">03</a>
-<ul>
-<li><a href="./Journal/2024/03/08.html" title="08" class="page">08</a></li>
-</ul></li>
-</ul>
-</li>
-<li><a href="./Journal/Index.html" title="Index" class="page">Index</a></li>
-</ul>
-</li>
-<li><a href="./Money.html" title="Money" class="page">Money</a>
-<ul>
-<li><a href="./Money/Budgeting.html" title="Budgeting" class="page">Budgeting</a></li>
-<li><a href="./Money/Financial_Operation.html" title="Financial Operation" class="page">Financial Operation</a></li>
-<li><a href="./Money/Investments.html" title="Investments" class="page">Investments</a></li>
-<li><a href="./Money/Money_Podcasts.html" title="Money Podcasts" class="page">Money Podcasts</a></li>
-<li><a href="./Money/Premium_Bonds.html" title="Premium Bonds" class="page">Premium Bonds</a></li>
-<li><a href="./Money/Vanguard.html" title="Vanguard" class="page">Vanguard</a></li>
-</ul>
-</li>
-<li><a href="./Projects.html" title="Projects" class="page">Projects</a>
-<ul>
-<li><a href="./Projects/ArchiveGuardian.html" title="ArchiveGuardian" class="page">ArchiveGuardian</a></li>
-<li><a href="./Projects/ZFS_Snapper.html" title="ZFS Snapper" class="page">ZFS Snapper</a></li>
-</ul></li>
-</ul>
+    color: #6E7172; 
+    font-weight: bold; 
 
-            
-            <span class="backlinks">
-            </span>
+} 
 
-            
+.bodyheader { 
 
-        </main>
-      </div>
-    </div>
-  </body>
-</html>
+    font-weight: bold; 
+    color: #100ED5; 
+
+} 
+
+
+.copyright { 
+    color: darkgrey; 
+    padding-top: 0.1em; 
+    font-size: 15px; 
+} 
+
+
+
+</style> 
+
+</HEAD> 
+
+<BODY> 
+
+<div id = "box"> 
+
+<p id = "titletext">Welcome to the World of <span class = "textgrey">Karl Hunter</span></p> 
+
+<img src="img/karl_web_penguin.JPG" alt="Penguin Floating on water" width="533" height="226"> 
+
+<p id = "middletext">  
+
+<span class = "bodyheader">Projects</span>  
+
+<ul> 
+
+<li><a href = "defiant/index.html" title = "visit dedicated manual site">DEFIANT-FG</a> &#45; Linux command line file monitoring tool</li> 
+
+<li><a href = "Projects/ArchiveGuardian.html" title = "Visit AG dedicated site">ArchiveGuardian</a> &#45; Light-weight python script to hash file</li> 
+
+<li><a href = "Projects/ZFS_Snapper.html" title = "Visit my dedicated ZFS snapper page">ZFS Snapper</a> &#45; an automatic snapshot script written in shell</li> 
+
+</ul> 
+
+<span class = "bodyheader">Journal</span><br><br> 
+
+<a href = "Home.html" title = "Journal entries">Click here</a> to read my blog posts. 
+
+
+<br>
+<br> 
+
+<span class = "bodyheader">Me on the web</span> 
+
+<ul> 
+
+<li><a href = "https://github.com/karlh001" title = "Visit my GitHub">GitHub</a></li> 
+
+</ul> 
+
+</p> 
+
+<br> 
+
+<p class = "copyright">&copy; Karl Hunter 2023</p> 
+
+</div> 
+
+</BODY> 
+</HTML> 
