@@ -9,7 +9,7 @@
     <meta name="Author" content="Karl Hunter">
     
 
-    <title>Friday 08 Mar 2024</title>
+    <title>Tuesday 26 Mar 2024</title>
 
     <!-- JS Jquery and Bootstrap scripts -->
 	<script src=" https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js "></script>
@@ -48,11 +48,11 @@
       </div>
       <div class="btn-toolbar" role="toolbar" aria-label="Button groups">
         <div class="btn-group mr-2" role="group" aria-label="Navigation group">
-              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='../03.html'">Prev</button>
+              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='./16.html'">Prev</button>
   
               <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='../../../map.html'">Index</button>
 
-              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='./16.html'">Next</button>
+              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='../../Index.html'">Next</button>
         </div>
       </div>
       <div>
@@ -87,9 +87,9 @@
 <li><a href="../02.html" title="02" class="page">02</a></li>
 <li><a href="../03.html" title="03" class="page">03</a>
 <ul>
-<li><b>08</b></li>
+<li><a href="./08.html" title="08" class="page">08</a></li>
 <li><a href="./16.html" title="16" class="page">16</a></li>
-<li><a href="./26.html" title="26" class="page">26</a></li>
+<li><b>26</b></li>
 </ul></li>
 </ul>
 </li>
@@ -114,31 +114,71 @@
               </div>
             </noscript>
 
-                <h1>Friday 08 Mar 2024<a name='Friday 08 Mar 2024_1_1' class="offset-anchor"></a></h1>
+                <h1>Tuesday 26 Mar 2024<a name='Tuesday 26 Mar 2024_1_1' class="offset-anchor"></a></h1>
               
 <hr>
 
 
-                <h2>Testing backups and DFG new feature<a name='Testing backups and DFG new feature_1_2' class="offset-anchor"></a></h2>
+                <h2>ZFS Checkpoints<a name='ZFS Checkpoints_1_2' class="offset-anchor"></a></h2>
               <p>
-<img src="./08/dfg_logo.png">
+<img src="file:///home/karl/Downloads/data-2764823_640.jpg"><br>
+Image <a href="https://pixabay.com/illustrations/data-data-loss-missing-data-process-2764823/" title="copyright" class="https">copyright</a>
 </p>
 
 <p>
-I have recently changed my secondary storage provider from <a href="../02/29.html" title="Storj to IDrive e2" class="page">Storj to IDrive e2</a>. Once I upload data to a new storage provider, I like to restore a few folders and check the hashes. These tests are an ongoing process for me to have confidence in my backups so, if a disaster occurs, I know I can restore with confidence. In this example, I am testing my photograph collection.
+I have heard about the checkpoint command (introudced in 2019) but did not research further. Essentially, it's a snapshot of the pool itself - at zpool level. So, for example, if you accidently delete a dataset you can restore.
 </p>
 
 <p>
-I use my own tool, DEFIANT-FG, to hash the pictures and store in a database file. The issue with 1.2.3 (fixed in 1.2.4) is the fact that if I download one folder, say year 2010, within the main picture folder, during the scan I would get errors for all the missing pictures because I only downloaded one folder. So, I added a new flag (--skip-missing) to DFG to only check hashes. 
+If you have used the checkpoint command, you cannot use the following commands:
 </p>
 
 <p>
-After testing two folders, I was pleased to see all hashes match. I keep a spreadsheet to document which folders I have tested so I can, over a year, download all data to test. 
+<ul>
+<li>remove</li>
+<li>attach</li>
+<li>detach</li>
+<li>split</li>
+<li>reguid</li>
+</ul>
 </p>
 
 <p>
-<tt>dfg -d /path/to/file/ --skip-missing</tt>
+I suppose it's a good thing to prevent accidental detachment or removal of devices from the pool.
 </p>
+
+<p>
+Here's a screenshot of my latest checkpoint:
+</p>
+
+<p>
+<img src="./26/pasted_image.png">
+</p>
+
+<p>
+Create a checkpoint:
+</p>
+
+<p>
+<tt>zpool checkpoint pool</tt>
+</p>
+
+<p>
+<i>Where pool is the name of the pool.</i>
+</p>
+
+<p>
+If you wish to remove a checkpoint, use:
+</p>
+
+<p>
+<tt>zpool checkpoint -d pool</tt>
+</p>
+
+<p>
+This pool stores my pictures, documents and media. So, quite important. As always, this pool is backed up both on an external hard drive and on <a href="../02/29.html" title="IDrive" class="page">IDrive</a> and <a href="../../2023/09/23.html" title="AWS S3" class="page">AWS S3</a>. Checkpoint feature will help save me from human error, especially as my second pool (<a href="./16.html" title="WD Green drive" class="page">WD Green drive</a>) failed. 
+</p>
+
 
             
             <span class="backlinks">
@@ -152,9 +192,6 @@ After testing two folders, I was pleased to see all hashes match. I keep a sprea
                 
 <br />
                 <a href='../03.html'>Journal:2024:03</a>
-                
-<br />
-                <a href='../../2023/10/10.html'>Journal:2023:10:10</a>
                 
             </span>
 
