@@ -70,6 +70,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#logging">Logging</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#block-size">Block Size</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#skip-missing-file-scan">Skip missing file scan</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#database-file-location">Database file location</a>
@@ -154,6 +156,10 @@
 <p>Example:</p>
 <pre><code>dfg -l -log /var/log/pictures.log -d /mnt/usb/pictures/
 </code></pre>
+<h3 id="block-size">Block Size</h3>
+<p>The default block size used to hash files is 64 MB. You can specify a custom block size, in MB.</p>
+<p><code>-b 64</code></p>
+<p><em>Changing the block size does not affect existing hashes already saved in the database</em></p>
 <h3 id="skip-missing-file-scan">Skip missing file scan</h3>
 <p><code>--skip-missing</code></p>
 <p>Skips the missing file scan. You will not be notified about missing / deleted files which exist in the database.</p>
