@@ -3,23 +3,19 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="generator" content="Zim 0.74.3">
+    <meta name="generator" content="Zim 0.75.2">
     <meta name="Zim template" content="HGE Bootstrap responsive template" />
     <meta name="template author" content="Hugo Gaibor E.">
-    <meta name="Author" content="Karl Hunter">
-    
+    <link rel="icon" href="../_resources/images/favicon.ico">
 
     <title>ZFS Snapper</title>
 
     <!-- JS Jquery and Bootstrap scripts -->
-	<script src=" https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js "></script>
-
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
+    <script type='text/javascript' src="../_resources/js/jquery-3.6.0.min.js" type="text/javascript"></script>
+    <script src="../_resources/js/bootstrap.min.js"></script>
 
     <!-- Bootstrap core CSS -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+      <link href="../_resources/css/bootstrap.css" rel="stylesheet" />
 
     <!-- highlight module
          Syntax highlinting libraries 
@@ -124,17 +120,16 @@ I have allowed users to change how many snapshots you reserve.
 
 
                 <h2>How it works<a name='How it works_1_3' class="offset-anchor"></a></h2>
-              <p>
-<ul>
+              <ul>
 <li>Creates snapshot</li>
 <li>Checks if snapshots need removing; counts all snapshots starting with 'Auto'</li>
 <li>Deletes all snapshots starting with "Auto" until last n defined remain</li>
 </ul>
-</p>
 
 <p>
 Snapshots are named "<i>Auto_YYYYMMDD_HHMMSS</i>"
 </p>
+
 
 <p>
 <a href="https://github.com/karlh001/zfs-snapper" title="Click here" class="https">Click here</a> to view the project on Github.
