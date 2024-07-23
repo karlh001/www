@@ -11,7 +11,7 @@
     <meta name="Author" content="Karl Hunter">
     <link rel="icon" href="../../../_resources/images/favicon.ico">
 
-    <title>Monday 03 Jul 2023</title>
+    <title>Tuesday 23 Jul 2024</title>
 
     <!-- JS Jquery and Bootstrap scripts -->
     <script type='text/javascript' src="https://karlhunter.co.uk/res/js/jquery-3.6.0.min.js" type="text/javascript"></script>
@@ -47,11 +47,11 @@
       </div>
       <div class="btn-toolbar" role="toolbar" aria-label="Button groups">
         <div class="btn-group mr-2" role="group" aria-label="Navigation group">
-              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='./02.html'">Prev</button>
+              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='../07.html'">Prev</button>
   
               <button type="button" class="btn btn-info btn-xs" disabled>Index</a>
 
-              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='./23.html'">Next</button>
+              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='../../Index.html'">Next</button>
         </div>
       </div>
       <div>
@@ -79,25 +79,19 @@
 <li><a href="../../../Journal.html" title="Journal" class="page">Journal</a>
 <ul>
 <li><a href="../../2022.html" title="2022" class="page">2022</a></li>
-<li><a href="../../2023.html" title="2023" class="page">2023</a>
+<li><a href="../../2023.html" title="2023" class="page">2023</a></li>
+<li><a href="../../2024.html" title="2024" class="page">2024</a>
 <ul>
 <li><a href="../01.html" title="01" class="page">01</a></li>
 <li><a href="../02.html" title="02" class="page">02</a></li>
 <li><a href="../03.html" title="03" class="page">03</a></li>
 <li><a href="../04.html" title="04" class="page">04</a></li>
+<li><a href="../05.html" title="05" class="page">05</a></li>
 <li><a href="../07.html" title="07" class="page">07</a>
 <ul>
-<li><a href="./02.html" title="02" class="page">02</a></li>
-<li><b>03</b></li>
-<li><a href="./23.html" title="23" class="page">23</a></li>
+<li><b>23</b></li>
 </ul></li>
-<li><a href="../08.html" title="08" class="page">08</a></li>
-<li><a href="../09.html" title="09" class="page">09</a></li>
-<li><a href="../10.html" title="10" class="page">10</a></li>
-<li><a href="../11.html" title="11" class="page">11</a></li>
-<li><a href="../12.html" title="12" class="page">12</a></li>
 </ul></li>
-<li><a href="../../2024.html" title="2024" class="page">2024</a></li>
 <li><a href="../../Index.html" title="Index" class="page">Index</a></li>
 </ul></li>
 <li><a href="../../../Money.html" title="Money" class="page">Money</a></li>
@@ -118,57 +112,138 @@
               </div>
             </noscript>
 
-                <h1>Monday 03 Jul 2023<a name='Monday 03 Jul 2023_1_1' class="offset-anchor"></a></h1>
+                <h1>Tuesday 23 Jul 2024<a name='Tuesday 23 Jul 2024_1_1' class="offset-anchor"></a></h1>
               
 <hr>
 
 
-                <h2>Switched Energy Supplier<a name='Switched Energy Supplier_1_2' class="offset-anchor"></a></h2>
+                <h2>Mount shares using SSH<a name='Mount shares using SSH_1_2' class="offset-anchor"></a></h2>
               <p>
-Found a <i>slightly</i> cheaper energy tariff
+<img src="file:///home/karl/Downloads/putty-3678638_640.png"><br>
+Image <a href="https://pixabay.com/vectors/putty-ssh-telnet-terminal-client-3678638/" title="copyright" class="https">copyright</a>
+</p>
+
+
+<p>
+I heard about SSHFS from one of the Linux podcast shows. It’s a tool to easily mount a network share over the SSH File Transfer Protocol. 
 </p>
 
 <p>
-<img src="./03/lamp-gcee10ebb6_640.jpg"><br>
-Image <a href="https://pixabay.com/photos/lamp-light-hand-idea-bulb-2663053/" title="copyright" class="https">copyright</a>
+I wanted to play around and ended up loving it: I have removed Samba from my network (one less package to worry about).
 </p>
 
 <p>
-Energy costs have decreased slightly, showing signs of a potential brighter future for utility costs. I have taken the opportunity to switch energy suppliers.
+I followed this <a href="https://www.digitalocean.com/community/tutorials/how-to-use-sshfs-to-mount-remote-file-systems-over-ssh" title="Digital Ocean" class="https">Digital Ocean</a> tutorial but the system will not boot unless I use <tt>_netdev</tt> in the line (Linux Mint; I did not dare attempt without <tt>_netdev</tt> on my backup server, which is Ubuntu server so may or may not work without).
 </p>
 
 <p>
-I have moved to Octopus Energy on the following tariff:
+Here’s the full line I added to my fstab for your reference:
 </p>
 
 <p>
-<b>Electricity</b><br>
-31.10p/kWh, 60.18p/day
+<tt>nano /etc/fstab</tt>
 </p>
 
 <p>
-<b>Gas</b><br>
-7.54p/kWh, 27.47p/day 
+<tt>sshfs#karl@192.168.1.1:/directory /home/karl/Documents fuse _netdev,defaults,identityfile=/home/karl/.ssh/id_ed25519,port=22,gid=1000,uid=1000,allow_other 0 0</tt>
 </p>
 
 <p>
-This tariff does not have exit fees, so if anything comes along cheaper than I will switch again. I have not switched supplier since the energy market went out of control. I was with the failed Igloo Energy which resulted in my supply being moved to E.ON Next. I followed someone's link so that I could get £50 credit, and my friend too. 
+Here’s why I like it so much:
 </p>
 
 <p>
-If you want to support my site, and earn yourself £50 then sign-up to Octopus Energy by following this link:<br>
-<a href="https://share.octopus.energy/super-louse-369" title="https://share.octopus.energy/super-louse-369" class="https">https://share.octopus.energy/super-louse-369</a>
+It is easier to mount with existing SSH keys pair, whereas on Samba I was using log-in credentials. I used the latest ed25519 algorithm, which works well and is far more secure then using log-in credentials.
 </p>
+
+<p>
+I already had a private-public key pair, but this how would have created a new one:
+</p>
+
+<p>
+<tt>ssh-keygen -t ed25519</tt>
+</p>
+
+<p>
+By default, keys are stored:
+</p>
+
+<p>
+<tt>/home/user/.ssh/ed25519</tt><br>
+(the private key – keep secure and secret)
+</p>
+
+<p>
+<tt>/home/user/.ssh/ed25519.pub</tt><br>
+(the public key – can be shared publicly)
+</p>
+
+
+<p>
+Although ed25519 algorithm is new (over 5 years supported by OpenSSH), it has a few great features I liked:
+</p>
+
+<ul>
+<li>Smaller key lengths</li>
+<li>More secure and collision resilient</li>
+<li>Faster to generate and verify</li>
+</ul>
+
+<p>
+Go to the ed25519.pub file and copy the public key and paste to a new line on the <tt>authorized_key</tt> file:
+</p>
+
+<p>
+<tt>nano /home/user/.ssh/authorized_keys</tt>
+</p>
+
+<p>
+I only have one Windows machine, so it was nice to use something native to all my Linux machines. 
+</p>
+
+<p>
+I was able to mount within the home directory because I wanted flatpak applications to access this directory; I could do this with Samba too, but felt like explaining. 
+</p>
+
+<p>
+File and directory permissions on Samba was a nightmare, but with SSH permissions are inherited from the user who logged in with the key. I am using the same user to access shell terminal so I know everything will work flawlessly, whereas on Samba I had to create another user and mess around with <tt>777</tt> or <tt>nobody:nogroup</tt> to make things work. 
+</p>
+
+<p>
+I did not need to create a new key pair. I was able to use the same key pair I used to access the terminal to mount the file share. 
+</p>
+
+<p>
+I have also completed these steps on Windows, but it’s a little trickier. You need to grab a few GitHub repos. Follow their <a href="https://github.com/winfsp/sshfs-win" title="GitHub instructions" class="https">GitHub instructions</a>, but essentially install both packages and open the <a href="https://github.com/evsar3/sshfs-win-manager" title="GUI manager" class="https">GUI manager</a> (you need this to use SSH keys) and add connection, complete IP and user, then select private key location. 
+</p>
+
+<p>
+If you have not already set up an SSH public-private key pair, then follow these instructions. 
+</p>
+
+
+                <h4>Security considerations<a name='Security considerations_1_3' class="offset-anchor"></a></h4>
+              <ul>
+<li>I have disabled SSH password log ins, so only accessible via a private SSH key.</li>
+<li>If you want to mount a backup location, make sure you specify read only (backup servers should pull from primary server, not allow primary server to push to backup)</li>
+<li>You can log in with a user and inherit their permissions; so you do not need to create seperate Samba users.</li>
+<li>Change the default port (22) to something else. Remember to enable firewall and allow the new port through. I achieved this with UFW. For example, use port 212 or 222 or 2020 whatever you like. To do this, edit the SSH config file with the new port, allow through firewall and restart SSH server. </li>
+<li>I used ed25519 as it’s more secure and faster to work with</li>
+<li>If you are using DSA or RSA (1024-bit) then these are considered unsafe and you need to upgrade to either the RSA 3072- or 4096-bit length or use ed25519.</li>
+</ul>
 
             
             <span class="backlinks">
                 <hr class='footnotes'>
                 <b>Backlinks:</b>
                 <br />
+                <a href='../../../index.html'>index</a>
+                
+<br />
                 <a href='../../Index.html'>Journal:Index</a>
                 
 <br />
-                <a href='../07.html'>Journal:2023:07</a>
+                <a href='../07.html'>Journal:2024:07</a>
                 
             </span>
 
