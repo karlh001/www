@@ -119,7 +119,7 @@
 
                 <h2>Mount shares using SSH<a name='Mount shares using SSH_1_2' class="offset-anchor"></a></h2>
               <p>
-<img src="file:///home/karl/Downloads/putty-3678638_640.png"><br>
+<img src="./23/putty-3678638_640.png"><br>
 Image <a href="https://pixabay.com/vectors/putty-ssh-telnet-terminal-client-3678638/" title="copyright" class="https">copyright</a>
 </p>
 
@@ -134,6 +134,14 @@ I wanted to play around and ended up loving it: I have removed Samba from my net
 
 <p>
 I followed this <a href="https://www.digitalocean.com/community/tutorials/how-to-use-sshfs-to-mount-remote-file-systems-over-ssh" title="Digital Ocean" class="https">Digital Ocean</a> tutorial but the system will not boot unless I use <tt>_netdev</tt> in the line (Linux Mint; I did not dare attempt without <tt>_netdev</tt> on my backup server, which is Ubuntu server so may or may not work without).
+</p>
+
+<p>
+If you mount as root, you need to allow other users. In the fstab command, I added <tt>allow_other</tt>, but first you need to enable this options. Edit the SSHFS config and enable <tt>user_allow_other</tt> option.
+</p>
+
+<p>
+<tt>nano /etc/fuse.conf</tt>
 </p>
 
 <p>
