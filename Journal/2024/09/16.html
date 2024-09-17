@@ -11,7 +11,7 @@
     <meta name="Author" content="Karl Hunter">
     <link rel="icon" href="../../../_resources/images/favicon.ico">
 
-    <title>Tuesday 23 Jul 2024</title>
+    <title>Monday 16 Sep 2024</title>
 
     <!-- JS Jquery and Bootstrap scripts -->
     <script type='text/javascript' src="https://karlhunter.co.uk/res/js/jquery-3.6.0.min.js" type="text/javascript"></script>
@@ -47,11 +47,11 @@
       </div>
       <div class="btn-toolbar" role="toolbar" aria-label="Button groups">
         <div class="btn-group mr-2" role="group" aria-label="Navigation group">
-              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='../07.html'">Prev</button>
+              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='../09.html'">Prev</button>
   
               <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='../../../map.html'">Index</button>
 
-              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='../09.html'">Next</button>
+              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='../../Index.html'">Next</button>
         </div>
       </div>
       <div>
@@ -87,11 +87,11 @@
 <li><a href="../03.html" title="03" class="page">03</a></li>
 <li><a href="../04.html" title="04" class="page">04</a></li>
 <li><a href="../05.html" title="05" class="page">05</a></li>
-<li><a href="../07.html" title="07" class="page">07</a>
+<li><a href="../07.html" title="07" class="page">07</a></li>
+<li><a href="../09.html" title="09" class="page">09</a>
 <ul>
-<li><b>23</b></li>
+<li><b>16</b></li>
 </ul></li>
-<li><a href="../09.html" title="09" class="page">09</a></li>
 </ul></li>
 <li><a href="../../Index.html" title="Index" class="page">Index</a></li>
 </ul></li>
@@ -113,133 +113,214 @@
               </div>
             </noscript>
 
-                <h1>Tuesday 23 Jul 2024<a name='Tuesday 23 Jul 2024_1_1' class="offset-anchor"></a></h1>
+                <h1>Monday 16 Sep 2024<a name='Monday 16 Sep 2024_1_1' class="offset-anchor"></a></h1>
               
 <hr>
 
 
-                <h2>Mount shares using SSH<a name='Mount shares using SSH_1_2' class="offset-anchor"></a></h2>
+                <h2>Convert from ZFS mirror to raidz<a name='Convert from ZFS mirror to raidz_1_2' class="offset-anchor"></a></h2>
               <p>
-<img src="./23/putty-3678638_640.png"><br>
-Image <a href="https://pixabay.com/vectors/putty-ssh-telnet-terminal-client-3678638/" title="copyright" class="https">copyright</a>
-</p>
-
-
-<p>
-I heard about SSHFS from one of the Linux podcast shows. It’s a tool to easily mount a network share over the SSH File Transfer Protocol. 
+<img src="./16/storage-870713_640.jpg">
 </p>
 
 <p>
-I wanted to play around and ended up loving it: I have removed Samba from my network (one less package to worry about).
+Image <a href="https://pixabay.com/photos/storage-storage-medium-hard-drive-870713/" title="copyright" class="https">copyright</a>.
 </p>
 
 <p>
-I followed this <a href="https://www.digitalocean.com/community/tutorials/how-to-use-sshfs-to-mount-remote-file-systems-over-ssh" title="Digital Ocean" class="https">Digital Ocean</a> tutorial but the system will not boot unless I use <tt>_netdev</tt> in the line (Linux Mint; I did not dare attempt without <tt>_netdev</tt> on my backup server, which is Ubuntu server so may or may not work without).
+I have a 4 TB ZFS mirror pool over two disks. The has become 56% full, but was thinking about futureproofing this set-up. Since using ZFS, I have always done so in a mirror. My storage started with 1 TB x2 disks, then I upgraded to 2 TB, then I upgraded to 4 TB. Due to costs, I did not want to keep doing this upgrade path as the disks sizes increase. I had to consider other options. 
 </p>
 
 <p>
-If you mount as root, you need to allow other users. In the fstab command, I added <tt>allow_other</tt>, but first you need to enable this options. Edit the SSHFS config and enable <tt>user_allow_other</tt> option.
+Here are my options:
 </p>
 
-<p>
-<tt>nano /etc/fuse.conf</tt>
-</p>
 
-<p>
-Here’s the full line I added to my fstab for your reference:
-</p>
 
-<p>
-<tt>nano /etc/fstab</tt>
-</p>
+<ol type="1" start="1">
+<li>Upgrade two of the 4 TB hard drives, one-by-one</li>
+</ol>
 
-<p>
-<tt>sshfs#karl@192.168.1.1:/directory /home/karl/Documents fuse _netdev,defaults,identityfile=/home/karl/.ssh/id_ed25519,port=22,gid=1000,uid=1000,allow_other 0 0</tt>
-</p>
+<ol type="1" start="2">
+<li>Add two new drives as a new vdev</li>
+</ol>
 
-<p>
-Here’s why I like it so much:
-</p>
+<ol type="1" start="3">
+<li>Reconfigure to raidz1</li>
+</ol>
 
-<p>
-It is easier to mount with existing SSH keys pair, whereas on Samba I was using log-in credentials. I used the latest ed25519 algorithm, which works well and is far more secure then using log-in credentials.
-</p>
 
-<p>
-I already had a private-public key pair, but this how would have created a new one:
-</p>
 
-<p>
-<tt>ssh-keygen -t ed25519</tt>
-</p>
-
-<p>
-By default, keys are stored:
-</p>
-
-<p>
-<tt>/home/user/.ssh/ed25519</tt><br>
-(the private key – keep secure and secret)
-</p>
-
-<p>
-<tt>/home/user/.ssh/ed25519.pub</tt><br>
-(the public key – can be shared publicly)
-</p>
 
 
 <p>
-Although ed25519 algorithm is new (over 5 years supported by OpenSSH), it has a few great features I liked:
+I decided to go with RAIDZ1. I like cost saving / GB capacity by only needing three drives and getting the capacity of two combined, and if I lose two drives it would be annoying but I do have backups. I had previously opted for the mirror vdev when the pool was in a previous PC with limited space and SATA ports. Now I have a large case and a server motherboard with 6 SATA (4x 6.0 Gbps ports) to add more drives; I am happy with this board because I know have 32 GB of ECC RAM goodness. 
 </p>
+
+
+
+<p>
+This is my pool config before upgrade project.
+</p>
+
+
+
+<p>
+Started with:
+</p>
+
+
 
 <ul>
-<li>Smaller key lengths</li>
-<li>More secure and collision resilient</li>
-<li>Faster to generate and verify</li>
+<li><tt>mirror-0</tt></li>
 </ul>
 
 <p>
-Go to the ed25519.pub file and copy the public key and paste to a new line on the <tt>authorized_key</tt> file:
+  <tt>* Hard drive 4 TB</tt>
 </p>
 
 <p>
-<tt>nano /home/user/.ssh/authorized_keys</tt>
+  <tt>* Hard drive 4 TB</tt>
 </p>
+
+
 
 <p>
-I only have one Windows machine, so it was nice to use something native to all my Linux machines. 
+Here's how I did the transition:
 </p>
+
+
 
 <p>
-I was able to mount within the home directory because I wanted flatpak applications to access this directory; I could do this with Samba too, but felt like explaining. 
+Firstly, I removed one of the hard drives in the mirror vdev. I now have a spare 4 TB hard drive. I formatted it into two partitions, roughly 2 TB each. I also added a WD Red Pro 2 TB hard drive to up the second disk. Therefore, I have two physcial disks acting as three disks.
 </p>
+
+
 
 <p>
-File and directory permissions on Samba was a nightmare, but with SSH permissions are inherited from the user who logged in with the key. I am using the same user to access shell terminal so I know everything will work flawlessly, whereas on Samba I had to create another user and mess around with <tt>777</tt> or <tt>nobody:nogroup</tt> to make things work. 
-</p>
-
-<p>
-I did not need to create a new key pair. I was able to use the same key pair I used to access the terminal to mount the file share. 
-</p>
-
-<p>
-I have also completed these steps on Windows, but it’s a little trickier. You need to grab a few GitHub repos. Follow their <a href="https://github.com/winfsp/sshfs-win" title="GitHub instructions" class="https">GitHub instructions</a>, but essentially install both packages and open the <a href="https://github.com/evsar3/sshfs-win-manager" title="GUI manager" class="https">GUI manager</a> (you need this to use SSH keys) and add connection, complete IP and user, then select private key location. 
-</p>
-
-<p>
-If you have not already set up an SSH public-private key pair, then follow these instructions. 
+I created a new pool:
 </p>
 
 
-                <h4>Security considerations<a name='Security considerations_1_3' class="offset-anchor"></a></h4>
-              <ul>
-<li>I have disabled SSH password log ins, so only accessible via a private SSH key.</li>
-<li>If you want to mount a backup location, make sure you specify read only (backup servers should pull from primary server, not allow primary server to push to backup)</li>
-<li>You can log in with a user and inherit their permissions; so you do not need to create seperate Samba users.</li>
-<li>Change the default port (22) to something else. Remember to enable firewall and allow the new port through. I achieved this with UFW. For example, use port 212 or 222 or 2020 whatever you like. To do this, edit the SSH config file with the new port, allow through firewall and restart SSH server. </li>
-<li>I used ed25519 as it’s more secure and faster to work with</li>
-<li>If you are using DSA or RSA (1024-bit) then these are considered unsafe and you need to upgrade to either the RSA 3072- or 4096-bit length or use ed25519.</li>
+
+<ul>
+<li><tt>raidz1-0</tt></li>
 </ul>
+
+<p>
+  <tt>* Hard drive 4 TB - part 1</tt>
+</p>
+
+<p>
+  <tt>* Hard drive 4 TB - part 2</tt>
+</p>
+
+<p>
+  <tt>* Hard drive 2 TB</tt>
+</p>
+
+
+
+<p>
+Part 1 and 2 are the partitions of the single disk. This would be considered unsafe to use in production, but I am only doing so to move data and I will then replace later.
+</p>
+
+
+
+<p>
+I wanted to retain settings and snapshots so I used -R and --raw (these datasets are encrypted); if you are not using encryption or the dataset is unlocked you can omit the --raw flag.
+</p>
+
+
+
+<p>
+<tt>zfs send -R --raw pool/dataset@[snapshotdate] | zfs recv pool2/dataset</tt>
+</p>
+
+
+
+<p>
+Once completed, I ran a scrub to ensure data integrity. 
+</p>
+
+
+
+<p>
+At this point, I still have all data on one hard drive (on the original pool), and now on the new pool (plus backups elsewhere). I can only tolerate the loss of the 2 TB hard drive, because if I lose the 4 TB hard drive, I will lose both partitions, effectively losing two hard drives in the eyes of ZFS. 
+</p>
+
+
+
+<p>
+I put the original pool offline and cleared the disk, after first verifying sizes of copied datasets. I used this newly-wiped 4 TB hard drive to replace part 2 (the second and final disk in the mirror) of the other 4 TB hard drive. This was the most dangerous stage of the process.
+</p>
+
+
+
+<p>
+The new layout was as follows:
+</p>
+
+
+
+<pre>
+• raidz1-0
+
+  * Hard drive 4 TB - part 1
+
+  * Hard drive 4 TB
+
+  * Hard drive 2 TB
+
+</pre>
+
+
+
+
+<p>
+I am safe now and have redundancy. If either drive fails, I am able to reconstruct the data. But I cannot leave the layout like this. I need to expand the partition of the 4 TB hard drive.
+</p>
+
+
+
+<p>
+Final step was to offline the pool, clear the 4 TB hard drive I partitioned, online the pool, then I used replace command to fix missing partition.
+</p>
+
+
+
+<p>
+After these steps I now had a happy pool again:
+</p>
+
+
+
+<ul>
+<li><tt>raidz1-0</tt></li>
+</ul>
+
+<p>
+  <tt>* Hard drive 4 TB</tt> 
+</p>
+
+<p>
+  <tt>* Hard drive 4 TB</tt>
+</p>
+
+<p>
+  <tt>* Hard drive 2 TB</tt>
+</p>
+
+
+
+<p>
+Total pool size: X TiB
+</p>
+
+<p>
+Percent used: XX%
+</p>
+
 
             
             <span class="backlinks">
@@ -252,7 +333,7 @@ If you have not already set up an SSH public-private key pair, then follow these
                 <a href='../../Index.html'>Journal:Index</a>
                 
 <br />
-                <a href='../07.html'>Journal:2024:07</a>
+                <a href='../09.html'>Journal:2024:09</a>
                 
             </span>
 
