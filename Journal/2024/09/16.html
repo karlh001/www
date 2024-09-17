@@ -284,7 +284,11 @@ I am safe now and have redundancy. If either drive fails, I am able to reconstru
 
 
 <p>
-Final step was to offline the pool, clear the 4 TB hard drive I partitioned, online the pool, then I used replace command to fix missing partition.
+Final step was to offline the pool and adjust the partition.
+</p>
+
+<p>
+I used <tt>fdisk</tt> to delete old partition 1, then create a new one on top which simply expands the partition without deleting data. I
 </p>
 
 
@@ -314,13 +318,14 @@ After these steps I now had a happy pool again:
 
 
 <p>
-Total pool size: X TiB
+Total pool size: 5.45 TiB<br>
+Percent used: 52%
 </p>
+
 
 <p>
-Percent used: XX%
+<i>I  since found out that you can add just two disks to a raidz1, which will make the pool degraded but once data is copied, you can then attach the disk you copied data from to then fix the pool; this saves creating a disk with two partitions.</i>
 </p>
-
 
             
             <span class="backlinks">
