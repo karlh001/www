@@ -11,7 +11,7 @@
     <meta name="Author" content="Karl Hunter">
     <link rel="icon" href="../../../_resources/images/favicon.ico">
 
-    <title>Monday 16 Sep 2024</title>
+    <title>Saturday 28 Sep 2024</title>
 
     <!-- JS Jquery and Bootstrap scripts -->
     <script type='text/javascript' src="https://karlhunter.co.uk/res/js/jquery-3.6.0.min.js" type="text/javascript"></script>
@@ -47,11 +47,11 @@
       </div>
       <div class="btn-toolbar" role="toolbar" aria-label="Button groups">
         <div class="btn-group mr-2" role="group" aria-label="Navigation group">
-              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='../09.html'">Prev</button>
+              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='./16.html'">Prev</button>
   
               <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='../../../map.html'">Index</button>
 
-              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='./28.html'">Next</button>
+              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='../../Index.html'">Next</button>
         </div>
       </div>
       <div>
@@ -90,8 +90,8 @@
 <li><a href="../07.html" title="07" class="page">07</a></li>
 <li><a href="../09.html" title="09" class="page">09</a>
 <ul>
-<li><b>16</b></li>
-<li><a href="./28.html" title="28" class="page">28</a></li>
+<li><a href="./16.html" title="16" class="page">16</a></li>
+<li><b>28</b></li>
 </ul></li>
 </ul></li>
 <li><a href="../../Index.html" title="Index" class="page">Index</a></li>
@@ -114,219 +114,96 @@
               </div>
             </noscript>
 
-                <h1>Monday 16 Sep 2024<a name='Monday 16 Sep 2024_1_1' class="offset-anchor"></a></h1>
+                <h1>Saturday 28 Sep 2024<a name='Saturday 28 Sep 2024_1_1' class="offset-anchor"></a></h1>
               
 <hr>
 
 
-                <h2>Convert from ZFS mirror to raidz<a name='Convert from ZFS mirror to raidz_1_2' class="offset-anchor"></a></h2>
+                <h2>Unlock ZFS with a key file<a name='Unlock ZFS with a key file_1_2' class="offset-anchor"></a></h2>
               <p>
-<img src="./16/storage-870713_640.jpg">
+Instead of typing a passphrase every time you mount your pool, why not try a key file. After you specify the location of the key file, during the mount of the zfs datasets, this location is queried for the key. You could store they key file on a USB drive or on a remote location (such as network share).
 </p>
 
 <p>
-Image <a href="https://pixabay.com/photos/storage-storage-medium-hard-drive-870713/" title="copyright" class="https">copyright</a>.
+<tt>zfs change-key -l -o keylocation=</tt><a href="file:///mnt/network_share/zfs.key" title="file:///mnt/network_share/zfs.key" class="file"><tt>file:///mnt/network_share/zfs.key</tt></a> <tt>-o keyformat=[passphrase | hex | raw] name_pool/dataset_name</tt>
 </p>
 
 <p>
-I have a 4 TB ZFS mirror pool over two disks. The has become 56% full, but was thinking about futureproofing this set-up. Since using ZFS, I have always done so in a mirror. My storage started with 1 TB x2 disks, then I upgraded to 2 TB, then I upgraded to 4 TB. Due to costs, I did not want to keep doing this upgrade path as the disks sizes increase. I had to consider other options. 
+<tt>-l Load key</tt><br>
+<tt>-o options</tt>
 </p>
 
 <p>
-Here are my options:
+For example (using raw mode on a dataset called pictures on a pool named, pool)
 </p>
-
-
-
-<ol type="1" start="1">
-<li>Upgrade two of the 4 TB hard drives, one-by-one</li>
-</ol>
-
-<ol type="1" start="2">
-<li>Add two new drives as a new vdev</li>
-</ol>
-
-<ol type="1" start="3">
-<li>Reconfigure to raidz1</li>
-</ol>
-
-
-
-
 
 <p>
-I decided to go with RAIDZ1. I like cost saving / GB capacity by only needing three drives and getting the capacity of two combined, and if I lose two drives it would be annoying but I do have backups. I had previously opted for the mirror vdev when the pool was in a previous PC with limited space and SATA ports. Now I have a large case and a server motherboard with 6 SATA (4x 6.0 Gbps ports) to add more drives; I am happy with this board because I know have 32 GB of ECC RAM goodness. 
+<tt>zfs change-key -l -o keylocation=</tt><a href="file:///mnt/network_share/zfs.key" title="file:///mnt/network_share/zfs.key" class="file"><tt>file:///mnt/network_share/zfs.key</tt></a> <tt>-o keyformat=raw pool/pictures</tt>
 </p>
-
-
 
 <p>
-This is my pool config before upgrade project.
+key formats
 </p>
-
-
-
-<p>
-Started with:
-</p>
-
-
-
 <ul>
-<li><tt>mirror-0</tt></li>
+<li>hex</li>
+<li>passphrase</li>
+<li>raw</li>
 </ul>
 
 <p>
-  <tt>* Hard drive 4 TB</tt>
+Let's generate a key file. You can use <tt>openssl</tt> or <tt>urandom</tt> to achieve this.
 </p>
 
 <p>
-  <tt>* Hard drive 4 TB</tt>
+I used a raw file as my key, but you can specify a passphrase instead. That way, you can manually mount if you know the key. That being said, if you backup the raw file you should be able to access. You must backup the key file - for without this you cannot mount (unless you know the password).
 </p>
-
-
 
 <p>
-Here's how I did the transition:
+<tt>openssl rand -out</tt> <a href="file:///path/to/keyfile/zfs.key" title="/path/to/keyfile/zfs.key" class="file"><tt>/path/to/keyfile/zfs.key</tt></a> <tt>32</tt>
 </p>
-
-
-
-<p>
-Firstly, I removed one of the hard drives in the mirror vdev. I now have a spare 4 TB hard drive. I formatted it into two partitions, roughly 2 TB each. I also added a WD Red Pro 2 TB hard drive to up the second disk. Therefore, I have two physcial disks acting as three disks.
-</p>
-
-
-
-<p>
-I created a new pool:
-</p>
-
-
 
 <ul>
-<li><tt>raidz1-0</tt></li>
+<li><tt>rand</tt> (randomisation tool)</li>
+<li><tt>-out</tt> (path to the output file)</li>
+<li><tt>32</tt> (32-bit key - ZFS supports up to 32 bits)</li>
 </ul>
 
 <p>
-  <tt>* Hard drive 4 TB - part 1</tt>
+or
 </p>
 
 <p>
-  <tt>* Hard drive 4 TB - part 2</tt>
+<tt>dd if=/dev/urandom of=</tt><a href="file:///path/to/keyfile/zfs.key" title="/path/to/keyfile/zfs.key" class="file"><tt>/path/to/keyfile/zfs.key</tt></a> <tt>bs=32 count=1</tt>
 </p>
-
-<p>
-  <tt>* Hard drive 2 TB</tt>
-</p>
-
-
-
-<p>
-Part 1 and 2 are the partitions of the single disk. This would be considered unsafe to use in production, but I am only doing so to move data and I will then replace later.
-</p>
-
-
-
-<p>
-I wanted to retain settings and snapshots so I used -R and --raw (these datasets are encrypted); if you are not using encryption or the dataset is unlocked you can omit the --raw flag.
-</p>
-
-
-
-<p>
-<tt>zfs send -R --raw pool/dataset@[snapshotdate] | zfs recv pool2/dataset</tt>
-</p>
-
-
-
-<p>
-Once completed, I ran a scrub to ensure data integrity. 
-</p>
-
-
-
-<p>
-At this point, I still have all data on one hard drive (on the original pool), and now on the new pool (plus backups elsewhere). I can only tolerate the loss of the 2 TB hard drive, because if I lose the 4 TB hard drive, I will lose both partitions, effectively losing two hard drives in the eyes of ZFS. 
-</p>
-
-
-
-<p>
-I put the original pool offline and cleared the disk, after first verifying sizes of copied datasets. I used this newly-wiped 4 TB hard drive to replace part 2 (the second and final disk in the mirror) of the other 4 TB hard drive. This was the most dangerous stage of the process.
-</p>
-
-
-
-<p>
-The new layout was as follows:
-</p>
-
-
-
-<pre>
-• raidz1-0
-
-  * Hard drive 4 TB - part 1
-
-  * Hard drive 4 TB
-
-  * Hard drive 2 TB
-
-</pre>
-
-
-
-
-<p>
-I am safe now and have redundancy. If either drive fails, I am able to reconstruct the data. But I cannot leave the layout like this. I need to expand the partition of the 4 TB hard drive.
-</p>
-
-
-
-<p>
-Final step was to offline the pool and adjust the partition.
-</p>
-
-<p>
-I used <tt>fdisk</tt> to delete old partition 1, then create a new one on top which simply expands the partition without deleting data. I
-</p>
-
-
-
-<p>
-After these steps I now had a happy pool again:
-</p>
-
-
 
 <ul>
-<li><tt>raidz1-0</tt></li>
+<li><tt>bs</tt> (choose 32 for a 32-bit key - ZFS supports up to 32 bits)</li>
+<li><tt>count</tt> (create 1 line)</li>
+<li><tt>if</tt> (random device)</li>
+<li><tt>of</tt> (path to the output file)</li>
 </ul>
 
 <p>
-  <tt>* Hard drive 4 TB</tt> 
+That's it. The key file will look like this:
 </p>
 
 <p>
-  <tt>* Hard drive 4 TB</tt>
+<img src="./28/pasted_image.png">
 </p>
 
 <p>
-  <tt>* Hard drive 2 TB</tt>
+This is OKAY, but if you want it in a human-readable format, consider using the passphrase or the hex option. 
 </p>
-
-
 
 <p>
-Total pool size: 5.45 TiB<br>
-Percent used: 52%
+<tt>openssl rand -hex -out</tt> <a href="file:///path/to/keyfile/zfs.key" title="/path/to/keyfile/zfs.key" class="file"><tt>/path/to/keyfile/zfs.key</tt></a> <tt>32</tt>
 </p>
-
 
 <p>
-<i>I  since found out that you can add just two disks to a raidz1, which will make the pool degraded but once data is copied, you can then attach the disk you copied data from to then fix the pool; this saves creating a disk with two partitions.</i>
+<img src="./28/pasted_image001.png">
 </p>
+
+
 
             
             <span class="backlinks">
