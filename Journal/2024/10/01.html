@@ -11,7 +11,7 @@
     <meta name="Author" content="Karl Hunter">
     <link rel="icon" href="../../../_resources/images/favicon.ico">
 
-    <title>Monday 26 Feb 2024</title>
+    <title>Tuesday 01 Oct 2024</title>
 
     <!-- JS Jquery and Bootstrap scripts -->
     <script type='text/javascript' src="https://karlhunter.co.uk/res/js/jquery-3.6.0.min.js" type="text/javascript"></script>
@@ -47,11 +47,11 @@
       </div>
       <div class="btn-toolbar" role="toolbar" aria-label="Button groups">
         <div class="btn-group mr-2" role="group" aria-label="Navigation group">
-              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='../02.html'">Prev</button>
+              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='../10.html'">Prev</button>
   
               <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='../../../map.html'">Index</button>
 
-              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='./29.html'">Next</button>
+              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='../../Index.html'">Next</button>
         </div>
       </div>
       <div>
@@ -83,17 +83,16 @@
 <li><a href="../../2024.html" title="2024" class="page">2024</a>
 <ul>
 <li><a href="../01.html" title="01" class="page">01</a></li>
-<li><a href="../02.html" title="02" class="page">02</a>
-<ul>
-<li><b>26</b></li>
-<li><a href="./29.html" title="29" class="page">29</a></li>
-</ul></li>
+<li><a href="../02.html" title="02" class="page">02</a></li>
 <li><a href="../03.html" title="03" class="page">03</a></li>
 <li><a href="../04.html" title="04" class="page">04</a></li>
 <li><a href="../05.html" title="05" class="page">05</a></li>
 <li><a href="../07.html" title="07" class="page">07</a></li>
 <li><a href="../09.html" title="09" class="page">09</a></li>
-<li><a href="../10.html" title="10" class="page">10</a></li>
+<li><a href="../10.html" title="10" class="page">10</a>
+<ul>
+<li><b>01</b></li>
+</ul></li>
 </ul></li>
 <li><a href="../../Index.html" title="Index" class="page">Index</a></li>
 </ul></li>
@@ -115,33 +114,53 @@
               </div>
             </noscript>
 
-                <h1>Monday 26 Feb 2024<a name='Monday 26 Feb 2024_1_1' class="offset-anchor"></a></h1>
+                <h1>Tuesday 01 Oct 2024<a name='Tuesday 01 Oct 2024_1_1' class="offset-anchor"></a></h1>
               
 <hr>
 
 
-                <h2>Vanguard New Accumulation Funds<a name='Vanguard New Accumulation Funds_1_2' class="offset-anchor"></a></h2>
+
+                <h2>Send ZFS dataset over SSH connection<a name='Send ZFS dataset over SSH connection_1_2' class="offset-anchor"></a></h2>
               <p>
-<img src="./26/investment-3247252_640.jpg"><br>
-Image <a href="https://pixabay.com/photos/investment-finance-time-3247252/" title="copyright" class="https">copyright</a>
+<img src="./01/flat-2126883_640.png">
 </p>
 
 <p>
-Recently Vanguard introduced more accumulative ETFs on their platform. 
+Image <a href="https://pixabay.com/vectors/flat-design-symbol-icon-www-2126883/" title="copyright" class="https">copyright</a>.
 </p>
 
 <p>
-Prior to this, I was invested in a global fund named <a href="https://www.vanguardinvestor.co.uk/investments/vanguard-ftse-all-world-ucits-etf-usd-accumulating/overview" title="Vanguard FTSE All-World UCITS ETF" class="https">Vanguard FTSE All-World UCITS ETF</a> (VWRL) income fund. Dividends were paid out into my cash account instead of being reinvested in the fund. I would need to log in every so often and invest the surplus cash. Not easy as to buy VWRL you need to buy a whole share (£98.37 08/03/2024), unlike the Vanguard mutual funds where you can invest any amount, such as the LifeStrategy funds. 
+I wanted to send a dataset from my server to my backup server. I was fed up of using rsync because this dataset has many thousands of pictures, which takes a long time. The dataset contains thumbs and database files for a docker container. 
 </p>
 
 <p>
-Introducing VWRP: It’s essentially the same – same amount of companies 3,665, same expense ratio 0.22%. Now the fund can grow without me manually reinvesting dividends. 
+Before I could send the dataset, I need to add permissions on the recieving machine so that the root user is not used. Without this step, the command will fail because the <tt>recieve</tt> command needs root permission. 
 </p>
 
 <p>
-Worth a switch if you are a growth investor and would happily reinvest dividends. 
+<tt>zfs allow -u karl compression,mount,create,mount,receive,atime,recordsize pool_name</tt>
 </p>
 
+<p>
+<i>I added atime and recordsize to my permissions because I have changed these values from the default in the source dataset, from 128k (default) to 1M.</i> 
+</p>
+
+<p>
+I am now ready to send that data.
+</p>
+
+<p>
+<tt>zfs send --raw -R pool/dataset@snap1 | pv | ssh -i /home/karl/.ssh/id_ed25519</tt> <a href="mailto:karl@192.168.1.120" title="karl@192.168.1.120" class="mailto"><tt>karl@192.168.1.120</tt></a> <tt>"zfs recv pool/dataset"</tt>
+</p>
+
+<p>
+<i><tt>--raw</tt></i> will send the encrypted dataset<br>
+<i><tt>-R</tt></i> sends all settings and snapshots
+</p>
+
+<p>
+Now I have an exact copy of my dataset. I can use the incremental send option to speed up backups going forward. 
+</p>
 
             
             <span class="backlinks">
@@ -154,7 +173,7 @@ Worth a switch if you are a growth investor and would happily reinvest dividends
                 <a href='../../Index.html'>Journal:Index</a>
                 
 <br />
-                <a href='../02.html'>Journal:2024:02</a>
+                <a href='../10.html'>Journal:2024:10</a>
                 
             </span>
 
