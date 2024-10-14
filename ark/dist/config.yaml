@@ -19,6 +19,7 @@ builds:
     goarch:
       - amd64
       - arm
+      - arm64
       - "386"
       - ppc64
       - riscv64
@@ -31,21 +32,27 @@ builds:
     targets:
       - linux_amd64_v1
       - linux_arm_6
+      - linux_arm64
       - linux_386
       - linux_ppc64
       - linux_riscv64
       - windows_amd64_v1
       - windows_arm_6
+      - windows_arm64
       - windows_386
       - darwin_amd64_v1
+      - darwin_arm64
       - freebsd_amd64_v1
       - freebsd_arm_6
+      - freebsd_arm64
       - freebsd_386
       - netbsd_amd64_v1
       - netbsd_arm_6
+      - netbsd_arm64
       - netbsd_386
       - openbsd_amd64_v1
       - openbsd_arm_6
+      - openbsd_arm64
       - openbsd_386
       - plan9_amd64_v1
       - plan9_arm_6
