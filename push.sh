@@ -5,6 +5,7 @@
 git add --all
 git commit -m "Journal posts"
 git push origin main
+git push local main
 
 git -C ../template add --all
 git -C ../template commit -m "Journal posts"
