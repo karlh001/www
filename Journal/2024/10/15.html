@@ -121,9 +121,9 @@
 
 
 
-                <h2>Introducing <i>arK</i> – a command line archival tool for directories or files<a name='Introducing <i>arK</i> – a command line archival tool for directories or files_1_2' class="offset-anchor"></a></h2>
+                <h2>Introducing <i>arcK</i> – a command line archival tool for directories or files<a name='Introducing <i>arcK</i> – a command line archival tool for directories or files_1_2' class="offset-anchor"></a></h2>
               <p>
-Visit <a href="https://karlhunter.co.uk/ark" title="official pages" class="https">official pages</a>.
+Visit <a href="https://karlhunter.co.uk/arck" title="official pages" class="https">official pages</a>.
 </p>
 
 
@@ -143,7 +143,7 @@ To solve problem of large directories and possibility of a restore failure, I wa
 
                 <h3>The Solution<a name='The Solution_1_4' class="offset-anchor"></a></h3>
               <p>
-I created <i>arK</i> to solve this. A directory is split into 5 parts, with 2 being for parity. It is like RAID6, but not across hard drives, across files instead. Parity is a calculation to restore missing parts. Also, the tool identifies damaged parts, which are removed prior to restoration. That means I can lose 2 parts without data loss. This is especially useful when storing long term in the cloud or on external media. 
+I created <i>arcK</i> to solve this. A directory is split into 5 parts, with 2 being for parity. It is like RAID6, but not across hard drives, across files instead. Parity is a calculation to restore missing parts. Also, the tool identifies damaged parts, which are removed prior to restoration. That means I can lose 2 parts without data loss. This is especially useful when storing long term in the cloud or on external media. 
 </p>
 
 
@@ -155,13 +155,13 @@ There are two ways to run the application. Either by the wizard, which gives use
 
                 <h5>For the wizard:<a name='For the wizard:_1_6' class="offset-anchor"></a></h5>
               <p>
-<tt>ark</tt>
+<tt>arck</tt>
 </p>
 
 
                 <h5>Command-line usage:<a name='Command-line usage:_1_7' class="offset-anchor"></a></h5>
               <p>
-<tt>ark -s /source -d /destination -n give_archive_a_name</tt>
+<tt>arck -s /source -d /destination -n give_archive_a_name</tt>
 </p>
 
 <p>
@@ -173,11 +173,11 @@ For example, to pack a folder named 2023 and store on USB drive.
 </p>
 
 <p>
-<tt>ark -s /home/karl/pictures/2023 -d /mnt/usb -n 2023</tt>
+<tt>arck -s /home/karl/pictures/2023 -d /mnt/usb -n 2023</tt>
 </p>
 
 <p>
-That’s it. <i>arK</i> will do the rest from there. Depending on the size of the directory or file, this may take a long while – please be patient; you’re data is being protected for long-term archival storage. 
+That’s it. <i>arcK</i> will do the rest from there. Depending on the size of the directory or file, this may take a long while – please be patient; you’re data is being protected for long-term archival storage. 
 </p>
 
 
@@ -269,7 +269,7 @@ I ensured that the metadata file, with the .m extension, is stored in both regio
 
 
 <p>
-If you want to reduce the size of the file or directory given to <i>arK</i>, you could split the directory using <i>7z</i> or the <i>split</i> command, and then run <i>arK</i> on each split – but this would be a long process and complex to manage manually. 
+If you want to reduce the size of the file or directory given to <i>arcK</i>, you could split the directory using <i>7z</i> or the <i>split</i> command, and then run <i>arcK</i> on each split – but this would be a long process and complex to manage manually. 
 </p>
 
 <p>
@@ -277,7 +277,7 @@ No compression is done during packing. There is not option for encryption yet, s
 </p>
 
 <p>
-This is not a backup tool, therefore no method to monitor and save incremental changes. Please consider this an archive tool to store cold data for long periods of time. You should also maintain a backup of archival data to ensure you can restore. The ultra paranoid could store parts across many providers; this is possible with <i>arK</i>. 
+This is not a backup tool, therefore no method to monitor and save incremental changes. Please consider this an archive tool to store cold data for long periods of time. You should also maintain a backup of archival data to ensure you can restore. The ultra paranoid could store parts across many providers; this is possible with <i>arcK</i>. 
 </p>
 
 <p>
@@ -285,11 +285,11 @@ I am not sure if this is feasible but would be useful to create a recovery mode 
 </p>
 
 <p>
-Version 1.2 will have a list function. A list will be generated of all the files with their hash so that you can easily see what is inside the archive. Perhaps it could be called 2023.f; if this file is present during restore, <i>arK</i> will automatically checksum files and report failed hashes. There will be an option to generate this file on source files to save you packing again. 
+Version 1.2 will have a list function. A list will be generated of all the files with their hash so that you can easily see what is inside the archive. Perhaps it could be called 2023.f; if this file is present during restore, <i>arcK</i> will automatically checksum files and report failed hashes. There will be an option to generate this file on source files to save you packing again. 
 </p>
 
 <p>
-Thank you for taking the time to read this post. I hope you find <i>arK</i> useful and have fun testing. I am still developing <i>arK</i> and have some further ideas for features. Click here to download and get started today.
+Thank you for taking the time to read this post. I hope you find <i>arcK</i> useful and have fun testing. I am still developing <i>arcK</i> and have some further ideas for features. Click here to download and get started today.
 </p>
 
             
