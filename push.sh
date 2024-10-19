@@ -2,7 +2,10 @@
 
 # Push to Github
 
-git add *
+git add --all
 git commit -m "Journal posts"
 git push origin main
-#rclone copy --progress ~/Documents/Website/ e2ir:website/
+
+git -C ../template add --all
+git -C ../template commit -m "Journal posts"
+git -C ../template push origin master
