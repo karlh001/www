@@ -3,7 +3,7 @@ project_name: arck
 release:
   github:
     owner: karl
-    name: ark
+    name: arck
   name_template: '{{.Tag}}'
 builds:
   - id: arck
