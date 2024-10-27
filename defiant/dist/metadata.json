@@ -1,1 +1,1 @@
-{"project_name":"defiant-fg","tag":"v1.3.2","previous_tag":"v1.3.1","version":"1.3.2-SNAPSHOT-a09e99f","commit":"a09e99f853f5ccd8da6155956065932b9928b00a","date":"2024-10-14T16:48:22.168636898+01:00","runtime":{"goos":"linux","goarch":"amd64"}}
+{"project_name":"defiant-fg","tag":"v1.3.2","previous_tag":"v1.3.1","version":"1.3.2-SNAPSHOT-78ec90f","commit":"78ec90fcd6bf2588b92e46e9d36bbb9887b3eccb","date":"2024-10-27T19:50:57.549868225Z","runtime":{"goos":"linux","goarch":"amd64"}}
