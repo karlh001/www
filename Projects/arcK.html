@@ -11,7 +11,7 @@
     <meta name="Author" content="Karl Hunter">
     <link rel="icon" href="../_resources/images/favicon.ico">
 
-    <title>ArchiveGuardian</title>
+    <title>arcK</title>
 
     <!-- JS Jquery and Bootstrap scripts -->
     <script type='text/javascript' src="https://karlhunter.co.uk/res/js/jquery-3.6.0.min.js" type="text/javascript"></script>
@@ -47,11 +47,11 @@
       </div>
       <div class="btn-toolbar" role="toolbar" aria-label="Button groups">
         <div class="btn-group mr-2" role="group" aria-label="Navigation group">
-              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='../Projects.html'">Prev</button>
+              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='./ArchiveGuardian.html'">Prev</button>
   
               <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='../map.html'">Index</button>
 
-              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='./arcK.html'">Next</button>
+              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='./DEFIANT-FG.html'">Next</button>
         </div>
       </div>
       <div>
@@ -80,8 +80,8 @@
 <li><a href="../Money.html" title="Money" class="page">Money</a></li>
 <li><a href="../Projects.html" title="Projects" class="page">Projects</a>
 <ul>
-<li><b>ArchiveGuardian</b></li>
-<li><a href="./arcK.html" title="arcK" class="page">arcK</a></li>
+<li><a href="./ArchiveGuardian.html" title="ArchiveGuardian" class="page">ArchiveGuardian</a></li>
+<li><b>arcK</b></li>
 <li><a href="./DEFIANT-FG.html" title="DEFIANT-FG" class="page">DEFIANT-FG</a></li>
 <li><a href="./ZFS_Snapper.html" title="ZFS Snapper" class="page">ZFS Snapper</a></li>
 </ul></li>
@@ -101,127 +101,45 @@
               </div>
             </noscript>
 
-                <h1>ArchiveGuardian<a name='ArchiveGuardian_1_1' class="offset-anchor"></a></h1>
+                <h1>arcK<a name='arcK_1_1' class="offset-anchor"></a></h1>
               <p>
-Created Saturday 04 November 2023
+Created Monday 04 November 2024
 </p>
 
+<hr>
 
 <p>
-<img src="./ArchiveGuardian/archive_guardian_logo_web_low_res.jpg">
-</p>
-
-<p>
-Introducing ArchiveGuardian (AG) 
+<img src="./arcK/arcK_logo.jpg">
 </p>
 
 
-
-                <h2>How it works?<a name='How it works?_1_2' class="offset-anchor"></a></h2>
+                <h2>About<a name='About_1_2' class="offset-anchor"></a></h2>
               <p>
-I have 7 awesome photos I want to protect. Say I keep these on a pen drive or external USB drive which is infrequently access, but I want to know if the files are still the same. 
-</p>
-
-
-<p>
-<img src="./ArchiveGuardian/pasted_image.png">
-</p>
-
-
-<p>
-Download and run the program
+arcK is a command-line, cross-platform archival tool to preserve data.
 </p>
 
 <p>
-<tt>ag -d ~/Pictures/</tt>
+This is an exciting project to archive important data to ensure successful recovery. To achieve this, the directory is encoded into 5 parts with 2 extra parts for redundancy, which means you only need 3 parts to restore.
 </p>
 
 <p>
-AG will ask if you have the correct directory and want to continue. Type y to continue. Depending on size of directory this may take time. AG will recursively look through directory structures.
+This may take longer to do, but file integrity is of the utmost importance and this project ensures that even with 2 missing parts, data can be restored; an excellent use case is to store across multiple cloud storage providers or regional buckets with the same cloud provider. I have stored my personal photos across two S3 regions. Each bucket does not need to have all files, therefore I have stored 3 in one and 3 in another; with one part stored in both (bucket_US: 0,1,2; bucket_EU: 2,3,4). 
 </p>
 
 <p>
-Once complete your pictures will have an accompanying hash file. This is the metadata of the picture AG can check next time to look for changes.
-</p>
-
-
-<p>
-<img src="./ArchiveGuardian/pasted_image001.png">
+In the example below, I have chosen the directory 'Interesting files', which has been put into 5 parts.
 </p>
 
 <p>
-But how does AG handle corrupted files. Even the smallest byte change will result in an error. In the example below I have changed the picture to look like an extreme corruption. However not all damage to pictures can easily be seen.
+<img src="../arck/folder-after.png">
 </p>
 
 <p>
-<img src="./ArchiveGuardian/pasted_image002.png">
-</p>
-
-<p>
-I ran AG again and got this message:
-</p>
-
-<p>
-<tt>Failed Hash: ~/Pictures/103_3350.JPG</tt>
-</p>
-
-<p>
-AG will not be able to repair the pictures. At his stage you know which files are broken so you can restore from backup. 
-</p>
-
-
-                <h2>Download<a name='Download_1_3' class="offset-anchor"></a></h2>
-              <p>
-Visit my dedicated <a href="https://karlhunter.co.uk/ag" title="website" class="https">website</a> to find out more and download.
-</p>
-
-
-                <h2>Install<a name='Install_1_4' class="offset-anchor"></a></h2>
-              <p>
-Works on Linux. I have tested on Ubuntu Server and Linux Mint to date.
-</p>
-
-<p>
-Download and extract the archive. CD to directory:
-</p>
-
-<p>
-<tt>cd ~/Downloads</tt>
-</p>
-
-<p>
-Then copy to your bin folder so that you can easily run through command line
-</p>
-
-<p>
-<tt>sudo cp ag /usr/bin/</tt>
-</p>
-
-<p>
-Test it works
-</p>
-
-<p>
-<tt>ag</tt>
-</p>
-
-<p>
-if you get an output it works. Remember to feed a directory with the -d flag.
-</p>
-
-
-                <h2>Contribute<a name='Contribute_1_5' class="offset-anchor"></a></h2>
-              <p>
-Visit my <a href="https://github.com/karlh001/archiveguardian" title="GitHub" class="https">GitHub</a> page to suggest features or report bugs.
+For more information visit the <a href="https://karlhunter.co.uk/arck/" title="manual" class="https">manual</a>.
 </p>
 
             
             <span class="backlinks">
-                <hr class='footnotes'>
-                <b>Backlinks:</b>
-                <br />
-                <a href='../index.html'>index</a>
-                
             </span>
 
             
