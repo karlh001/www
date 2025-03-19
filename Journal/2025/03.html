@@ -9,9 +9,9 @@
     <meta name="Zim template" content="HGE Bootstrap responsive template" />
     <meta name="template author" content="Hugo Gaibor E.">
     <meta name="Author" content="Karl Hunter">
-    <link rel="icon" href="../../../_resources/images/favicon.ico">
+    <link rel="icon" href="../../_resources/images/favicon.ico">
 
-    <title>Sunday 16 Feb 2025</title>
+    <title>March 2025</title>
 
     <!-- JS Jquery and Bootstrap scripts -->
     <script type='text/javascript' src="https://karlhunter.co.uk/res/js/jquery-3.6.0.min.js" type="text/javascript"></script>
@@ -47,11 +47,11 @@
       </div>
       <div class="btn-toolbar" role="toolbar" aria-label="Button groups">
         <div class="btn-group mr-2" role="group" aria-label="Navigation group">
-              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='../02.html'">Prev</button>
+              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='./02/16.html'">Prev</button>
   
-              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='../../../map.html'">Index</button>
+              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='../../map.html'">Index</button>
 
-              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='../03.html'">Next</button>
+              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='./03/19.html'">Next</button>
         </div>
       </div>
       <div>
@@ -71,28 +71,28 @@
           <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar d-print-none" id="sidebarMenuNav" style="padding-top: 40px;">
           <div id="sidebarMenu">
             <ul>
-<li><a href="../../../About.html" title="About" class="page">About</a></li>
-<li><a href="../../../Buy_Me_Coffee.html" title="Buy Me Coffee" class="page">Buy Me Coffee</a></li>
-<li><a href="../../../Computing.html" title="Computing" class="page">Computing</a></li>
-<li><a href="../../../Contact.html" title="Contact" class="page">Contact</a></li>
-<li><a href="../../../index.html" title="index" class="page">index</a></li>
-<li><a href="../../../Journal.html" title="Journal" class="page">Journal</a>
+<li><a href="../../About.html" title="About" class="page">About</a></li>
+<li><a href="../../Buy_Me_Coffee.html" title="Buy Me Coffee" class="page">Buy Me Coffee</a></li>
+<li><a href="../../Computing.html" title="Computing" class="page">Computing</a></li>
+<li><a href="../../Contact.html" title="Contact" class="page">Contact</a></li>
+<li><a href="../../index.html" title="index" class="page">index</a></li>
+<li><a href="../../Journal.html" title="Journal" class="page">Journal</a>
 <ul>
-<li><a href="../../2022.html" title="2022" class="page">2022</a></li>
-<li><a href="../../2023.html" title="2023" class="page">2023</a></li>
-<li><a href="../../2024.html" title="2024" class="page">2024</a></li>
-<li><a href="../../2025.html" title="2025" class="page">2025</a>
+<li><a href="../2022.html" title="2022" class="page">2022</a></li>
+<li><a href="../2023.html" title="2023" class="page">2023</a></li>
+<li><a href="../2024.html" title="2024" class="page">2024</a></li>
+<li><a href="../2025.html" title="2025" class="page">2025</a>
 <ul>
-<li><a href="../02.html" title="02" class="page">02</a>
+<li><a href="./02.html" title="02" class="page">02</a></li>
+<li><b>03</b>
 <ul>
-<li><b>16</b></li>
+<li><a href="./03/19.html" title="19" class="page">19</a></li>
 </ul></li>
-<li><a href="../03.html" title="03" class="page">03</a></li>
 </ul></li>
-<li><a href="../../Index.html" title="Index" class="page">Index</a></li>
+<li><a href="../Index.html" title="Index" class="page">Index</a></li>
 </ul></li>
-<li><a href="../../../Money.html" title="Money" class="page">Money</a></li>
-<li><a href="../../../Projects.html" title="Projects" class="page">Projects</a></li>
+<li><a href="../../Money.html" title="Money" class="page">Money</a></li>
+<li><a href="../../Projects.html" title="Projects" class="page">Projects</a></li>
 </ul>
 
           </div>
@@ -109,76 +109,17 @@
               </div>
             </noscript>
 
-                <h1>Sunday 16 Feb 2025<a name='Sunday 16 Feb 2025_1_1' class="offset-anchor"></a></h1>
-              
-<hr>
-
-
-                <h2>LUKS Quick Unlock Guide<a name='LUKS Quick Unlock Guide_1_2' class="offset-anchor"></a></h2>
-              <p>
-<img src="./16/padlock-157618_640.png"><br>
-Image <a href="https://pixabay.com/vectors/padlock-encrypt-encrypted-lock-157618/" title="copyright" class="https">copyright</a>
-</p>
-
-<p>
-I want to write a quick reference for the use of LUKS. LUKS is an encryption tool for linux to protect drive paritions. 
-</p>
-
-<p>
-The command-line approach to open the container is as follows:
-</p>
-
-<ul>
-<li>Get partition name through <tt>fdisk -l</tt> command; imporant, instead of <tt>sdd</tt>, you need to use <tt>sdd1</tt></li>
-<li>Use the cryptsetup tool to manage this</li>
-<li>To create a map of the device, use:
-<ul>
-<li><tt>cryptsetup luksOpen /dev/sdd1 encrypted_drive</tt></li>
-</ul></li>
-<li>This will create a link between sdd1 and mapper; you can use any name you wish, but for this example I used <tt>encrypted_drive</tt>. You will need to enter your passphrase after the command is executed.</li>
-<li>Now, you need to mount the device:
-<ul>
-<li><tt>mount /dev/mapper/encrypted_drive /mnt/drive</tt></li>
-</ul></li>
+                <h1>March 2025<a name='March 2025_1_1' class="offset-anchor"></a></h1>
+              <ul>
+<li><a href="./03/19.html" title="ZFS Pool Storage Upgrade" class="page">ZFS Pool Storage Upgrade</a> (19/03/2025)</li>
 </ul>
-
-<p>
-I use this tool to encrypt my external drives, replacing ecryptfs. 
-</p>
-
-<p>
-When finished, unmount the drive.
-</p>
-
-<ul>
-<li>System unmount first:
-<ul>
-<li><tt>umount /mnt/drive</tt></li>
-</ul></li>
-<li>And the encrypted mapper:
-<ul>
-<li><tt>cryptsetup luksClose encrypted_drive</tt></li>
-</ul></li>
-</ul>
-
-
-<p>
-Here's a <a href="https://linuxconfig.org/basic-guide-to-encrypting-linux-partitions-with-luks" title="full guide" class="https">full guide</a> to setup and LUKS container. 
-</p>
-
 
             
             <span class="backlinks">
                 <hr class='footnotes'>
                 <b>Backlinks:</b>
                 <br />
-                <a href='../../../index.html'>index</a>
-                
-<br />
-                <a href='../../Index.html'>Journal:Index</a>
-                
-<br />
-                <a href='../02.html'>Journal:2025:02</a>
+                <a href='../2025.html'>Journal:2025</a>
                 
             </span>
 

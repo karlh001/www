@@ -11,7 +11,7 @@
     <meta name="Author" content="Karl Hunter">
     <link rel="icon" href="../../../_resources/images/favicon.ico">
 
-    <title>Sunday 16 Feb 2025</title>
+    <title>Wednesday 19 Mar 2025</title>
 
     <!-- JS Jquery and Bootstrap scripts -->
     <script type='text/javascript' src="https://karlhunter.co.uk/res/js/jquery-3.6.0.min.js" type="text/javascript"></script>
@@ -47,11 +47,11 @@
       </div>
       <div class="btn-toolbar" role="toolbar" aria-label="Button groups">
         <div class="btn-group mr-2" role="group" aria-label="Navigation group">
-              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='../02.html'">Prev</button>
+              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='../03.html'">Prev</button>
   
               <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='../../../map.html'">Index</button>
 
-              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='../03.html'">Next</button>
+              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='../../Index.html'">Next</button>
         </div>
       </div>
       <div>
@@ -83,11 +83,11 @@
 <li><a href="../../2024.html" title="2024" class="page">2024</a></li>
 <li><a href="../../2025.html" title="2025" class="page">2025</a>
 <ul>
-<li><a href="../02.html" title="02" class="page">02</a>
+<li><a href="../02.html" title="02" class="page">02</a></li>
+<li><a href="../03.html" title="03" class="page">03</a>
 <ul>
-<li><b>16</b></li>
+<li><b>19</b></li>
 </ul></li>
-<li><a href="../03.html" title="03" class="page">03</a></li>
 </ul></li>
 <li><a href="../../Index.html" title="Index" class="page">Index</a></li>
 </ul></li>
@@ -109,63 +109,105 @@
               </div>
             </noscript>
 
-                <h1>Sunday 16 Feb 2025<a name='Sunday 16 Feb 2025_1_1' class="offset-anchor"></a></h1>
+                <h1>Wednesday 19 Mar 2025<a name='Wednesday 19 Mar 2025_1_1' class="offset-anchor"></a></h1>
               
-<hr>
-
-
-                <h2>LUKS Quick Unlock Guide<a name='LUKS Quick Unlock Guide_1_2' class="offset-anchor"></a></h2>
+                <h2>ZFS Pool Storage Upgrade<a name='ZFS Pool Storage Upgrade_1_2' class="offset-anchor"></a></h2>
               <p>
-<img src="./16/padlock-157618_640.png"><br>
-Image <a href="https://pixabay.com/vectors/padlock-encrypt-encrypted-lock-157618/" title="copyright" class="https">copyright</a>
+It's ZFS storage upgrade time! I am currently running two 4 TB hard drives, and one 2 TB hard drive in a RAIDZ1, which means my usable space is 5.45T. My pool has reached 86% capacity. You should not let ZFS get over 80% full due to performance downgrades. Let's upgrade.
 </p>
 
 <p>
-I want to write a quick reference for the use of LUKS. LUKS is an encryption tool for linux to protect drive paritions. 
+I acquired another 4 TB enterprise hard drive from eBay for £50; this drive will replace the 2 TB hard drive. I used to have both WD and Seagate drives, but noticed I can get Toshiba enterprise drives at a good price second hand. I have four Toshiba drives (prior to getting this new one), with two in my back up server, one in my NAS and the one as an off-site backup.
 </p>
 
-<p>
-The command-line approach to open the container is as follows:
-</p>
 
-<ul>
-<li>Get partition name through <tt>fdisk -l</tt> command; imporant, instead of <tt>sdd</tt>, you need to use <tt>sdd1</tt></li>
-<li>Use the cryptsetup tool to manage this</li>
-<li>To create a map of the device, use:
-<ul>
-<li><tt>cryptsetup luksOpen /dev/sdd1 encrypted_drive</tt></li>
-</ul></li>
-<li>This will create a link between sdd1 and mapper; you can use any name you wish, but for this example I used <tt>encrypted_drive</tt>. You will need to enter your passphrase after the command is executed.</li>
-<li>Now, you need to mount the device:
-<ul>
-<li><tt>mount /dev/mapper/encrypted_drive /mnt/drive</tt></li>
-</ul></li>
+                <h5>Things to note:<a name='Things to note:_1_3' class="offset-anchor"></a></h5>
+              <ul>
+<li>Always use the replace command to maintain redundancy should a drive fail during a resilver</li>
+<li>Think about the command before entering it</li>
+<li>Check you have the "autoexpand" option on in your pool, so that ZFS will reclaim space</li>
 </ul>
 
 <p>
-I use this tool to encrypt my external drives, replacing ecryptfs. 
+I inserted the new drive into a space slot, booted the backup server. Here's the state before the upgrade:
 </p>
 
-<p>
-When finished, unmount the drive.
+                <h3>=<a name='=_1_4' class="offset-anchor"></a></h3>
+              <p>
+<tt>zpool status</tt>
 </p>
 
-<ul>
-<li>System unmount first:
-<ul>
-<li><tt>umount /mnt/drive</tt></li>
-</ul></li>
-<li>And the encrypted mapper:
-<ul>
-<li><tt>cryptsetup luksClose encrypted_drive</tt></li>
-</ul></li>
-</ul>
+<pre>
+NAME    SIZE  ALLOC   FREE  CKPOINT  EXPANDSZ   FRAG    CAP  DEDUP    HEALTH  ALTROOT
+rpool  5.45T  4.71T   760G     889M         -     0%    86%  1.00x    ONLINE  -
+</pre>
 
 
-<p>
-Here's a <a href="https://linuxconfig.org/basic-guide-to-encrypting-linux-partitions-with-luks" title="full guide" class="https">full guide</a> to setup and LUKS container. 
+                <h3>Resilver in progress<a name='Resilver in progress_1_5' class="offset-anchor"></a></h3>
+              <pre>
+  pool: rpool
+ state: ONLINE
+status: One or more devices is currently being resilvered.  The pool will
+	continue to function, possibly in a degraded state.
+action: Wait for the resilver to complete.
+  scan: resilver in progress since Wed Mar 19 07:56:32 2025
+	2.29T scanned at 2.96G/s, 206G issued at 266M/s, 4.71T total
+	68.5G resilvered, 4.27% done, 04:55:45 to go
+config:
+
+	NAME                                              STATE     READ WRITE CKSUM
+	rpool                                             ONLINE       0     0     0
+	  raidz1-0                                        ONLINE       0     0     0
+	    ata-TOSHIBA_MG04ACA400E_XXXXXXXXXXXX          ONLINE       0     0     0
+	    ata-TOSHIBA_MG04ACA400N_XXXXXXXXXXXX          ONLINE       0     0     0
+	    replacing-2                                   ONLINE       0     0     0
+	      ata-WDC_WD2002FFSX-XXXXXXXXXXXXXXXXXXXXXXX  ONLINE       0     0     0
+	      ata-TOSHIBA_MG08ADA400E_XXXXXXXXXXXX        ONLINE       0     0     0  (resilvering)
+
+errors: No known data errors
+</pre>
+
+
+
+                <h4>Command to resilver<a name='Command to resilver_1_6' class="offset-anchor"></a></h4>
+              <p>
+<tt>zpool replace rpool ata-WDC_WD2002FFSX-XXXXXXXXXXXXXXXXXXXXXXX /dev/disk/by-id/ata-TOSHIBA_MG08ADA400E_XXXXXXXXXXXX</tt>
 </p>
 
+
+
+                <h3>Following Resilver<a name='Following Resilver_1_7' class="offset-anchor"></a></h3>
+              <p>
+Great, everything went well and I have now more capacity. 
+</p>
+
+<pre>
+NAME    SIZE  ALLOC   FREE  CKPOINT  EXPANDSZ   FRAG    CAP  DEDUP    HEALTH  ALTROOT
+rpool  10.9T  4.71T  6.20T        -         -     0%    43%  1.00x    ONLINE  -
+</pre>
+
+
+<pre>
+  pool: rpool
+ state: ONLINE
+  scan: resilvered 1.58T in 03:30:28 with 0 errors on Wed Mar 19 11:27:00 2025
+config:
+
+	NAME                                            STATE     READ WRITE CKSUM
+	rpool                                           ONLINE       0     0     0
+	  raidz1-0                                      ONLINE       0     0     0
+	    ata-TOSHIBA_MG04ACA400E_XXXXXXXXXXXX        ONLINE       0     0     0
+	    ata-TOSHIBA_MG04ACA400N_XXXXXXXXXXXX        ONLINE       0     0     0
+	    ata-TOSHIBA_MG08ADA400E_XXXXXXXXXXXX        ONLINE       0     0     0
+
+errors: No known data errors
+</pre>
+
+
+                <h3>Conclusion<a name='Conclusion_1_8' class="offset-anchor"></a></h3>
+              <p>
+It is easy to replace a hard drive in a ZFS pool to increase capacity. I now have 10T to play with, at 43% capacity now. I will write back when a drive fails - let's hope it's not soon.
+</p>
 
             
             <span class="backlinks">
@@ -178,7 +220,7 @@ Here's a <a href="https://linuxconfig.org/basic-guide-to-encrypting-linux-partit
                 <a href='../../Index.html'>Journal:Index</a>
                 
 <br />
-                <a href='../02.html'>Journal:2025:02</a>
+                <a href='../03.html'>Journal:2025:03</a>
                 
             </span>
 
