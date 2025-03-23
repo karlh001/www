@@ -8,7 +8,7 @@
     <meta name="template author" content="Hugo Gaibor E.">
     <link rel="icon" href="../../../_resources/images/favicon.ico">
 
-    <title>Sunday 28 Apr 2024</title>
+    <title>Sunday 23 Mar 2025</title>
 
     <!-- JS Jquery and Bootstrap scripts -->
     <script type='text/javascript' src="../../../_resources/js/jquery-3.6.0.min.js" type="text/javascript"></script>
@@ -44,11 +44,11 @@
       </div>
       <div class="btn-toolbar" role="toolbar" aria-label="Button groups">
         <div class="btn-group mr-2" role="group" aria-label="Navigation group">
-              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='../04.html'">Prev</button>
+              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='./19.html'">Prev</button>
   
               <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='../../../map.html'">Index</button>
 
-              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='../05.html'">Next</button>
+              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='../../Index.html'">Next</button>
         </div>
       </div>
       <div>
@@ -77,21 +77,16 @@
 <ul>
 <li><a href="../../2022.html" title="2022" class="page">2022</a></li>
 <li><a href="../../2023.html" title="2023" class="page">2023</a></li>
-<li><a href="../../2024.html" title="2024" class="page">2024</a>
+<li><a href="../../2024.html" title="2024" class="page">2024</a></li>
+<li><a href="../../2025.html" title="2025" class="page">2025</a>
 <ul>
-<li><a href="../01.html" title="01" class="page">01</a></li>
 <li><a href="../02.html" title="02" class="page">02</a></li>
-<li><a href="../03.html" title="03" class="page">03</a></li>
-<li><a href="../04.html" title="04" class="page">04</a>
+<li><a href="../03.html" title="03" class="page">03</a>
 <ul>
-<li><b>28</b></li>
+<li><a href="./19.html" title="19" class="page">19</a></li>
+<li><b>23</b></li>
 </ul></li>
-<li><a href="../05.html" title="05" class="page">05</a></li>
-<li><a href="../07.html" title="07" class="page">07</a></li>
-<li><a href="../09.html" title="09" class="page">09</a></li>
-<li><a href="../10.html" title="10" class="page">10</a></li>
 </ul></li>
-<li><a href="../../2025.html" title="2025" class="page">2025</a></li>
 <li><a href="../../Index.html" title="Index" class="page">Index</a></li>
 </ul></li>
 <li><a href="../../../Money.html" title="Money" class="page">Money</a></li>
@@ -112,74 +107,65 @@
               </div>
             </noscript>
 
-                <h1>Sunday 28 Apr 2024<a name='Sunday 28 Apr 2024_1_1' class="offset-anchor"></a></h1>
+                <h1>Sunday 23 Mar 2025<a name='Sunday 23 Mar 2025_1_1' class="offset-anchor"></a></h1>
               
-<hr>
-
-
-                <h2>Badblocks command for burn-in test<a name='Badblocks command for burn-in test_1_2' class="offset-anchor"></a></h2>
+                <h2>Sunday chill: Podcasts I listen to<a name='Sunday chill: Podcasts I listen to_1_2' class="offset-anchor"></a></h2>
               <p>
-<img src="./28/computer-3293873_640.jpg"><br>
-Image <a href="https://pixabay.com/photos/computer-hard-drive-3293873/" title="copyright" class="https">copyright</a>
+<img src="file:///home/karl/Downloads/ai-generated-8519742_640.jpg"><br>
+Image <a href="https://pixabay.com/illustrations/ai-generated-microphone-podcast-8519742/" title="copyright" class="https">copyright</a>
 </p>
 
 <p>
-I have purchased a re-certified hard drive to expand my ZFS pool to support my data growth. I will show how I test the drive prior to committing data, or in my case resilvering my pool. 
-</p>
-
-<p>
-I check SMART data using <i>smartmontools</i> on linux, and output the results into a log file to review.
-</p>
-
-<p>
-<tt>smartctl -a /dev/sdX &gt; /path/smart.log</tt>
-</p>
-
-<p>
-As <a href="../../../Computing/Backup/SMART.html" title="discussed" class="page">discussed</a> before, I looked for pending and reallocated sectors. If any pending, I do not trust the drive. 
-</p>
-
-<p>
-This is only the history of the drive - there could be damaged sectors not yet found. To test for this, I run a command to write data to every block and read it back. If the data changes, we know there are damaged sector. To do this, I use the command <i>badblocks</i>.
-</p>
-
-<p>
-By default, <i>badblocks</i> will write out four patterns to every sector and read back as it goes along. This can be time consuming and I just want "a-good-enough" test without waiting days, especially as hard drive capacity increase, I prefer to run one pattern; I use a custom badblocks command with random pattern in destructive mode, that is if you run this command your hard drive contents will be destroyed.
-</p>
-
-<p>
-Writes four patterns:
-</p>
-
-<p>
-<tt>badblocks -b 4096 -wsv /dev/sda</tt>
-</p>
-
-<p>
-Writes one random pattern (this is the one I am using):
-</p>
-
-<p>
-<tt>badblocks -wsvt "random" -b 4096 /dev/sdz</tt>
-</p>
-
-<p>
-Key<br>
-<tt>w = read / write (destructive)</tt><br>
-<tt>s = current progress of scan</tt><br>
-<tt>b = blocksize 4096</tt><br>
-<tt>v = verbose</tt><br>
-<tt>t = test pattern, e.g. 0 or "random"</tt>
-</p>
-
-<p>
-I will write about my resilvering process once the drive arrives and has been tested.
+Happy Sunday everyone. Here are a few podcasts I like to listen to:
 </p>
 
 
-<p>
-Read the <a href="https://linux.die.net/man/8/badblocks" title="manual" class="https">manual</a>.
-</p>
+<table>
+<thead><tr>
+  <th align="left">Name</th>
+  <th align="left">Category</th>
+  <th align="left">Reason</th>
+</tr></thead>
+<tr>
+  <td align="left">Talking Real Money</td>
+  <td align="left">Finance</td>
+  <td align="left">I enjoy the talk between Don and Tom and the financial no nonsense approach to capital management.</td>
+</tr>
+<tr>
+  <td align="left">2.5 Admins / Late Night Admins</td>
+  <td align="left">Technology</td>
+  <td align="left">I like the appearance of ZFS super stars and the general linux chat.</td>
+</tr>
+<tr>
+  <td align="left">The Fi Guys</td>
+  <td align="left">Finance</td>
+  <td align="left">In-depth financial and personal growth discussions.</td>
+</tr>
+<tr>
+  <td align="left">XFM Pilkington</td>
+  <td align="left">Comedy</td>
+  <td align="left">Karl is hilarious and I love to listen to this show as a mood boost or to settle at night.</td>
+</tr>
+<tr>
+  <td align="left">Darknet Diaries</td>
+  <td align="left">Technology</td>
+  <td align="left">Entertaining show explaining hacks and cyber security. Jack's interviews with hackers and criminals is great.</td>
+</tr>
+<tr>
+  <td align="left">DIY Money</td>
+  <td align="left">Finance</td>
+  <td align="left">Although USA focused, still entertaining and I can apply general principles to UK finance.</td>
+</tr>
+<tr>
+  <td align="left">Cyber Crime Junkies</td>
+  <td align="left">Technology</td>
+  <td align="left">Again, I enjoy keeping up to date with cyber secruity and best practises. Entertaining show. Love the intro.</td>
+</tr>
+</table>
+
+
+
+
 
             
             <span class="backlinks">
@@ -192,7 +178,10 @@ Read the <a href="https://linux.die.net/man/8/badblocks" title="manual" class="h
                 <a href='../../Index.html'>Journal:Index</a>
                 
 <br />
-                <a href='../04.html'>Journal:2024:04</a>
+                <a href='../../../Money/Money_Podcasts.html'>Money:Money Podcasts</a>
+                
+<br />
+                <a href='../03.html'>Journal:2025:03</a>
                 
             </span>
 
