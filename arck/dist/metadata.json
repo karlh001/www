@@ -1,1 +1,1 @@
-{"project_name":"arck","tag":"v1.1.1","previous_tag":"v1.1","version":"1.1.1-SNAPSHOT-43594b1","commit":"43594b196f78927baf1c36094160546e5b8c2cd6","date":"2025-01-01T18:36:54.424074493Z","runtime":{"goos":"linux","goarch":"amd64"}}
+{"project_name":"arck","tag":"1.1.3","previous_tag":"v1.1.1","version":"1.1.3-SNAPSHOT-544321a","commit":"544321a79b4957e409dbd863fbcb27b94bd5afeb","date":"2025-04-05T17:54:32.956088017+01:00","runtime":{"goos":"linux","goarch":"amd64"}}
