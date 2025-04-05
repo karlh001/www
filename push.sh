@@ -4,6 +4,7 @@
 
 git add --all
 git commit -m "Journal posts"
+git push github main
 git push origin main
 git push origin2 main
 
