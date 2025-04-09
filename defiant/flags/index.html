@@ -74,6 +74,10 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#skip-missing-file-scan">Skip missing file scan</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#check-for-missing-only">Check for missing only</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#read-only-mode">Read only mode</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#database-file-location">Database file location</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#version">Version</a>
@@ -163,6 +167,16 @@
 <h3 id="skip-missing-file-scan">Skip missing file scan</h3>
 <p><code>--skip-missing</code></p>
 <p>Skips the missing file scan. You will not be notified about missing / deleted files which exist in the database.</p>
+<h3 id="check-for-missing-only">Check for missing only</h3>
+<p><code>m</code></p>
+<p>Runs a missing files only scan. Does not look for new files or checksums existing files. Cannot be used in conjunction with the <code>--skip-missing</code> flag. </p>
+<pre><code>dfg -d /path/to/files -m
+</code></pre>
+<h3 id="read-only-mode">Read only mode</h3>
+<p><code>-ro</code></p>
+<p>Runs a scan without modifying the dfg.db or specified database file. If new files are found, they will not be written to the dfg.db file. Good option for testing archival data.  </p>
+<pre><code>dfg -d /path/to/file -ro
+</code></pre>
 <h3 id="database-file-location">Database file location</h3>
 <p><code>-db</code></p>
 <p>You can specify your own db location with name of the database file. To do this, use the <code>-db</code> flag, example:</p>
