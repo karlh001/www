@@ -51,6 +51,10 @@
                 <li class="toctree-l1"><a class="reference internal" href="../requirements/">Requirements</a>
                 </li>
               </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../download/">Download</a>
+                </li>
+              </ul>
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">Installation</a>
     <ul class="current">
@@ -59,6 +63,8 @@
     <li class="toctree-l3"><a class="reference internal" href="#deb-package">Deb Package</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#manual-install">Manual Install</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#manual-quick-install">Manual Quick Install</a>
     </li>
         </ul>
     </li>
@@ -134,7 +140,7 @@
 <p>On Debian based operating systems (such as Ubuntu, Linux Mint), download the deb package. On desktop versions, open package and click <code>install package</code>. </p>
 <p>Or, via command line:</p>
 <p>Download</p>
-<pre><code>wget https://karlhunter.co.uk/defiant/dist/dfg_amd64.deb
+<pre><code>wget https://karlhunter.co.uk/defiant/dist/defiant-fg_linux_amd64_v1.deb
 </code></pre>
 <p>Install (as root)</p>
 <pre><code>dpkg --install dfg_amd64.deb
@@ -142,6 +148,20 @@
 <p>Done.</p>
 <h3 id="manual-install">Manual Install</h3>
 <p>There is a list of available OS downloads <a href="../download/">here</a>.</p>
+<h3 id="manual-quick-install">Manual Quick Install</h3>
+<p>This will install amd64 version to the <code>/usr/local/bin</code></p>
+<pre><code>sudo wget https://karlhunter.co.uk/defiant/dist/defiant-fg_linux_amd64_v1/defiant-fg --directory-prefix=/usr/local/bin/ &amp;&amp; sudo mv -f /usr/local/bin/defiant-fg /usr/local/bin/dfg &amp;&amp; sudo chmod +x /usr/local/bin/dfg &amp;&amp; dfg --version
+</code></pre>
+<p>If you get the following output, then it work:</p>
+<pre><code>DEFIANT File Guard (DEFIANT-FG)
+Version 1.X.X 
+Date 20XX
+By Karl Hunter
+https://karlhunter.co.uk/defiant/
+dfg@karlhunter.co.uk
+To scan a directory, add the -d flag followed by directory
+e.g. dfg -d /path/to/dir/
+</code></pre>
 <h2 id="test">Test</h2>
 <p>Test install. Run:</p>
 <pre><code>dfg -version
@@ -161,7 +181,7 @@
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../requirements/" class="btn btn-neutral float-left" title="Requirements"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../download/" class="btn btn-neutral float-left" title="Download"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../run/" class="btn btn-neutral float-right" title="Run">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
@@ -185,7 +205,7 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../requirements/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../download/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../run/" style="color: #fcfcfc">Next &raquo;</a></span>
