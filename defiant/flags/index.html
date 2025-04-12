@@ -82,6 +82,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#read-only-mode">Read only mode</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#debug">Debug</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#database-file-location">Database file location</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#version">Version</a>
@@ -180,6 +182,11 @@
 <p><code>-ro</code></p>
 <p>Runs a scan without modifying the dfg.db or specified database file. If new files are found, they will not be written to the dfg.db file. Good option for testing archival data.  </p>
 <pre><code>dfg -d /path/to/file -ro
+</code></pre>
+<h3 id="debug">Debug</h3>
+<p><code>-debug</code></p>
+<p>Shows debugging messages. Detailed error messages are printed.</p>
+<pre><code>dfg -d /path/to/files/ -debug
 </code></pre>
 <h3 id="database-file-location">Database file location</h3>
 <p><code>-db</code></p>
