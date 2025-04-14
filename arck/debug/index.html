@@ -9,10 +9,6 @@
       
       
       
-        <link rel="prev" href="../restore/">
-      
-      
-        <link rel="next" href="../bugs/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -20,7 +16,7 @@
     
     
       
-        <title>Technical - arcK Documentation</title>
+        <title>Debug - arcK Documentation</title>
       
     
     
@@ -62,7 +58,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#technical-manual" class="md-skip">
+        <a href="#debug" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Technical
+              Debug
             
           </span>
         </div>
@@ -257,20 +253,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -286,7 +280,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             User Guide
@@ -389,19 +383,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../tech/" class="md-nav__link">
         
   
   
@@ -412,7 +397,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -673,6 +657,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -687,17 +688,14 @@
 
 
 
-<h1 id="technical-manual">Technical Manual</h1>
-<ul>
-<li><a href="../create/">Create</a></li>
-<li><a href="../restore/">Restore</a></li>
-<li><a href="../metadata/">Metadata File</a></li>
-<li><a href="../coding/">Erasure Coding</a></li>
-<li><a href="../errors/">Exit Error Codes</a></li>
-<li><a href="../data_corruption/">Data corruption error</a></li>
-<li><a href="../data_recovery/">Data recovery message</a></li>
-<li><a href="../debug/">Debug mode</a></li>
-</ul>
+<h1 id="debug">Debug</h1>
+<p>To display more detailed verbose, you can enter debug mode during creation, extraction or verification.</p>
+<p>Use the flag <code>-debug</code></p>
+<h2 id="example">Example</h2>
+<pre><code>arck -s /path/to/src/ -d /path/dest/ -n project_name -debug
+
+arck -v /path/to/metadata.m -debug
+</code></pre>
 
 
 

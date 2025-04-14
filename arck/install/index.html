@@ -288,18 +288,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#deb-package" class="md-nav__link">
+  <a href="#manual-install-via-command" class="md-nav__link">
     <span class="md-ellipsis">
-      Deb package
+      Manual Install via Command
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#binary" class="md-nav__link">
+  <a href="#deb-package" class="md-nav__link">
     <span class="md-ellipsis">
-      Binary
+      Deb Package
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-binary-install" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manual Binary Install
     </span>
   </a>
   
@@ -728,18 +737,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#deb-package" class="md-nav__link">
+  <a href="#manual-install-via-command" class="md-nav__link">
     <span class="md-ellipsis">
-      Deb package
+      Manual Install via Command
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#binary" class="md-nav__link">
+  <a href="#deb-package" class="md-nav__link">
     <span class="md-ellipsis">
-      Binary
+      Deb Package
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-binary-install" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manual Binary Install
     </span>
   </a>
   
@@ -762,13 +780,22 @@
 
 
 <h1 id="install">Install</h1>
-<h2 id="deb-package">Deb package</h2>
+<h2 id="manual-install-via-command">Manual Install via Command</h2>
+<p>This will install amd64 version to the <code>/usr/local/bin</code></p>
+<pre><code>sudo wget https://karlhunter.co.uk/arck/dist/arck_linux_amd64_v1/arck --directory-prefix=/usr/local/bin/ &amp;&amp; sudo chmod +x /usr/local/bin/arck &amp;&amp; arck --check
+</code></pre>
+<p>If successful, you will get the following output:</p>
+<pre><code>Thank you for installing arcK version 1.X
+If you can read this, the installation was successful.
+Exiting.
+</code></pre>
+<h2 id="deb-package">Deb Package</h2>
 <p>Recommended methods for debian/ubuntu distros.</p>
 <p><a href="../download/">Download</a> the compiled binary package.</p>
 <p>From a graphical interface, right-click and choose <strong>Install</strong></p>
 <p>From command line, type:</p>
 <p><code>dpkg --install arck.deb</code></p>
-<h2 id="binary">Binary</h2>
+<h2 id="manual-binary-install">Manual Binary Install</h2>
 <p>Before you can use the binary, you need to make it executable. Use command:</p>
 <p><code>chmod +x arck</code></p>
 <p>Then, copy to bin directory:</p>
