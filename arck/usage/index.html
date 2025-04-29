@@ -221,29 +221,7 @@
   
   
   <span class="md-ellipsis">
-    Download
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../install/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Install
+    Download and Install
     
   </span>
   
@@ -270,10 +248,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
@@ -286,8 +264,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_4">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             User Guide
           </label>
@@ -477,51 +455,6 @@
 
               
             
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    Contribute
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
-            <span class="md-nav__icon md-icon"></span>
-            Contribute
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
               
                 
   
@@ -590,10 +523,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   
@@ -606,8 +539,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             About
           </label>
@@ -782,7 +715,7 @@
 
 
 <h1 id="cli-usage">CLI Usage</h1>
-<p>arck {-s -d -n | -v | -x -d}</p>
+<p>arck {-s -d -n --debug --split X --files X --par X | -v --debug | -x -d --skip --debug}</p>
 <table>
 <thead>
 <tr>
@@ -801,7 +734,7 @@
 </tr>
 <tr>
 <td>-n</td>
-<td>Specify the name of the archive. Must be given when creating archive</td>
+<td>Specify the name of the archive. If omitted name will be the same as the file or directory given</td>
 </tr>
 <tr>
 <td>-v</td>
@@ -811,17 +744,42 @@
 <td>-x</td>
 <td>Restore archive. Specify path to metadata file</td>
 </tr>
+<tr>
+<td>--files X</td>
+<td>Specify total part files to create, default 5</td>
+</tr>
+<tr>
+<td>--par X</td>
+<td>Specify parity files, default 2</td>
+</tr>
+<tr>
+<td>--debug</td>
+<td>Increase messages and give detailed error output</td>
+</tr>
+<tr>
+<td>--skip</td>
+<td>Skip integrity check and just try to extract. Ensure all parts are not damaged or missing</td>
+</tr>
 </tbody>
 </table>
 <h2 id="create-archive">Create archive</h2>
-<p>You can specify a directory (recommended) or file. You do not need to tar archive a directory yourself. </p>
-<p><code>arck -s /path/to/source/ -d /path/to/outputdir/ -n archive_name</code></p>
+<p>You can specify a directory (recommended) or file. </p>
+<blockquote>
+<p>You do not need to tar archive a directory yourself. </p>
+</blockquote>
+<pre><code>arck -s /path/to/source/ -d /path/to/outputdir/ -n archive_name
+</code></pre>
 <p>You cannot create archive names with an equals (=) sign. If you want to use a space remember to enclose in perensese: <code>-n "name of archive"</code></p>
-<p><em>Nb: the output directory must have double the available space to match the source directory. After processing, the space requirement will the same as the source directory.</em></p>
+<blockquote>
+<p>If you do not specify a project name, the name of the file or directory is used by default.</p>
+<p>Nb: The output directory must have double the available space to match the source directory. After processing, the space requirement will the same as the source directory.</p>
+<p><strong>IMPORTANT</strong>: You must backup the .m file, as without this you cannot easily restore your files. If this is missing, please the <a href="../metadata/">metadata file technical manual</a> or reach out for advice.</p>
+</blockquote>
 <p><a href="../create/">How this works</a>.</p>
 <h2 id="verify-archive">Verify archive</h2>
 <p>A useful feature is to verify the integrity of the archive parts. Testing backups are an important aspect of data preservation. Verifying is a faster method to test parts integrity without restoring the archive.</p>
-<p><code>arck -v /path/to/archive.m</code></p>
+<pre><code>arck -v /path/to/archive.m
+</code></pre>
 <p>You will need to specify the archive metadata file. As a reminder, you should keep this backed up and ideally keep multiple copies. More on the (metadata file)[metadata.md].</p>
 <p>You will be given an output like:</p>
 <p><code>project.0  PASS
@@ -842,7 +800,8 @@ archive.2
 archive.3
 archive.4</code></p>
 <p>You can still restore if parts are missing. Let the program handle this. </p>
-<p><code>arck -x /path/to/metadata_file.m -d /path/to/outputdir/</code></p>
+<pre><code>arck -x /path/to/metadata_file.m -d /path/to/outputdir/
+</code></pre>
 <p><a href="../restore/">How this works</a>.</p>
 
 

@@ -219,29 +219,7 @@
   
   
   <span class="md-ellipsis">
-    Download
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../install/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Install
+    Download and Install
     
   </span>
   
@@ -266,10 +244,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
@@ -282,8 +260,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             User Guide
           </label>
@@ -404,51 +382,6 @@
 
               
             
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    Contribute
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
-            <span class="md-nav__icon md-icon"></span>
-            Contribute
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
               
                 
   
@@ -519,10 +452,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   
@@ -535,8 +468,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_6">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             About
           </label>
@@ -668,6 +601,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#120" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.0
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#116" class="md-nav__link">
     <span class="md-ellipsis">
       1.1.6
@@ -782,6 +724,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#120" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.0
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#116" class="md-nav__link">
     <span class="md-ellipsis">
       1.1.6
@@ -870,6 +821,20 @@
 
 
 <h1 id="release-notes">Release Notes</h1>
+<h2 id="120">1.2.0</h2>
+<p>** 29 Apr 2025 ***</p>
+<blockquote>
+<p><strong>Breaking changes</strong>: archives created in this version cannot be extracted or verified by previous versions; however, backward compatability still exists: previous archives created by all arcK versions can be restored and verifed</p>
+</blockquote>
+<p>I am pleased to annouch a new branch. Version 1.2 now allows you to split large part files, making it easy to upload to cloud storage.</p>
+<ul>
+<li>New metadata file layout <a href="../metadata/">more</a></li>
+<li>Increased verbose output in debug mode <a href="../debug/">more</a></li>
+<li>Feature: custom part files; new flags <code>--files X</code> <code>--par X</code> <a href="../parity/">more</a></li>
+<li>Feature: legancy mode to extract archives created in previous version <a href="../legacy/">more</a></li>
+<li>Reduced verbose output in normal mode</li>
+<li>Bug: fixed overwriting of file if same name given during creation</li>
+</ul>
 <h2 id="116">1.1.6</h2>
 <p><strong>14 Apr 2025</strong></p>
 <ul>
@@ -879,7 +844,9 @@
 </ul>
 <h2 id="115">1.1.5</h2>
 <p><strong>06 Apr 2025</strong></p>
-<p><mark><strong>Breaking changes</strong>: archives created in this version cannot be extracted or verified by previous versions; however, backward compatability still exists: previous archives created by all arcK versions can be restored and verifed from 1.1.5 onwards</mark></p>
+<blockquote>
+<p><strong>Breaking changes</strong>: archives created in this version cannot be extracted or verified by previous versions; however, backward compatability still exists: previous archives created by all arcK versions can be restored and verifed from 1.1.5 onwards</p>
+</blockquote>
 <ul>
 <li>Allows additional metadata in the future to m file</li>
 <li>Fixes critcal bug that crashes if m file does not exist or broken</li>

@@ -217,29 +217,7 @@
   
   
   <span class="md-ellipsis">
-    Download
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../install/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Install
+    Download and Install
     
   </span>
   
@@ -264,10 +242,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
@@ -280,8 +258,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             User Guide
           </label>
@@ -402,51 +380,6 @@
 
               
             
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    Contribute
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
-            <span class="md-nav__icon md-icon"></span>
-            Contribute
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
               
                 
   
@@ -515,10 +448,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   
@@ -531,8 +464,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             About
           </label>
@@ -681,6 +614,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#contact" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contact
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -703,11 +645,23 @@
 <p>The file contains the checksum values of each part. This is important because if you feed the erasure coding module with a damaged part, it could result in failure to reconstruct the archive. If a part fails, arcK will automatically delete the damaged part - afterall, it's useless now. But remember, you can restore the archive with just 3 parts. </p>
 <h2 id="fixing-damanged-or-lost-metadata-file">Fixing damanged or lost metadata file</h2>
 <p>If you need to recreate the metadata file, generate sha256 checksum of each part and store in the metadata file on one line. This can be in any order. <strong>Nb. End the line with a semi-colon.</strong></p>
-<p><code>archive_name.0=sha256hash;archive_name.1=sha256hash; ...</code></p>
+<blockquote>
+<p>A great tool to generate hashes is sha256deep. Read my article <a href="https://karlhunter.co.uk/Journal/2023/09/02.html">here</a>.</p>
+</blockquote>
+<p><code>archive_name.0=sha256hash;archive_name.1=sha256hash; ...;&amp;hash;</code></p>
+<blockquote>
+<p>Nb. Note the line must end with <code>;&amp;hash;</code></p>
+</blockquote>
 <p>Name the file with the same name of the parts. For example, if the archive parts are called 'pictures.X' then name the metadata file 'pictures.m'</p>
-<p>If you are not confident of the integrity of the parts, then use 'skip'. For example:</p>
-<p><code>archive_name.0=936a185caaa266bb9cbe981e9e05cb78cd732b0b3280eb944412bb6f8f8f07af;archive_name.1=skip; ...</code></p>
-<p>This will ensure the program continues without giving you an error, then the erasure coding module will attempt to check the archive parts integrity. This may fail, as giving this module bad data may result in failure to restore; hence why the metadata file is of utmost importance In this case, try renaming each part and then see if the restoration works until you find the bad part. There may be more than one bad part, which makes this process complex. </p>
+<p>If you are not confident of the integrity of the parts, then use 'skip' in place of the hash. For example:</p>
+<p><code>archive_name.0=936a185caaa266bb9cbe981e9e05cb78cd732b0b3280eb944412bb6f8f8f07af;archive_name.1=skip; ...;&amp;hash;</code></p>
+<p>This will ensure the program continues without giving you an error, then the erasure coding module will attempt to check the archive parts' integrity. This may fail, as giving this module bad data may result in failure to restore; hence why the metadata file is of utmost importance. In this case, try renaming each part and then see if the restoration works until you find the bad part. There may be more than one bad part, which makes this process complex.</p>
+<blockquote>
+<p>Nb. You can only lose two parts. Further failure will result in your files being lost.</p>
+</blockquote>
+<h2 id="contact">Contact</h2>
+<p>Please reach out if you are having difficulty.</p>
+<p><code>arck@karlhunter.co.uk</code></p>
 
 
 
