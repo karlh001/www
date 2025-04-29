@@ -715,7 +715,7 @@
 <h1 id="download-and-install">Download and Install</h1>
 <h2 id="manual-install-via-command-line">Manual Install via Command Line</h2>
 <p>This will install amd64 version to the <code>/usr/local/bin</code></p>
-<pre><code>sudo wget https://karlhunter.co.uk/arck/dist/linux_amd64/arck --directory-prefix=/usr/local/bin/ &amp;&amp; sudo chmod +x /usr/local/bin/arck &amp;&amp; arck --check
+<pre><code>sudo rm -vf /usr/local/bin/arck &amp;&amp; sudo wget https://karlhunter.co.uk/arck/dist/linux_amd64/arck --directory-prefix=/usr/local/bin/ &amp;&amp; sudo chmod +x /usr/local/bin/arck &amp;&amp; arck --check
 </code></pre>
 <p>If successful, you will get the following output:</p>
 <pre><code>Thank you for installing arcK version 1.X
