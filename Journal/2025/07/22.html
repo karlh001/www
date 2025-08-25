@@ -9,7 +9,7 @@
     <meta name="author" content="Karl Hunter">
     <link rel="icon" href="https://karlhunter.co.uk/res/images/favicon.ico') %]">
 
-    <title>Sunday 23 Mar 2025</title>
+    <title>Tuesday 22 Jul 2025</title>
 
     <!-- JS Jquery and Bootstrap scripts -->
     <script type='text/javascript' src="[https://karlhunter.co.uk/res/js/jquery-3.6.0.min.js" type="text/javascript"></script>
@@ -45,11 +45,11 @@
       </div>
       <div class="btn-toolbar" role="toolbar" aria-label="Button groups">
         <div class="btn-group mr-2" role="group" aria-label="Navigation group">
-              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='./19.html'">Prev</button>
+              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='./17.html'">Prev</button>
   
               <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='../../../map.html'">Index</button>
 
-              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='../07.html'">Next</button>
+              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='../08.html'">Next</button>
         </div>
       </div>
       <div>
@@ -82,12 +82,12 @@
 <li><a href="../../2025.html" title="2025" class="page">2025</a>
 <ul>
 <li><a href="../02.html" title="02" class="page">02</a></li>
-<li><a href="../03.html" title="03" class="page">03</a>
+<li><a href="../03.html" title="03" class="page">03</a></li>
+<li><a href="../07.html" title="07" class="page">07</a>
 <ul>
-<li><a href="./19.html" title="19" class="page">19</a></li>
-<li><b>23</b></li>
+<li><a href="./17.html" title="17" class="page">17</a></li>
+<li><b>22</b></li>
 </ul></li>
-<li><a href="../07.html" title="07" class="page">07</a></li>
 <li><a href="../08.html" title="08" class="page">08</a></li>
 </ul></li>
 <li><a href="../../Index.html" title="Index" class="page">Index</a></li>
@@ -110,65 +110,98 @@
               </div>
             </noscript>
 
-                <h1>Sunday 23 Mar 2025<a name='Sunday 23 Mar 2025_1_1' class="offset-anchor"></a></h1>
+                <h1>Tuesday 22 Jul 2025<a name='Tuesday 22 Jul 2025_1_1' class="offset-anchor"></a></h1>
               
-                <h2>Sunday chill: Podcasts I listen to<a name='Sunday chill: Podcasts I listen to_1_2' class="offset-anchor"></a></h2>
+<hr>
+
+
+                <h2>Increasing Redundancy in My ZFS Backup Pool<a name='Increasing Redundancy in My ZFS Backup Pool_1_2' class="offset-anchor"></a></h2>
               <p>
-<img src="file:///home/karl/Downloads/ai-generated-8519742_640.jpg"><br>
-Image <a href="https://pixabay.com/illustrations/ai-generated-microphone-podcast-8519742/" title="copyright" class="https">copyright</a>
+I decided to increase the redundancy of my ZFS backup pool, which stores my entire digital life—photos, videos, music, and media. My current setup consists of three 4TB hard drives in a RAIDZ1 configuration (similar to RAID5). This means that I can afford to lose one drive without losing data. However, if the rebuild fails and another drive dies, I would lose everything on this pool. I have backups elsewhere but would prefer to not spend hours retoring.
 </p>
 
 <p>
-Happy Sunday everyone. Here are a few podcasts I like to listen to:
+To mitigate this risk, I wanted to upgrade to a two-drive redundancy setup using a spare 4TB drive I had. However, this meant I had to destroy my existing pool and start over from scratch. Here's how I did it without losing data:
 </p>
 
 
-<table>
-<thead><tr>
-  <th align="left">Name</th>
-  <th align="left">Category</th>
-  <th align="left">Reason</th>
-</tr></thead>
-<tr>
-  <td align="left">Talking Real Money</td>
-  <td align="left">Finance</td>
-  <td align="left">I enjoy the talk between Don and Tom and the financial no nonsense approach to capital management.</td>
-</tr>
-<tr>
-  <td align="left">2.5 Admins / Late Night Admins</td>
-  <td align="left">Technology</td>
-  <td align="left">I like the appearance of ZFS super stars and the general linux chat.</td>
-</tr>
-<tr>
-  <td align="left">The Fi Guys</td>
-  <td align="left">Finance</td>
-  <td align="left">In-depth financial and personal growth discussions.</td>
-</tr>
-<tr>
-  <td align="left">XFM Pilkington</td>
-  <td align="left">Comedy</td>
-  <td align="left">Karl is hilarious and I love to listen to this show as a mood boost or to settle at night.</td>
-</tr>
-<tr>
-  <td align="left">Darknet Diaries</td>
-  <td align="left">Technology</td>
-  <td align="left">Entertaining show explaining hacks and cyber security. Jack's interviews with hackers and criminals is great.</td>
-</tr>
-<tr>
-  <td align="left">DIY Money</td>
-  <td align="left">Finance</td>
-  <td align="left">Although USA focused, still entertaining and I can apply general principles to UK finance.</td>
-</tr>
-<tr>
-  <td align="left">Cyber Crime Junkies</td>
-  <td align="left">Technology</td>
-  <td align="left">Again, I enjoy keeping up to date with cyber secruity and best practises. Entertaining show. Love the intro.</td>
-</tr>
-</table>
+                <h3>Step 1: Prepare the New Drive<a name='Step 1: Prepare the New Drive_1_3' class="offset-anchor"></a></h3>
+              <p>
+First, I added the fourth 4TB hard drive to my PC. Next, I removed one of the existing drives from my pool. At this point, the pool wasn’t degraded (which is okay because I had backups).
+</p>
+
+
+                <h3>Step 2: Create a New RAIDZ2 Pool<a name='Step 2: Create a New RAIDZ2 Pool_1_4' class="offset-anchor"></a></h3>
+              <p>
+I tried to create a new RAIDZ2 pool using two of the drives. However, RAIDZ2 requires a minimum of four drives, so I had to create "fake" disks during the setup process. Here's the command I used to simulate the necessary disks:
+</p>
+
+<p>
+<tt>truncate -s 1G /mnt/disk1.img</tt><br>
+<tt>truncate -s 1G /mnt/disk2.img</tt>
+</p>
+
+<p>
+Once the pool was created, I exported it and removed the two fake disks. After that, I imported the pool back into ZFS, which now showed as "degraded."
+</p>
+
+
+                <h3>Step 3: Copy Data to the New Pool<a name='Step 3: Copy Data to the New Pool_1_5' class="offset-anchor"></a></h3>
+              <p>
+To transfer my data, I used the zfs send command to copy the datasets from the old pool to the new one. This took a long time, but eventually, everything was successfully transferred.
+</p>
+
+
+                <h3>Step 4: Destroy the Old Pool and Attach Drives to the New Pool<a name='Step 4: Destroy the Old Pool and Attach Drives to the New Pool_1_6' class="offset-anchor"></a></h3>
+              <p>
+Once the data was moved, I destroyed the old pool. I then attached one of the old hard drives at a time to the new RAIDZ2 pool, waiting for the rebuild to complete before attaching the next drive.
+</p>
+
+
+<pre>
+  pool: rpool2
+ state: DEGRADED
+status: One or more devices is currently being resilvered.  The pool will
+	continue to function, possibly in a degraded state.
+action: Wait for the resilver to complete.
+  scan: resilver in progress since Sat Aug 16 10:34:30 2025
+	313G / 5.94T scanned at 5.69G/s, 0B / 5.94T issued
+	0B resilvered, 0.00% done, no estimated completion time
+config:
+
+	NAME                                        STATE     READ WRITE CKSUM
+	rpool2                                      DEGRADED     0     0     0
+	  raidz2-0                                  DEGRADED     0     0     0
+	    ata-Drive1				    ONLINE       0     0     0
+	    ata-Drive2				    ONLINE       0     0     0
+	    ata-Drive3				    ONLINE       0     0     0
+	    replacing-3                             DEGRADED     0     0     0
+	      1826073647085818739                   UNAVAIL      0     0     0  was /mnt/disk2.img
+	      ata-Drive4			    ONLINE       0     0     0
+</pre>
 
 
 
+                <h3>Final Setup: A Secure RAIDZ2 Pool<a name='Final Setup: A Secure RAIDZ2 Pool_1_7' class="offset-anchor"></a></h3>
+              <p>
+Now, I have a RAIDZ2 pool that allows for the failure of two drives, which significantly increases the redundancy and security of my backup server. This new configuration also gives me more confidence when using older drives, as the system is now protected against multiple drive failures.
+</p>
 
+
+<pre>
+  pool: rpool2
+ state: ONLINE
+  scan: resilvered 1.45T in 03:49:32 with 0 errors on Sat Aug 16 14:24:02 2025
+config:
+
+	NAME                                      STATE     READ WRITE CKSUM
+	rpool2                                    ONLINE       0     0     0
+	  raidz2-0                                ONLINE       0     0     0
+	    ata-Drive1				  ONLINE       0     0     0
+	    ata-Drive2				  ONLINE       0     0     0
+	    ata-Drive3				  ONLINE       0     0     0
+	    ata-Drive4				  ONLINE       0     0     0
+</pre>
 
             
             <span class="backlinks">
@@ -181,10 +214,7 @@ Happy Sunday everyone. Here are a few podcasts I like to listen to:
                 <a href='../../Index.html'>Journal:Index</a>
                 
 <br />
-                <a href='../../../Money/Money_Podcasts.html'>Money:Money Podcasts</a>
-                
-<br />
-                <a href='../03.html'>Journal:2025:03</a>
+                <a href='../07.html'>Journal:2025:07</a>
                 
             </span>
 
