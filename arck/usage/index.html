@@ -715,7 +715,7 @@
 
 
 <h1 id="cli-usage">CLI Usage</h1>
-<p>arck {-s -d -n --debug --split X --files X --par X | -v --debug | -x -d --skip --debug}</p>
+<p>arck {-s -d -n --ignore-size --split X --files X --par X --debug | -v --debug | -x -d --skip --ignore-size --debug}</p>
 <table>
 <thead>
 <tr>
@@ -759,6 +759,10 @@
 <tr>
 <td>--skip</td>
 <td>Skip integrity check and just try to extract. Ensure all parts are not damaged or missing</td>
+</tr>
+<tr>
+<td>--ignore-size</td>
+<td>Skip size check when creating or extracting archives. May take a long time for large directory trees</td>
 </tr>
 </tbody>
 </table>

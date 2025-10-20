@@ -601,6 +601,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#122" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#121" class="md-nav__link">
     <span class="md-ellipsis">
       1.2.1
@@ -733,6 +742,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#122" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#121" class="md-nav__link">
     <span class="md-ellipsis">
       1.2.1
@@ -839,23 +857,27 @@
 
 
 <h1 id="release-notes">Release Notes</h1>
-<h2 id="121">1.2.1</h2>
-<p><strong>29 Apr 2025</strong></p>
+<h2 id="122">1.2.2</h2>
+<p>** 20 Oct 2025 **</p>
 <ul>
-<li>Bug: Verify feature: fixed incorrect reporting around data corruption if users sets own par value during creation</li>
+<li>Feature: checks available disk space before creating or extracting archive</li>
+<li>Added --ignore-size <a href="../usage/">flag</a> (which will skip above feature)</li>
 </ul>
+<h2 id="121">1.2.1</h2>
+<p>** 29 Apr 2025 **</p>
+<p>Bug: Verify feature: fixed incorrect reporting around data corruption if users sets own par value during creation</p>
 <h2 id="120">1.2.0</h2>
-<p><strong>29 Apr 2025</strong>*</p>
+<p>** 29 Apr 2025 ***</p>
 <blockquote>
 <p><strong>Breaking changes</strong>: archives created in this version cannot be extracted or verified by previous versions; however, backward compatability still exists: previous archives created by all arcK versions can be restored and verifed</p>
 </blockquote>
 <p>I am pleased to annouch a new branch. Version 1.2 now allows you to split large part files, making it easy to upload to cloud storage.</p>
 <ul>
-<li>Change: New metadata file layout <a href="../metadata/">more</a></li>
-<li>Change: Increased verbose output in debug mode <a href="../debug/">more</a></li>
+<li>New metadata file layout <a href="../metadata/">more</a></li>
+<li>Increased verbose output in debug mode <a href="../debug/">more</a></li>
 <li>Feature: custom part files; new flags <code>--files X</code> <code>--par X</code> <a href="../parity/">more</a></li>
 <li>Feature: legancy mode to extract archives created in previous version <a href="../legacy/">more</a></li>
-<li>Change: Reduced verbose output in normal mode</li>
+<li>Reduced verbose output in normal mode</li>
 <li>Bug: fixed overwriting of file if same name given during creation</li>
 </ul>
 <h2 id="116">1.1.6</h2>
