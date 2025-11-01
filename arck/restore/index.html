@@ -9,7 +9,7 @@
       
       
       
-        <link rel="prev" href="../create/">
+        <link rel="prev" href="../make/">
       
       
         <link rel="next" href="../tech/">
@@ -324,7 +324,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../create/" class="md-nav__link">
+      <a href="../make/" class="md-nav__link">
         
   
   
@@ -397,18 +397,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#wizard" class="md-nav__link">
+  <a href="#command" class="md-nav__link">
     <span class="md-ellipsis">
-      Wizard
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#command-line" class="md-nav__link">
-    <span class="md-ellipsis">
-      Command Line
+      Command
     </span>
   </a>
   
@@ -672,18 +663,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#wizard" class="md-nav__link">
+  <a href="#command" class="md-nav__link">
     <span class="md-ellipsis">
-      Wizard
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#command-line" class="md-nav__link">
-    <span class="md-ellipsis">
-      Command Line
+      Command
     </span>
   </a>
   
@@ -715,25 +697,18 @@
 
 
 <h1 id="restore">Restore</h1>
-<h2 id="wizard">Wizard</h2>
-<p>Run the app via command line:</p>
-<pre><code>arck
-</code></pre>
-<p>Choose option 3</p>
-<p><code>3. Restore an archive</code></p>
-<p>Provide path to the metadata file (the file ending in .m)</p>
-<p><strong>Ensure the metadata file is in the same directory with the part files</strong></p>
-<p>If you do not give an output directory, the default will be used: current working directory.</p>
-<p>The directory/file will be restored to original state.</p>
-<h2 id="command-line">Command Line</h2>
-<pre><code>arck -x /path/to/file.m -d /path/to/restore/
+<h2 id="command">Command</h2>
+<pre><code>arck restore -v /path/to/file.m /path/to/restore/
 </code></pre>
 <p>Supported flags:</p>
 <ul>
 <li><code>--skip</code></li>
+<li><code>--ignore-size</code> <code>-i</code></li>
+<li><code>--verbose</code> <code>-v</code></li>
+<li><code>--debug</code> <code>-V</code></li>
 </ul>
 <h2 id="extract-technical">Extract Technical</h2>
-<p>Following process is followed during extraction:</p>
+<p>Following process during extraction:</p>
 <ol>
 <li>Checks metadata file exists (if metadata file missing, (read this)[metadata.md])</li>
 <li>Checks user-defined output directory exists. If not specify, working directory used as default</li>

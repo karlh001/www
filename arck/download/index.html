@@ -284,6 +284,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#arm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arm
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#windows" class="md-nav__link">
     <span class="md-ellipsis">
       Windows
@@ -391,7 +400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../create/" class="md-nav__link">
+      <a href="../make/" class="md-nav__link">
         
   
   
@@ -688,6 +697,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#arm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arm
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#windows" class="md-nav__link">
     <span class="md-ellipsis">
       Windows
@@ -714,27 +732,41 @@
 
 <h1 id="download-and-install">Download and Install</h1>
 <h2 id="manual-install-via-command-line">Manual Install via Command Line</h2>
-<p>This will install amd64 version to the <code>/usr/local/bin</code></p>
-<pre><code>sudo rm -vf /usr/local/bin/arck &amp;&amp; sudo wget https://karlhunter.co.uk/arck/dist/linux_amd64/arck --directory-prefix=/usr/local/bin/ &amp;&amp; sudo chmod +x /usr/local/bin/arck &amp;&amp; arck --check
+<p>This will install linux 64-bit binary to the path: <code>/usr/local/bin</code></p>
+<pre><code>sudo rm -vf /usr/local/bin/arck &amp;&amp; sudo wget https://karlhunter.co.uk/arck/dist/linux_amd64/arck --directory-prefix=/usr/local/bin/ &amp;&amp; sudo chmod +x /usr/local/bin/arck &amp;&amp; arck install_check
 </code></pre>
 <p>If successful, you will get the following output:</p>
 <pre><code>Thank you for installing arcK version 1.X
 If you can read this, the installation was successful.
 Exiting.
 </code></pre>
+<ul>
+<li><a href="https://karlhunter.co.uk/arck/dist/linux_amd64/arck">Linux 64-bit</a></li>
+<li><a href="https://karlhunter.co.uk/arck/dist/linux_386/arck">Linix 32-bit</a></li>
+</ul>
 <h2 id="ubuntudebian-based-system-including-linux-mint">Ubuntu/Debian based system (including Linux Mint)</h2>
-<p>Recommended methods for debian/ubuntu distros.</p>
+<blockquote>
+<p>Recommended method of installation for debian/ubuntu distros.</p>
+</blockquote>
 <ul>
 <li><a href="https://karlhunter.co.uk/arck/dist/arck_amd64.deb">Latest deb package</a></li>
-<li><a href="https://karlhunter.co.uk/arck/dist/linux_amd64/arck">Latest binary for Linux amd64</a></li>
+<li><a href="https://karlhunter.co.uk/arck/dist/linux_amd64/arck">Latest binary for Linux 64-bit</a></li>
 </ul>
 <p>From a graphical interface, right-click and choose <strong>Install</strong></p>
 <p>From command line, type:</p>
 <pre><code>dpkg --install arck.deb
 </code></pre>
 <p>To test if the installation was successful, in a terminal type the command:</p>
-<pre><code>arck --version
+<pre><code>arck version
 </code></pre>
+<h2 id="arm">Arm</h2>
+<p>This will install arm 64-bit dinary to the path: <code>/usr/local/bin</code></p>
+<pre><code>sudo rm -vf /usr/local/bin/arck &amp;&amp; sudo wget https://karlhunter.co.uk/arck/dist/arm64/arck --directory-prefix=/usr/local/bin/ &amp;&amp; sudo chmod +x /usr/local/bin/arck &amp;&amp; arck install_check
+</code></pre>
+<ul>
+<li><a href="https://karlhunter.co.uk/arck/dist/arm64/arck">Arm64</a></li>
+<li><a href="https://karlhunter.co.uk/arck/dist/arm32/arck">Arm</a></li>
+</ul>
 <h2 id="windows">Windows</h2>
 <blockquote>
 <p>Please note: this is not a GUI. You will need to run through command prompt or PowerShell.</p>
@@ -742,7 +774,32 @@ Exiting.
 <pre><code>./arck.exe
 </code></pre>
 <ul>
-<li><a href="https://karlhunter.co.uk/arck/dist/windows_amd64/arck.exe">Latest Windows package</a></li>
+<li><a href="https://karlhunter.co.uk/arck/dist/windows_amd64/arck.exe">Latest Windows package 64-bit</a></li>
+<li><a href="https://karlhunter.co.uk/arck/dist/windows_386/arck.exe">Alternative 32-bit package</a></li>
+</ul>
+<h1 id="macos-x">MacOS X</h1>
+<ul>
+<li><a href="https://karlhunter.co.uk/arck/dist/macos_amd64/arck">MacOS X 64-bit</a></li>
+<li><a href="https://karlhunter.co.uk/arck/dist/macos_arm/arck">MacOS X arm</a></li>
+</ul>
+<h2 id="freebsd">FreeBSD</h2>
+<ul>
+<li><a href="https://karlhunter.co.uk/arck/dist/freebsd_amd64/arck">FreeBSD 64-bit</a></li>
+<li><a href="https://karlhunter.co.uk/arck/dist/freebsd_386/arck">FreeBSD 32-bit</a></li>
+</ul>
+<h2 id="full-list-of-packages">Full List of Packages</h2>
+<ul>
+<li><a href="https://karlhunter.co.uk/arck/dist/linux_amd64/arck">Linux 64-bit</a></li>
+<li><a href="https://karlhunter.co.uk/arck/dist/linux_386/arck">Linix 32-bit</a></li>
+<li><a href="https://karlhunter.co.uk/arck/dist/arck_amd64.deb">Deb package 64-bit</a></li>
+<li><a href="https://karlhunter.co.uk/arck/dist/arm64/arck">Arm64</a></li>
+<li><a href="https://karlhunter.co.uk/arck/dist/arm32/arck">Arm</a></li>
+<li><a href="https://karlhunter.co.uk/arck/dist/windows_amd64/arck.exe">Windows 64-bit</a></li>
+<li><a href="https://karlhunter.co.uk/arck/dist/windows_386/arck.exe">Windows 32-bit</a></li>
+<li><a href="https://karlhunter.co.uk/arck/dist/macos_amd64/arck">MacOS X 64-bit</a></li>
+<li><a href="https://karlhunter.co.uk/arck/dist/macos_arm/arck">MacOS X arm</a></li>
+<li><a href="https://karlhunter.co.uk/arck/dist/freebsd_amd64/arck">FreeBSD 64-bit</a></li>
+<li><a href="https://karlhunter.co.uk/arck/dist/freebsd_386/arck">FreeBSD 32-bit</a></li>
 </ul>
 
 

@@ -318,7 +318,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../create/" class="md-nav__link">
+      <a href="../make/" class="md-nav__link">
         
   
   
@@ -597,9 +597,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
+  <a href="#examples" class="md-nav__link">
     <span class="md-ellipsis">
-      Example
+      Examples
     </span>
   </a>
   
@@ -622,12 +622,14 @@
 
 
 <h1 id="debug">Debug</h1>
-<p>To display more detailed verbose, you can enter debug mode during creation, extraction or verification.</p>
-<p>Use the flag <code>-debug</code></p>
-<h2 id="example">Example</h2>
-<pre><code>arck -s /path/to/src/ -d /path/dest/ -n project_name -debug
+<p>To display more detailed verbose, you can enter debug mode during creation, restoration or verification.</p>
+<p>Use the flag <code>--debug</code> or <code>-V</code></p>
+<h2 id="examples">Examples</h2>
+<pre><code>arck create -vV -n project_name /path/to/src/ /path/dest/
+arck create --verbose --debug --name project_name /path/to/src/ /path/dest/
 
-arck -v /path/to/metadata.m -debug
+arck verify -V /path/to/metadata.m
+arck verify --debug /path/to/metadata.m
 </code></pre>
 
 

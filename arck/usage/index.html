@@ -12,7 +12,7 @@
         <link rel="prev" href="../start/">
       
       
-        <link rel="next" href="../create/">
+        <link rel="next" href="../make/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -369,9 +369,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#restore" class="md-nav__link">
+  <a href="#restore-archive" class="md-nav__link">
     <span class="md-ellipsis">
-      Restore
+      Restore archive
     </span>
   </a>
   
@@ -393,7 +393,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../create/" class="md-nav__link">
+      <a href="../make/" class="md-nav__link">
         
   
   
@@ -690,9 +690,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#restore" class="md-nav__link">
+  <a href="#restore-archive" class="md-nav__link">
     <span class="md-ellipsis">
-      Restore
+      Restore archive
     </span>
   </a>
   
@@ -715,52 +715,85 @@
 
 
 <h1 id="cli-usage">CLI Usage</h1>
-<p>arck {-s -d -n --ignore-size --split X --files X --par X --debug | -v --debug | -x -d --skip --ignore-size --debug}</p>
+<pre><code>arck [command] [flags] [source] [destination]
+</code></pre>
 <table>
 <thead>
 <tr>
-<th>Flag</th>
+<th>Command</th>
+<th>Description</th>
+<th>Flags</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>make</td>
+<td>Create an archive from given path</td>
+<td>-v -V -f XX -p XX -i --verbose --debug --files XX --par XX --ignore-size</td>
+</tr>
+<tr>
+<td>restore</td>
+<td>Extracts archive to given destination</td>
+<td>-v -V -i -s --ignore-size --skip</td>
+</tr>
+<tr>
+<td>verify</td>
+<td>Checks integrity of part files</td>
+<td>-v -V --verbose --debug</td>
+</tr>
+<tr>
+<td>version</td>
+<td>Output current application version</td>
+<td><em>none</em></td>
+</tr>
+<tr>
+<td>about</td>
+<td>Display application about message</td>
+<td><em>none</em></td>
+</tr>
+<tr>
+<td>help</td>
+<td>Display application help</td>
+<td><em>none</em></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Flag Short</th>
+<th>Flag Long</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>-s</td>
-<td>Source directory used for creating the archive</td>
-</tr>
-<tr>
-<td>-d</td>
-<td>Target directory used to output archive. If not specified, working directory will be used instead</td>
-</tr>
-<tr>
 <td>-n</td>
+<td>--name</td>
 <td>Specify the name of the archive. If omitted name will be the same as the file or directory given</td>
 </tr>
 <tr>
-<td>-v</td>
-<td>Verifies integrity of part files. Specify metadata file to test archives</td>
-</tr>
-<tr>
-<td>-x</td>
-<td>Restore archive. Specify path to metadata file</td>
-</tr>
-<tr>
-<td>--files X</td>
+<td>-f XX</td>
+<td>--files XX</td>
 <td>Specify total part files to create, default 5</td>
 </tr>
 <tr>
-<td>--par X</td>
+<td>-p XX</td>
+<td>--par XX</td>
 <td>Specify parity files, default 2</td>
 </tr>
 <tr>
+<td>-V</td>
 <td>--debug</td>
-<td>Increase messages and give detailed error output</td>
+<td>Increase verbosity and give detailed info / error output</td>
 </tr>
 <tr>
+<td>-s</td>
 <td>--skip</td>
-<td>Skip integrity check and just try to extract. Ensure all parts are not damaged or missing</td>
+<td>Skip integrity check and just try to restore. Nb. Ensure all parts are not damaged or missing</td>
 </tr>
 <tr>
+<td>-i</td>
 <td>--ignore-size</td>
 <td>Skip size check when creating or extracting archives. May take a long time for large directory trees</td>
 </tr>
@@ -771,7 +804,7 @@
 <blockquote>
 <p>You do not need to tar archive a directory yourself. </p>
 </blockquote>
-<pre><code>arck -s /path/to/source/ -d /path/to/outputdir/ -n archive_name
+<pre><code>arck make /path/to/source/ /path/to/outputdir/
 </code></pre>
 <p>You cannot create archive names with an equals (=) sign. If you want to use a space remember to enclose in perensese: <code>-n "name of archive"</code></p>
 <blockquote>
@@ -779,10 +812,10 @@
 <p>Nb: The output directory must have double the available space to match the source directory. After processing, the space requirement will the same as the source directory.</p>
 <p><strong>IMPORTANT</strong>: You must backup the .m file, as without this you cannot easily restore your files. If this is missing, please the <a href="../metadata/">metadata file technical manual</a> or reach out for advice.</p>
 </blockquote>
-<p><a href="../create/">How this works</a>.</p>
+<p><a href="../make/">How this works</a>.</p>
 <h2 id="verify-archive">Verify archive</h2>
 <p>A useful feature is to verify the integrity of the archive parts. Testing backups are an important aspect of data preservation. Verifying is a faster method to test parts integrity without restoring the archive.</p>
-<pre><code>arck -v /path/to/archive.m
+<pre><code>arck verify /path/to/archive.m
 </code></pre>
 <p>You will need to specify the archive metadata file. As a reminder, you should keep this backed up and ideally keep multiple copies. More on the (metadata file)[metadata.md].</p>
 <p>You will be given an output like:</p>
@@ -794,7 +827,7 @@ project.4  PASS</code></p>
 <p>If there are any failed parts, the output will read:</p>
 <p><code>project.3  FAIL</code></p>
 <p>In this case, consider restoring broken part from backup and re-testing. <em>There are no methods to fix broken parts</em>, but if there are enough "working" parts, you can restore. To restore, there needs to be 3 of the 5 parts undamaged. </p>
-<h2 id="restore">Restore</h2>
+<h2 id="restore-archive">Restore archive</h2>
 <p>Before you restore, ensure metadate file is located with parts. Example, <a href="../metadata/">metadata file</a> named [archive_name].m</p>
 <p>File structure:</p>
 <p><code>archive.m
@@ -804,7 +837,7 @@ archive.2
 archive.3
 archive.4</code></p>
 <p>You can still restore if parts are missing. Let the program handle this. </p>
-<pre><code>arck -x /path/to/metadata_file.m -d /path/to/outputdir/
+<pre><code>arck restore /path/to/metadata_file.m /path/to/outputdir/
 </code></pre>
 <p><a href="../restore/">How this works</a>.</p>
 
